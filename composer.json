@@ -1,0 +1,55 @@
+{
+    "name": "hiqdev/chkipper",
+    "type": "project",
+    "description": "Changelog keeper",
+    "keywords": [
+        "commits",
+        "semver",
+        "changelog",
+        "chkipper"
+    ],
+    "homepage": "https://github.com/hiqdev/chkipper",
+    "license": "BSD-3-Clause",
+    "support": {
+        "email": "support@hiqdev.com",
+        "source": "https://github.com/hiqdev/chkipper",
+        "issues": "https://github.com/hiqdev/chkipper/issues",
+        "wiki": "https://github.com/hiqdev/chkipper/wiki",
+        "forum": "http://forum.hiqdev.com/"
+    },
+    "authors": [
+        {
+            "name": "Andrii Vasyliev",
+            "role": "Project lead",
+            "email": "sol@hiqdev.com",
+            "homepage": "http://hipanel.com/"
+        },
+        {
+            "name": "Dmitry Naumenko",
+            "role": "Lead backend developer",
+            "email": "silverfire@hiqdev.com",
+            "homepage": "http://silverfire.me/"
+        },
+        {
+            "name": "Andrey Klochok",
+            "role": "Lead frontend developer",
+            "email": "tafid@hiqdev.com",
+            "homepage": "http://hiqdev.com/"
+        },
+        {
+            "name": "Yuriy Myronchuk",
+            "role": "QA Lead",
+            "email": "bladeroot@hiqdev.com",
+            "homepage": "http://hiqdev.com/"
+        }
+    ],
+    "require-dev": {
+        "hiqdev/hidev-php": "<2.0",
+        "hiqdev/hidev-hiqdev": "<2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "hiqdev\\chkipper\\": "src"
+        }
+    }
+}
