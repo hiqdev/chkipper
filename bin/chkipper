@@ -17,4 +17,4 @@ require __DIR__ . '/../src/config/bootstrap.php';
 
 $config = require __DIR__ . '/../src/config/main.php';
 
-exit(hidev\base\Application::main($config));
+(new hiqdev\chkipper\base\Application($config))->run();
