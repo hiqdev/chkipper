@@ -1,6 +1,6 @@
 <?php
 
-namespace hiqdev\chkipper\models;
+namespace hiqdev\chkipper\history;
 
 use Yii;
 
@@ -10,65 +10,13 @@ use Yii;
  */
 class History
 {
-    public $type = 'commits';
-
-    protected $_tag;
-    protected $_note;
-    protected $_hash;
-    protected $_history = [];
+    protected $_tags = [];
+    protected $_headers = [];
     protected $_commits = [];
 
-    public function getTag()
+    public function hasTag($tag)
     {
-        return $this->_tag;
-    }
-
-    public function getNote()
-    {
-        return $this->_note;
-    }
-
-    public function getHash()
-    {
-        return $this->_hash;
-    }
-
-    public function setTag($tag)
-    {
-        $this->_tag  = $tag;
-        $this->_note = '';
-        $this->_hash = '';
-    }
-
-    public function setNote($note)
-    {
-        $this->_note = $note;
-        $this->_hash = '';
-    }
-
-    public function setHash($hash)
-    {
-        $this->_hash = $hash;
-    }
-
-    public function addTag($tag, $label = null)
-    {
-        $this->tag = $tag;
-        $ref       = &$this->_history[$tag]['tag'];
-        $ref       = $label ?: $ref ?: $tag;
-    }
-
-    public function addNote($note, $label = null)
-    {
-        $this->setNote($note);
-        $ref = &$this->_history[$this->getTag()][$note]['note'];
-        $ref = $label ?: $ref ?: $note;
-    }
-
-    public function addHash($hash, $label)
-    {
-        $this->_hash                    = $hash;
-        $this->_commits[(string) $hash] = $label;
+        return array_key_exists($tag, $this->_tags);
     }
 
     public function hasCommit($hash)
@@ -76,46 +24,39 @@ class History
         return array_key_exists((string) $hash, $this->_commits);
     }
 
-    public function parsePath($path, $minimal = null)
+    public function addHeader($str)
     {
-        $this->setTag(static::getVcs()->lastTag);
-        $this->_history = [
-            $this->getTag() => [],
-        ];
-        $lines = is_file($path) ? $this->readArray($path) : [];
-        $no = 0;
-        foreach ($lines as $str) {
-            $str = rtrim($str);
-            ++$no;
-            if (!$str || $no < 3) {
-                continue;
-            }
-            if (preg_match('/^# /', $str)) {
-                continue;
-            };
-            if (preg_match('/^## (.*)$/', $str, $m)) {
-                $label = $m[1];
-                foreach ([static::getVcs()->lastTag, static::getVcs()->initTag] as $z) {
-                    if (stripos($label, $z) !== false) {
-                        $this->addTag($z, $label);
-                        continue 2;
-                    }
-                }
-                preg_match('/^(\S+)\s*(.*)$/', $label, $m);
-                $this->addTag($m[1], $label);
-                continue;
-            }
-            if (preg_match('/^- (.*)$/', $str, $m)) {
-                $this->addNote($m[1]);
-                continue;
-            }
-            if (preg_match('/^\s+- ([0-9a-fA-F]{7})/', $str, $m)) {
-                $this->addHash($m[1], $str);
-            }
-            $this->_history[$this->getTag()][$this->getNote()][$this->getHash()][] = $str;
+        $this->_headers[$str] = $str;
+    }
+
+    public function findTag($tag)
+    {
+        if (!isset($this->_tags[$tag])) {
+            $this->_tags[$tag] = new Tag($tag);
         }
 
-        return $this->_history;
+        return $this->_tags[$tag];
+    }
+
+    public function addTag($tag, $label = null)
+    {
+        $this->findTag($tag)->setLabel($label);
+    }
+
+    public function addNote($tag, $note, $label = null)
+    {
+        $this->findTag($tag)->findNote($note)->setLabel($label);
+    }
+
+    public function addHash($tag, $note, $hash, $label = null)
+    {
+        $this->_commits[(string) $hash] = $label;
+        $this->findTag($tag)->findNote($note)->findHash($hash)->setLabel($label);
+    }
+
+    public function addText($tag, $note, $hash, $text = null)
+    {
+        $this->findTag($tag)->findNote($note)->findHash($hash)->addText($text);
     }
 
     public function addHistory($commit, $front = false)
@@ -124,7 +65,7 @@ class History
         $note   = $commit['note'];
         $hash   = $commit['hash'];
         $render = static::renderCommit($commit);
-        $hashes = &$this->_history[$tag][$note];
+        $hashes = &$this->_tags[$tag][$note];
         $hashes = (array) $hashes;
         if ($front) {
             $hashes = [$hash => [$render]] + $hashes;
@@ -133,25 +74,8 @@ class History
         }
     }
 
-    public function hasHistory($tag)
+    public function addGitLog()
     {
-        return array_key_exists($tag, $this->_history);
-    }
-
-    public function setHistory($value)
-    {
-        $this->_history = $value;
-    }
-
-    public function getHistory()
-    {
-        return $this->_history;
-    }
-
-    public function render($data)
-    {
-        $res = static::renderHeader('commits history');
-
         foreach (array_reverse(static::getVcs()->commits, true) as $hash => $commit) {
             if ($this->hasCommit($hash)) {
                 continue;
@@ -161,8 +85,13 @@ class History
         if (!$this->hasHistory(static::getVcs()->initTag)) {
             $this->addHistory(['tag' => static::getVcs()->initTag]);
         }
+    }
 
-        foreach ($this->_history as $tag => $notes) {
+    public function render($data)
+    {
+        $res = static::renderHeader('commits history');
+
+        foreach ($this->_tags as $tag => $notes) {
             $prev = $res;
             $tag  = static::arrayPop($notes, 'tag') ?: $tag;
             $new  = static::arrayPop($notes, '') ?: [];
@@ -180,7 +109,7 @@ class History
             }
             if ($save === $res && stripos($tag, static::getVcs()->lastTag) !== false) {
                 $res = $prev;
-                unset($this->_history[$tag]);
+                unset($this->_tags[$tag]);
             }
         }
 
@@ -254,9 +183,11 @@ class History
 
     public static function renderHeader($string)
     {
-        $header = Yii::$app->config->package->fullName . ' ' . $string;
-
-        return $header . "\n" . str_repeat('-', mb_strlen($header, Yii::$app->charset)) . "\n";
+        $res = '';
+        foreach ($this->_headers as $str) {
+            $res .= $str . "\n";
+        }
+        return $res;
     }
 
     public static function getVcs()
