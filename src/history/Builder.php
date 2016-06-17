@@ -11,17 +11,17 @@ class Builder
     /**
      * @var string current tag
      */
-    protected $_tag;
+    protected $_tag = '';
 
     /**
      * @var string current note
      */
-    protected $_note;
+    protected $_note = '';
 
     /**
      * @var string current commit's hash
      */
-    protected $_hash;
+    protected $_hash = '';
 
     /**
      * @var History history object
@@ -74,27 +74,32 @@ class Builder
         $this->getHistory()->addHeader($header);
     }
 
-    public function addTag($tag, $label = null)
+    public function addTag($tag, $date = null)
     {
         $this->setTag($tag);
-        $this->getHistory()->addTag($tag, $label);
+        $this->getHistory()->addTag($tag, $date);
     }
 
-    public function addNote($note, $label = null)
+    public function addNote($note)
     {
         $this->setNote($note);
         $this->getHistory()->addNote($this->getTag(), $note, $label);
     }
 
-    public function addHash($hash, $label)
+    public function addCommit($hash, $label)
     {
         $this->setHash($hash);
-        $this->getHistory()->addHash($this->getTag(), $this->getNote(), $hash, $label);
+        $this->getHistory()->addCommit($this->getTag(), $this->getNote(), $hash, $label);
     }
 
-    public function addText($text)
+    public function addComment($comment)
     {
-        $this->getHistory()->addText($this->getTag(), $this->getNote(), $this->getHash(), $text);
+        $this->getHistory()->addComment($this->getTag(), $this->getNote(), $this->getHash(), $comment);
+    }
+
+    public function addLink($link, $href)
+    {
+        $this->getHistory()->addLink($link, $href);
     }
 
     public function getLastTag()
@@ -104,60 +109,7 @@ class Builder
 
     public function getInitTag()
     {
-        return $this->lastTag;
-    }
-
-    public function getSpecialTags()
-    {
-        return [$this->lastTag, $this->initTag];
-    }
-
-    public function isSpecialTag($label)
-    {
-        foreach ($this->getSpecialTags() as $z) {
-            if (stripos($label, $z) !== false) {
-                return $z;
-            }
-        }
-
-        return false;
-    }
-
-    public function parsePath($path, $minimal = null)
-    {
-        $this->addTag($this->getLastTag());
-
-        $lines = is_file($path) ? file($path) : [];
-        $no = 0;
-        foreach ($lines as $str) {
-            $str = rtrim($str);
-            ++$no;
-
-            /// skip empty lines
-            if (!$str) {
-
-            /// getting headers
-            } elseif ($no <= 2 || preg_match('/^# /', $str)) {
-                $this->addHeader($str);
-
-            /// getting tags
-            } elseif (preg_match('/^## ((\S+)\s*.*)$/', $str, $m)) {
-                $label = $m[1];
-                $this->addTag($this->isSpecialTag($label) ?: $m[2], $label);
-
-            /// getting notes
-            } elseif (preg_match('/^- (.*)$/', $str, $m)) {
-                $this->addNote($m[1]);
-
-            /// getting hashes
-            } elseif (preg_match('/^\s+- ([0-9a-fA-F]{7})/', $str, $m)) {
-                $this->addHash($m[1], $str);
-
-            /// getting additional texts
-            } else {
-                $this->addText($str);
-            }
-        }
+        return $this->initTag;
     }
 
 }

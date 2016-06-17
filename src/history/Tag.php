@@ -5,18 +5,27 @@ namespace hiqdev\chkipper\history;
 class Tag
 {
     protected $_tag;
-    protected $_label;
+    protected $_date;
     protected $_notes = [];
 
-    public function __construct($tag, $label = null)
+    public function __construct($tag, $date = null, array $notes = [])
     {
-        $this->_tag   = $tag;
-        $this->_label = $label ?: $tag;
+        $this->_tag = $tag;
+        $this->setDate($date);
+        $this->_notes = $notes;
     }
 
-    public function setLabel($label, $tag = null)
+    public function setDate($date)
     {
-        $this->_label = $label ?: $this->_label ?: $tag;
+        $timestamp = strtotime($date);
+        if ($timestamp !== FALSE) {
+            $this->_date = $timestamp;
+        }
+    }
+
+    public function getDate()
+    {
+        return $date ? date('Y-m-d', $this->_date) : null;
     }
 
     public function findNote($note)

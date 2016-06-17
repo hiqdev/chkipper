@@ -7,26 +7,54 @@ use Yii;
 /**
  * History class.
  * Holds history of commits.
+ *
+ * @author Andrii Vasyliev <sol@hiqdev.com>
  */
 class History
 {
-    protected $_tags = [];
     protected $_headers = [];
-    protected $_commits = [];
-
-    public function hasTag($tag)
-    {
-        return array_key_exists($tag, $this->_tags);
-    }
-
-    public function hasCommit($hash)
-    {
-        return array_key_exists((string) $hash, $this->_commits);
-    }
+    protected $_hashes  = [];
+    protected $_links   = [];
+    protected $_tags    = [];
 
     public function addHeader($str)
     {
         $this->_headers[$str] = $str;
+    }
+
+    public function setHeaders($value)
+    {
+        $this->_headers = $value;
+    }
+
+    public function getHeaders()
+    {
+        return $this->_headers;
+    }
+
+    public function addLink($link, $href)
+    {
+        $this->_links[$link] = $href;
+    }
+
+    public function setLinks($value)
+    {
+        $this->_links = $value;
+    }
+
+    public function getLinks()
+    {
+        return $this->_links;
+    }
+
+    public function getTags()
+    {
+        return $this->_tags;
+    }
+
+    public function setTags(array $value)
+    {
+        $this->_tags = $value;
     }
 
     public function findTag($tag)
@@ -38,25 +66,41 @@ class History
         return $this->_tags[$tag];
     }
 
-    public function addTag($tag, $label = null)
+    public function hasTag($tag)
     {
-        $this->findTag($tag)->setLabel($label);
+        return array_key_exists($tag, $this->_tags);
     }
 
-    public function addNote($tag, $note, $label = null)
+    public function addTag($tag, $date = null)
     {
-        $this->findTag($tag)->findNote($note)->setLabel($label);
+        $this->findTag($tag)->setDate($date);
     }
 
-    public function addHash($tag, $note, $hash, $label = null)
+    public function addNote($tag, $note)
     {
-        $this->_commits[(string) $hash] = $label;
-        $this->findTag($tag)->findNote($note)->findHash($hash)->setLabel($label);
+        $this->findTag($tag)->findNote($note);
     }
 
-    public function addText($tag, $note, $hash, $text = null)
+    public function hasHash($hash)
     {
-        $this->findTag($tag)->findNote($note)->findHash($hash)->addText($text);
+        return array_key_exists((string) $hash, $this->_hashes);
+    }
+
+    public function addHash($hash, $label)
+    {
+        $this->_hashes[(string) $hash] = $label;
+    }
+
+    public function addCommit($tag, $note, $hash, $label = null)
+    {
+        var_dump($hash, $label);
+        $this->addHash($hash, $label);
+        $this->findTag($tag)->findNote($note)->findCommit($hash)->setLabel($label);
+    }
+
+    public function addComment($tag, $note, $hash, $text = null)
+    {
+        $this->findTag($tag)->findNote($note)->findCommit($hash)->addComment($text);
     }
 
     public function addHistory($commit, $front = false)
@@ -190,8 +234,4 @@ class History
         return $res;
     }
 
-    public static function getVcs()
-    {
-        return Yii::$app->get('config')->getVcs();
-    }
 }

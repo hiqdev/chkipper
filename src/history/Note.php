@@ -5,26 +5,20 @@ namespace hiqdev\chkipper\history;
 class Note
 {
     protected $_note;
-    protected $_label;
-    protected $_hashes = [];
+    protected $_commits = [];
 
-    public function __construct($note, $label = null)
+    public function __construct($note, $commits = [])
     {
-        $this->_note  = $note;
-        $this->_label = $label ?: $note;
+        $this->_note    = $note;
+        $this->_commits = $commits;
     }
 
-    public function setLabel($label, $note = null)
+    public function findCommit($hash)
     {
-        $this->_label = $label ?: $this->_label ?: $note;
-    }
-
-    public function findHash($hash)
-    {
-        if (!isset($this->_hashes[$hash])) {
-            $this->_hashes[$hash] = new Hash($hash);
+        if (!isset($this->_commits[$hash])) {
+            $this->_commits[$hash] = new Commit($hash);
         }
 
-        return $this->_hashes[$hash];
+        return $this->_commits[$hash];
     }
 }
