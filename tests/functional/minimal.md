@@ -1,12 +1,15 @@
-hiqdev/hidev commits history
-----------------------------
+hiqdev/chkipper commits history
+-------------------------------
 
-## Under development 2016-06-14
+## [Under development] - 2016-06-11
 
 - Added basics
-    - 04777ec 2015-04-28 inited (sol@hiqdev.com)
-        - here is comment
-    - 04777ec 2015-04-28 inited (sol@hiqdev.com)
+    - [b22f8ac] 2016-06-11 inited [sol@hiqdev.com]
+        - longer description for initial commit
 
-## Development started 2015-05-28
+## [Development started] - 2016-06-11
 
+[Under development]: https://github.com/hiqdev/hidev/releases
+[Development started]: https://github.com/hiqdev/hidev/releases
+[sol@hiqdev.com]: https://github.com/hiqsol
+[b22f8ac]: https://github.com/hiqdev/chkipper/commit/b22f8ac
