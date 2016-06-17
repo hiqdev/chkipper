@@ -93,7 +93,6 @@ class History
 
     public function addCommit($tag, $note, $hash, $label = null)
     {
-        var_dump($hash, $label);
         $this->addHash($hash, $label);
         $this->findTag($tag)->findNote($note)->findCommit($hash)->setLabel($label);
     }

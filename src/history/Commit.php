@@ -2,6 +2,17 @@
 
 namespace hiqdev\chkipper\history;
 
+/**
+ * Commit class.
+ * Holds commit properties:
+ * - hash
+ * - date
+ * - author
+ * - subject
+ * - list of comments
+ *
+ * @author Andrii Vasyliev <sol@hiqdev.com>
+ */
 class Commit
 {
     protected $_hash;
@@ -21,18 +32,70 @@ class Commit
         }
     }
 
+    public function getHash()
+    {
+        return $this->_hash;
+    }
+
+    public function getComments()
+    {
+        return $this->_comments;
+    }
+
     public function setLabel($label)
     {
         $this->_label = $label;
-        if (preg_match('/^(\d{4}-\d{2}-\d{2})\s(.*)[\(\[](.*?)[\)\]]$/', $label, $m)) {
-            $this->_date    = $m[1];
-            $this->_subject = $m[2];
-            $this->_author  = $m[3];
+        if (preg_match('/^(\d{4}-\d{2}-\d{2})\s*(.*?)\s*[\(\[](.*?)[\)\]]$/', $label, $m)) {
+            $this->setDate($m[1]);
+            $this->setSubject($m[2]);
+            $this->setAuthor($m[3]);
         }
+    }
+
+    public function getLabel()
+    {
+        return $this->_subject || $this->_date || $this->_author
+            ? $this->getDate() . ' ' . $this->getSubject() . ' [' . $this->getAuthor() . ']'
+            : $this->_label
+        ;
     }
 
     public function addComment($comment)
     {
         $this->_comments[$comment] = $comment;
     }
+
+    public function setDate($value)
+    {
+        $timestamp = strtotime($value);
+        if ($timestamp !== FALSE) {
+            $this->_date = $timestamp;
+        }
+    }
+
+    public function getDate()
+    {
+        return $this->_date ? date('Y-m-d', $this->_date) : null;
+    }
+
+    public function setSubject($value)
+    {
+        $this->_subject = $value;
+    }
+
+    public function getSubject()
+    {
+        return $this->_subject;
+    }
+
+    public function setAuthor($value)
+    {
+        $this->_author = $value;
+    }
+
+    public function getAuthor()
+    {
+        return $this->_author;
+    }
+
 }

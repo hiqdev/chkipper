@@ -9,6 +9,8 @@ namespace hiqdev\chkipper\history;
  */
 class Renderer
 {
+    public $indent = '    ';
+
     public function setHistory($value)
     {
         $this->_history = $value;
@@ -19,9 +21,10 @@ class Renderer
         return $this->_history;
     }
 
-    public function render()
+    public function render(History $history)
     {
-        return static::renderText([
+        $this->setHistory($history);
+        return $this->renderText([
             $this->renderHeaders(),
             $this->renderTags(),
             $this->renderLinks(),
@@ -30,7 +33,7 @@ class Renderer
 
     public function renderHeaders()
     {
-        return static::renderText($this->getHistory()->getHeaders());
+        return $this->renderText($this->getHistory()->getHeaders());
     }
 
     public function renderTags()
@@ -45,30 +48,72 @@ class Renderer
 
     public function renderObjects($method, $objects)
     {
-        return static::renderText(array_map([static::class, $method], $objects));
+        $res = [];
+        foreach ($objects as $key => $value) {
+            $res[$key] = call_user_func([$this, $method], $value, $key);
+        }
+
+        return $this->renderText($res);
     }
 
-    public static function renderText(array $lines)
+    public function renderText(array $lines)
     {
-        $res = implode("\n", $lines);
+        $res = rtrim(implode("\n", $lines));
 
         return $res ? $res . "\n" : '';
     }
 
-    public static function renderLink($link)
+    public function renderLink($href, $link)
     {
-        return '';
+        return "[$link]: $href";
     }
 
-    public static function renderHeader($header)
+    public function renderHeader($header)
     {
         return $header;
     }
 
-    public static function renderTag($tag)
+    public function renderTag(Tag $tag)
     {
-        var_dump($tag);
-        die();
-        return $header;
+        return $this->renderText([
+            $this->renderTagHead($tag),
+            $this->renderObjects('renderNote', $tag->getNotes()),
+        ]);
+    }
+
+    public function renderTagHead(Tag $tag)
+    {
+        $res = '## [' . $tag->getTag() . ']';
+        if ($tag->getDate()) {
+            $res .= ' - ' . $tag->getDate();
+        }
+
+        return $res . "\n";
+    }
+
+    public function renderNote(Note $note)
+    {
+        return $this->renderText([
+            $this->renderNoteHead($note),
+            $this->renderObjects('renderCommit', $note->getCommits()),
+        ]);
+    }
+
+    public function renderNoteHead(Note $note)
+    {
+        return '- ' . $note->getNote();
+    }
+
+    public function renderCommit(Commit $commit)
+    {
+        return $this->renderText([
+            $this->renderCommitHead($commit),
+            $this->renderText($commit->getComments()),
+        ]);
+    }
+
+    public function renderCommitHead(Commit $commit)
+    {
+        return $this->indent . '- [' . $commit->getHash() . '] ' . $commit->getLabel();
     }
 }

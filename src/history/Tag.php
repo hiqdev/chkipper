@@ -2,6 +2,12 @@
 
 namespace hiqdev\chkipper\history;
 
+/**
+ * Tag class.
+ * Holds tag, it's date and list of notes.
+ *
+ * @author Andrii Vasyliev <sol@hiqdev.com>
+ */
 class Tag
 {
     protected $_tag;
@@ -15,9 +21,14 @@ class Tag
         $this->_notes = $notes;
     }
 
-    public function setDate($date)
+    public function getTag()
     {
-        $timestamp = strtotime($date);
+        return $this->_tag;
+    }
+
+    public function setDate($value)
+    {
+        $timestamp = strtotime($value);
         if ($timestamp !== FALSE) {
             $this->_date = $timestamp;
         }
@@ -25,7 +36,7 @@ class Tag
 
     public function getDate()
     {
-        return $date ? date('Y-m-d', $this->_date) : null;
+        return $this->_date ? date('Y-m-d', $this->_date) : null;
     }
 
     public function findNote($note)
@@ -35,5 +46,10 @@ class Tag
         }
 
         return $this->_notes[$note];
+    }
+
+    public function getNotes()
+    {
+        return $this->_notes;
     }
 }

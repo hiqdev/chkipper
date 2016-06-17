@@ -42,6 +42,8 @@ class Parser extends Builder
                 $this->addComment($str);
             }
         }
+
+        return $this->getHistory();
     }
 
 }
