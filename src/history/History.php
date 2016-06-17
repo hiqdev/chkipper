@@ -29,9 +29,17 @@ class History
         $this->_headers[$str] = $str;
     }
 
-    public function setHeaders($value)
+    public function addHeaders(array $value)
     {
-        $this->_headers = $value;
+        foreach ($value as $header) {
+            $this->addHeader($header);
+        }
+    }
+
+    public function setHeaders(array $value)
+    {
+        $this->_headers = [];
+        $this->addHeaders($value);
     }
 
     public function getHeaders()

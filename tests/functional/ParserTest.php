@@ -52,8 +52,8 @@ class ParserTest extends \PHPUnit_Framework_TestCase
         $this->object->parsePath(__DIR__ . '/minimal.md');
         $history = new History();
         $history->setHeaders([
-            'hiqdev/chkipper commits history' => 'hiqdev/chkipper commits history',
-            '-------------------------------' => '-------------------------------',
+            'hiqdev/chkipper commits history',
+            '-------------------------------',
         ]);
         $history->setTags([
             $this->object->getLastTag() => new Tag(
