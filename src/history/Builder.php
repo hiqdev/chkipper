@@ -1,7 +1,21 @@
 <?php
 
+/*
+ * Changelog keeper
+ *
+ * @link      https://github.com/hiqdev/chkipper
+ * @package   chkipper
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2016, HiQDev (http://hiqdev.com/)
+ */
+
 namespace hiqdev\chkipper\history;
 
+/**
+ * Builder class.
+ *
+ * @author Andrii Vasyliev <sol@hiqdev.com>
+ */
 class Builder
 {
     public $lastTag = 'Under development';
@@ -31,7 +45,7 @@ class Builder
     public function getHistory()
     {
         if ($this->_history === null) {
-            $this->_history = new History;
+            $this->_history = new History();
         }
 
         return $this->_history;
@@ -111,5 +125,4 @@ class Builder
     {
         return $this->initTag;
     }
-
 }

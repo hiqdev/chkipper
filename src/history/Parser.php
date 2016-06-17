@@ -1,7 +1,21 @@
 <?php
 
+/*
+ * Changelog keeper
+ *
+ * @link      https://github.com/hiqdev/chkipper
+ * @package   chkipper
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2016, HiQDev (http://hiqdev.com/)
+ */
+
 namespace hiqdev\chkipper\history;
 
+/**
+ * Parser class.
+ *
+ * @author Andrii Vasyliev <sol@hiqdev.com>
+ */
 class Parser extends Builder
 {
     public function parsePath($path, $minimal = null)
@@ -22,7 +36,7 @@ class Parser extends Builder
                 $this->addHeader($str);
 
             /// links
-            } elseif (preg_match('/^\[(.*?)\]:\s+(.*)$/', $str, $m)) {
+            } elseif (preg_match('/^\[(.*?)\]:\s*(.*)$/', $str, $m)) {
                 $this->addLink($m[1], $m[2]);
 
             /// tags
@@ -45,5 +59,4 @@ class Parser extends Builder
 
         return $this->getHistory();
     }
-
 }

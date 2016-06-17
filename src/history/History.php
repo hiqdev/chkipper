@@ -1,8 +1,15 @@
 <?php
 
-namespace hiqdev\chkipper\history;
+/*
+ * Changelog keeper
+ *
+ * @link      https://github.com/hiqdev/chkipper
+ * @package   chkipper
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2016, HiQDev (http://hiqdev.com/)
+ */
 
-use Yii;
+namespace hiqdev\chkipper\history;
 
 /**
  * History class.
@@ -230,7 +237,7 @@ class History
         foreach ($this->_headers as $str) {
             $res .= $str . "\n";
         }
+
         return $res;
     }
-
 }

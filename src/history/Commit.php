@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * Changelog keeper
+ *
+ * @link      https://github.com/hiqdev/chkipper
+ * @package   chkipper
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2016, HiQDev (http://hiqdev.com/)
+ */
+
 namespace hiqdev\chkipper\history;
 
 /**
@@ -9,7 +18,7 @@ namespace hiqdev\chkipper\history;
  * - date
  * - author
  * - subject
- * - list of comments
+ * - list of comments.
  *
  * @author Andrii Vasyliev <sol@hiqdev.com>
  */
@@ -68,7 +77,7 @@ class Commit
     public function setDate($value)
     {
         $timestamp = strtotime($value);
-        if ($timestamp !== FALSE) {
+        if ($timestamp !== false) {
             $this->_date = $timestamp;
         }
     }
@@ -97,5 +106,4 @@ class Commit
     {
         return $this->_author;
     }
-
 }

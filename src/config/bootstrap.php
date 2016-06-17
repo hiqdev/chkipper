@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * Changelog keeper
+ *
+ * @link      https://github.com/hiqdev/chkipper
+ * @package   chkipper
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2016, HiQDev (http://hiqdev.com/)
+ */
+
 if (!defined('VENDOR_DIR')) {
     foreach ([dirname(dirname(__DIR__)) . '/vendor', dirname(dirname(dirname(dirname(__DIR__))))] as $dir) {
         if (file_exists($dir . '/autoload.php')) {
