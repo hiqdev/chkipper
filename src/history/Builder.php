@@ -93,18 +93,18 @@ class Builder
     public function addNote($note)
     {
         $this->setNote($note);
-        $this->getHistory()->addNote($this->getTag(), $note);
+        $this->getHistory()->findNote($this->getTag(), $note);
     }
 
     public function addCommit($hash, $label)
     {
         $this->setHash($hash);
-        $this->getHistory()->addCommit($this->getTag(), $this->getNote(), $hash, $label);
+        $this->getHistory()->findCommit($this->getTag(), $this->getNote(), $hash)->setLabel($label);
     }
 
     public function addComment($comment)
     {
-        $this->getHistory()->addComment($this->getTag(), $this->getNote(), $this->getHash(), $comment);
+        $this->getHistory()->findCommit($this->getTag(), $this->getNote(), $this->getHash())->addComment($comment);
     }
 
     public function addLink($link, $href)

@@ -61,15 +61,13 @@ class ParserTest extends \PHPUnit_Framework_TestCase
                 null,
                 [
                     $this->note => new Note($this->note, [
-                        $this->hash => new Commit($this->hash, $this->label, [
-                            $this->comment => $this->comment,
-                        ]),
+                        $this->hash => new Commit($this->hash, $this->label, [$this->comment]),
                     ]),
                 ]
             ),
             $this->object->getInitTag() => new Tag($this->object->getInitTag(), $this->date),
         ]);
-        $history->addHash($this->hash, $this->label);
+        $history->addHash($this->hash);
         $history->setLinks([
             'Under development'   => 'https://github.com/hiqdev/chkipper/releases',
             'Development started' => 'https://github.com/hiqdev/chkipper/releases',

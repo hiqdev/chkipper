@@ -31,28 +31,23 @@ class GitMerger extends Builder
     {
         $log = $this->fetchGitLog();
         foreach ($log as $hash => $data) {
-            if (!$this->getHistory()->hasHash($hash)) {
-                $this->getHistory()->findTag($data['tag'], true)->findNote(null, true)
-                    ->findCommit($hash)->setDate(
-            }
+            $this->getHistory()->prependCommit($data['tag'], null, $data['commit']);
         }
     }
 
     public function fetchGitLog($reverse = false)
     {
         $reverse = $reverse ? '--reverse' : '';
-        exec("git log $reverse --date=short --pretty='format:%h %ad %ae %s |%d'", $logs);
+        exec("git log $reverse --date=short --pretty='format:%h %ad %s [%ae] %d'", $logs);
         $res = [];
         foreach ($logs as $log) {
-            if (!preg_match('/^(\w+) ([0-9-]+) (\S+) (.*?)\s+\| ?\(?(.*?)\)?$/', $log, $m)) {
+            if (!preg_match('/^(\w+) ([0-9-]+ .*? \[.*?\]) \(?(.*?)\)?$/', $log, $m)) {
                 throw new UnexpectedValueException('failed parse git log');
             }
+            var_dump($m);
             $res[$m[1]] = [
-                'hash'    => $m[1],
-                'date'    => $m[2],
-                'email'   => $m[3],
-                'subject' => $m[4],
-                'tag'     => isset($m[5]) ? $this->matchTag($m[5]) : null,
+                'tag'    => isset($m[3]) ? $this->matchTag($m[3]) : null,
+                'commit' => new Commit($m[1], $m2[2]),
             ];
         }
 

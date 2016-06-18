@@ -32,13 +32,23 @@ class Commit
     protected $_author;
     protected $_subject;
 
-    public function __construct($hash, $label = null, $comments = [])
+    public function __construct($hash, $label = null, array $comments = [])
+    {
+        $this->setHash($hash);
+        $this->setLabel($label);
+        $this->setComments($comments);
+    }
+
+    public function set(Commit $commit)
+    {
+        $this->setHash($commit->hashHash());
+        $this->setLabel($commit->getLabel());
+        $this->setComments($commit->getComments());
+    }
+
+    public function setHash($hash)
     {
         $this->_hash = $hash;
-        $this->_comments = $comments;
-        if ($label) {
-            $this->setLabel($label);
-        }
     }
 
     public function getHash()
@@ -46,18 +56,15 @@ class Commit
         return $this->_hash;
     }
 
-    public function getComments()
-    {
-        return $this->_comments;
-    }
-
     public function setLabel($label)
     {
-        $this->_label = $label;
-        if (preg_match('/^(\d{4}-\d{2}-\d{2})\s*(.*?)\s*[\(\[](.*?)[\)\]]$/', $label, $m)) {
-            $this->setDate($m[1]);
-            $this->setSubject($m[2]);
-            $this->setAuthor($m[3]);
+        if ($label) {
+            $this->_label = $label;
+            if (preg_match('/^(\d{4}-\d{2}-\d{2})\s*(.*?)\s*[\(\[](.*?)[\)\]]$/', $label, $m)) {
+                $this->setDate($m[1]);
+                $this->setSubject($m[2]);
+                $this->setAuthor($m[3]);
+            }
         }
     }
 
@@ -72,6 +79,24 @@ class Commit
     public function addComment($comment)
     {
         $this->_comments[$comment] = $comment;
+    }
+
+    public function addComments(array $comments)
+    {
+        foreach ($comments as $comment) {
+            $this->addComment($comment);
+        }
+    }
+
+    public function setComments($comments)
+    {
+        $this->_comments = [];
+        $this->addComments($comments);
+    }
+
+    public function getComments()
+    {
+        return $this->_comments;
     }
 
     public function setDate($value)

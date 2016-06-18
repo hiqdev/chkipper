@@ -33,17 +33,17 @@ class History
         $this->_headers[$str] = $str;
     }
 
-    public function addHeaders(array $value)
+    public function addHeaders(array $headers)
     {
-        foreach ($value as $header) {
+        foreach ($headers as $header) {
             $this->addHeader($header);
         }
     }
 
-    public function setHeaders(array $value)
+    public function setHeaders(array $headers)
     {
         $this->_headers = [];
-        $this->addHeaders($value);
+        $this->addHeaders($headers);
     }
 
     public function getHeaders()
@@ -56,14 +56,42 @@ class History
         $this->_links[$link] = $href;
     }
 
-    public function setLinks($value)
+    public function setLinks(array $links)
     {
-        $this->_links = $value;
+        $this->_links = $links;
     }
 
     public function getLinks()
     {
         return $this->_links;
+    }
+
+    public function hasHash($hash)
+    {
+        return isset($this->_hashes[(string) $hash]);
+    }
+
+    public function addHash($hash)
+    {
+        $this->_hashes[(string) $hash] = $hash;
+    }
+
+    public function addHashes(array $hashes)
+    {
+        foreach ($hashes as $hash) {
+            $this->addHash($hash);
+        }
+    }
+
+    public function setHashes(array $hashes)
+    {
+        $this->_hashes = [];
+        $this->addHashes($hashes);
+    }
+
+    public function getHashes()
+    {
+        return $this->_hashes;
     }
 
     public function getFirstTag()
@@ -88,7 +116,7 @@ class History
      * @param string|Tag $tag tag or tag name
      * @return Tag
      */
-    public function findTag($tag)
+    public function findTag($tag, $pre = false)
     {
         if (!$tag) {
             $tag = reset($this->_tags) ?: $this->lastTag;
@@ -103,7 +131,7 @@ class History
 
     public function hasTag($tag)
     {
-        return array_key_exists($tag, $this->_tags);
+        return isset($this->_tags[$tag]);
     }
 
     public function addTag($tag, $date = null)
@@ -111,30 +139,15 @@ class History
         $this->findTag($tag)->setDate($date);
     }
 
-    public function addNote($tag, $note)
+    public function findNote($tag, $note)
     {
         $this->findTag($tag)->findNote($note);
     }
 
-    public function hasHash($hash)
+    public function findCommit($tag, $note, $hash, $pre = false)
     {
-        return array_key_exists((string) $hash, $this->_hashes);
-    }
-
-    public function addHash($hash, $label)
-    {
-        $this->_hashes[(string) $hash] = $label;
-    }
-
-    public function addCommit($tag, $note, $hash, $label = null)
-    {
-        $this->addHash($hash, $label);
-        $this->findTag($tag)->findNote($note)->findCommit($hash)->setLabel($label);
-    }
-
-    public function addComment($tag, $note, $hash, $text = null)
-    {
-        $this->findTag($tag)->findNote($note)->findCommit($hash)->addComment($text);
+        $this->addHash($hash);
+        return $this->findTag($tag, $pre)->findNote($note, $pre)->findCommit($hash, $pre);
     }
 
     public function addHistory($commit, $front = false)
