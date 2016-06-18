@@ -18,21 +18,24 @@ return [
     'enableCoreCommands'    => false,
     'controllerNamespace'   => 'hiqdev\\chkipper\\console',
     'defaultRoute'          => 'bump',
-    'bootstrap'             => ['log'],
+    'bootstrap'             => ['log', 'config'],
     'components'            => [
         'log' => [
             'targets' => [
                 [
-                    'class' => 'yii\log\FileTarget',
+                    'class' => yii\log\FileTarget::class,
                     'levels' => ['error', 'warning', 'info'],
                 ],
             ],
         ],
+        'config' => [
+            'class' => hiqdev\chkipper\components\Config::class,
+        ],
         'cache' => [
-            'class' => 'yii\caching\FileCache',
+            'class' => yii\caching\FileCache::class,
         ],
         'view' => [
-            'class' => 'yii\base\View',
+            'class' => yii\base\View::class,
         ],
     ],
 ];
