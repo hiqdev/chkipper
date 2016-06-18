@@ -13,32 +13,63 @@ namespace hiqdev\chkipper\history;
 
 /**
  * Tag class.
- * Holds tag, it's date and list of notes.
+ * Holds tag:
+ * - name
+ * - date
+ * - list of notes
  *
  * @author Andrii Vasyliev <sol@hiqdev.com>
  */
 class Tag
 {
-    protected $_tag;
+    protected $_name;
     protected $_date;
     protected $_notes = [];
 
     public function __construct($tag, $date = null, array $notes = [])
     {
-        $this->_tag = $tag;
-        $this->setDate($date);
+        if ($tag instanceof Tag) {
+            $this->set($tag);
+        } else {
+            $this->setName($tag);
+            $this->setDate($date);
+            $this->setNotes($notes);
+        }
+    }
+
+    public function set(Tag $tag)
+    {
+        $this->setName($tag->getName());
+        $this->setDate($tag->getDate());
+        $this->setNotes($tag->getNotes());
+    }
+
+    public function setName($value)
+    {
+        if ($value) {
+            $this->_name = $value;
+        }
+    }
+
+    public function getName()
+    {
+        return $this->_name;
+    }
+
+    public function setNotes(array $notes)
+    {
         $this->_notes = $notes;
     }
 
-    public function getTag()
-    {
-        return $this->_tag;
-    }
-
+    /**
+     * Sets date.
+     * Checks if it is date and later then current.
+     * @param mixed $value date
+     */
     public function setDate($value)
     {
         $timestamp = strtotime($value);
-        if ($timestamp !== false) {
+        if ($timestamp !== false && $timestamp>$this->_date) {
             $this->_date = $timestamp;
         }
     }

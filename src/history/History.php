@@ -85,19 +85,20 @@ class History
      * Returns tag by name.
      * Creates if not exists.
      * Returns first tag when given empty name.
-     * @param string $tag name
+     * @param string|Tag $tag tag or tag name
      * @return Tag
      */
     public function findTag($tag)
     {
         if (!$tag) {
-            $tag = key($this->_tags) ?: $this->lastTag;
+            $tag = reset($this->_tags) ?: $this->lastTag;
         }
-        if (!isset($this->_tags[$tag])) {
-            $this->_tags[$tag] = new Tag($tag);
+        $name = $tag instanceof Tag ? $tag->getName() : $tag;
+        if (!$this->hasTag($name)) {
+            $this->_tags[$name] = new Tag($name);
         }
 
-        return $this->_tags[$tag];
+        return $this->_tags[$name];
     }
 
     public function hasTag($tag)

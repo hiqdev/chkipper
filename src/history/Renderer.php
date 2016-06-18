@@ -93,7 +93,7 @@ class Renderer
 
     public function renderTagHead(Tag $tag)
     {
-        $res = '## [' . $tag->getTag() . ']';
+        $res = '## [' . $tag->getName() . ']';
         if ($tag->getDate()) {
             $res .= ' - ' . $tag->getDate();
         }
