@@ -19,6 +19,10 @@ namespace hiqdev\chkipper\history;
  */
 class History
 {
+    public $lastTag = 'Under development';
+
+    public $initTag = 'Development started';
+
     protected $_headers = [];
     protected $_hashes  = [];
     protected $_links   = [];
@@ -62,6 +66,11 @@ class History
         return $this->_links;
     }
 
+    public function getFirstTag()
+    {
+        return reset($this->_tags);
+    }
+
     public function getTags()
     {
         return $this->_tags;
@@ -72,8 +81,18 @@ class History
         $this->_tags = $value;
     }
 
+    /**
+     * Returns tag by name.
+     * Creates if not exists.
+     * Returns first tag when given empty name.
+     * @param string $tag name
+     * @return Tag
+     */
     public function findTag($tag)
     {
+        if (!$tag) {
+            $tag = key($this->_tags) ?: $this->lastTag;
+        }
         if (!isset($this->_tags[$tag])) {
             $this->_tags[$tag] = new Tag($tag);
         }

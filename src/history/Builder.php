@@ -18,10 +18,6 @@ namespace hiqdev\chkipper\history;
  */
 class Builder
 {
-    public $lastTag = 'Under development';
-
-    public $initTag = 'Development started';
-
     /**
      * @var string current tag
      */
@@ -97,7 +93,7 @@ class Builder
     public function addNote($note)
     {
         $this->setNote($note);
-        $this->getHistory()->addNote($this->getTag(), $note, $label);
+        $this->getHistory()->addNote($this->getTag(), $note);
     }
 
     public function addCommit($hash, $label)
@@ -118,11 +114,11 @@ class Builder
 
     public function getLastTag()
     {
-        return $this->lastTag;
+        return $this->getHistory()->lastTag;
     }
 
     public function getInitTag()
     {
-        return $this->initTag;
+        return $this->getHistory()->initTag;
     }
 }
