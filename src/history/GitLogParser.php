@@ -39,7 +39,8 @@ class GitLogParser extends AbstractParser
     public function parseGitLog()
     {
         exec("git log --date=short --pretty='format:%h %ad %s [%ae] %d'", $logs);
-        return $this->parseLines($logs);parseLines($logs);
+
+        return $this->parseLines($logs);
     }
 
     public function parseLines(array $lines)
@@ -55,7 +56,7 @@ class GitLogParser extends AbstractParser
             if ($tag) {
                 $this->addTag($tag, $m[3]);
             }
-            if (FALSE && $note) {
+            if (false && $note) { /// disabled adding notes
                 $this->addNote($note);
             }
             $this->addCommit($m[1], $m[2]);

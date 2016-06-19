@@ -38,7 +38,7 @@ class GitLogParserTest extends \PHPUnit_Framework_TestCase
     public function testParsePath()
     {
         $this->object->parsePath(__DIR__ . '/big-git-log.txt');
-        $renderer = new MarkdownRenderer;
+        $renderer = new MarkdownRenderer();
         $text = $renderer->render($this->object->getHistory());
         $this->assertEquals(file_get_contents(__DIR__ . '/big-git-log.md'), $text);
     }
