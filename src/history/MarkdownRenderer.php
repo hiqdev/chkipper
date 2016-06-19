@@ -24,7 +24,7 @@ class MarkdownRenderer extends AbstractRenderer
     {
         $this->setHistory($history);
 
-        return $this->renderText([
+        return $this->renderSparse([
             $this->renderHeaders(),
             $this->renderTags(),
             $this->renderLinks(),
@@ -38,7 +38,7 @@ class MarkdownRenderer extends AbstractRenderer
 
     public function renderTags()
     {
-        return $this->renderObjects('renderTag', $this->getHistory()->getTags());
+        return $this->renderObjects('renderTag', $this->getHistory()->getTags(), true);
     }
 
     public function renderLinks()
@@ -46,21 +46,33 @@ class MarkdownRenderer extends AbstractRenderer
         return $this->renderObjects('renderLink', $this->getHistory()->getLinks());
     }
 
-    public function renderObjects($method, $objects)
+    public function renderObjects($method, $objects, $sparse = false)
     {
         $res = [];
         foreach ($objects as $key => $value) {
             $res[$key] = call_user_func([$this, $method], $value, $key);
         }
 
-        return $this->renderText($res);
+        return $this->renderText($res, $sparse);
     }
 
-    public function renderText(array $lines)
+    public function renderSparse(array $lines)
     {
         $res = rtrim(implode("\n", $lines));
 
         return $res ? $res . "\n" : '';
+    }
+
+    public function renderText(array $lines, $sparse = false)
+    {
+        if (!$sparse) {
+            foreach ($lines as &$line) {
+                $line = rtrim($line);
+            }
+            $lines = array_filter($lines);
+        }
+
+        return $this->renderSparse($lines);
     }
 
     public function renderLink($href, $link)
@@ -75,7 +87,7 @@ class MarkdownRenderer extends AbstractRenderer
 
     public function renderTag(Tag $tag)
     {
-        return $this->renderText([
+        return $this->renderSparse([
             $this->renderTagHead($tag),
             $this->renderObjects('renderNote', $tag->getNotes()),
         ]);
@@ -101,7 +113,7 @@ class MarkdownRenderer extends AbstractRenderer
 
     public function renderNoteHead(Note $note)
     {
-        return '- ' . $note->getNote();
+        return $note->getNote() ? '- ' . $note->getNote() : '';
     }
 
     public function renderCommit(Commit $commit)

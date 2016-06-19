@@ -11,8 +11,9 @@
 
 namespace hiqdev\chkipper\console;
 
-use hiqdev\chkipper\history\GitMerger;
-use hiqdev\chkipper\history\Parser;
+use hiqdev\chkipper\history\GitLogParser;
+use hiqdev\chkipper\history\MarkdownParser;
+use hiqdev\chkipper\history\MarkdownRenderer;
 use Yii;
 
 /**
@@ -24,10 +25,12 @@ class BumpController extends \yii\console\Controller
 {
     public function actionIndex()
     {
-        $parser = new Parser();
+        $parser = new MarkdownParser();
         var_dump(Yii::$app->config->historyFile);
         $history = $parser->parsePath(Yii::$app->config->historyFile);
-        $merger = new GitMerger();
-        $merger->mergeTo($history);
+        $gitlog = new GitLogParser();
+        $gitlog->parseGitLog();
+        $renderer = new MarkdownRenderer();
+        echo $renderer->render($gitlog->getHistory());
     }
 }

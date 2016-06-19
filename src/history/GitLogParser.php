@@ -36,23 +36,32 @@ class GitLogParser extends AbstractParser
         }
     }
 
-    public function fetchGitLog($reverse = false)
+    public function parseGitLog()
     {
         exec("git log --date=short --pretty='format:%h %ad %s [%ae] %d'", $logs);
-        $res = [];
-        $tag = '';
-        foreach ($logs as $log) {
-            if (!preg_match('/^(\w+) ([0-9-]+ .*? \[.*?\]) *\(?(.*?)\)?$/', $log, $m)) {
-                throw new UnexpectedValueException('failed parse git log');
+        return $this->parseLines($logs);parseLines($logs);
+    }
+
+    public function parseLines(array $lines)
+    {
+        $this->getHistory()->initTags();
+
+        foreach ($lines as $line) {
+            if (!preg_match('/^(\w+) (([0-9-]+) (.*?) \[.*?\]) *\(?(.*?)\)?$/', $line, $m)) {
+                throw new UnexpectedValueException('failed parse git line');
             }
-            $tag = $this->matchTag($m[3]) ?: $tag;
-            $res[$m[1]] = [
-                'tag'    => isset($m[3]) ? $this->matchTag($m[3]) : null,
-                'commit' => new Commit($m[1], $m[2]),
-            ];
+            $tag  = $this->matchTag($m[5]);
+            $note = $this->matchNote($m[4]);
+            if ($tag) {
+                $this->addTag($tag, $m[3]);
+            }
+            if (FALSE && $note) {
+                $this->addNote($note);
+            }
+            $this->addCommit($m[1], $m[2]);
         }
 
-        return $res;
+        return $this->getHistory();
     }
 
     /**
@@ -70,5 +79,10 @@ class GitLogParser extends AbstractParser
         }
 
         return null;
+    }
+
+    public function matchNote($str)
+    {
+        return strpos($str, ' ') ? $str : null;
     }
 }
