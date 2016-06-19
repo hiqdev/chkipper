@@ -12,23 +12,13 @@
 namespace hiqdev\chkipper\history;
 
 /**
- * Renderer class.
+ * Markdown history renderer.
  *
  * @author Andrii Vasyliev <sol@hiqdev.com>
  */
-class Renderer
+class MarkdownRenderer extends AbstractRenderer
 {
     public $indent = '    ';
-
-    public function setHistory($value)
-    {
-        $this->_history = $value;
-    }
-
-    public function getHistory()
-    {
-        return $this->_history;
-    }
 
     public function render(History $history)
     {

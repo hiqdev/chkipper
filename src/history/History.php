@@ -13,7 +13,11 @@ namespace hiqdev\chkipper\history;
 
 /**
  * History class.
- * Holds history of commits.
+ * Holds history of commits with additional information:
+ * - list of headers
+ * - list of hashes
+ * - list of links
+ * - list of tags
  *
  * @author Andrii Vasyliev <sol@hiqdev.com>
  */
@@ -99,6 +103,18 @@ class History
         return reset($this->_tags);
     }
 
+    public function countTags()
+    {
+        return count($this->_tags);
+    }
+
+    public function initTags()
+    {
+        if (!$this->countTags()) {
+            $this->addTag($this->lastTag);
+        }
+    }
+
     public function getTags()
     {
         return $this->_tags;
@@ -177,31 +193,4 @@ class History
             $this->addHistory(['tag' => static::getVcs()->initTag]);
         }
     }
-
-    public static function skipCommit($commit)
-    {
-        $comment = $commit['comment'];
-
-        static $equals = [
-            ''      => 1,
-            'minor' => 1,
-        ];
-        if ($equals[$comment]) {
-            return true;
-        }
-
-        static $starts = [
-            'version bump',
-            'bumped version',
-            "merge branch 'master'",
-        ];
-        foreach ($starts as $start) {
-            if (strtolower(substr($comment, 0, strlen($start))) === $start) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
 }

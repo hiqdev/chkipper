@@ -14,12 +14,11 @@ namespace hiqdev\chkipper\history;
 use UnexpectedValueException;
 
 /**
- * Git merger.
- * Merges git log into History.
+ * Git log parser.
  *
  * @author Andrii Vasyliev <sol@hiqdev.com>
  */
-class GitMerger extends Builder
+class GitLogParser extends AbstractParser
 {
     public function mergeTo($history)
     {

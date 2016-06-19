@@ -12,17 +12,16 @@
 namespace hiqdev\chkipper\history;
 
 /**
- * Parser class.
+ * Markdown history parser.
  *
  * @author Andrii Vasyliev <sol@hiqdev.com>
  */
-class Parser extends Builder
+class MarkdownParser extends AbstractParser
 {
-    public function parsePath($path, $minimal = null)
+    public function parseLines(array $lines)
     {
-        $this->addTag($this->getLastTag());
+        $this->getHistory()->initTags();
 
-        $lines = is_file($path) ? file($path) : [];
         $no = 0;
         foreach ($lines as $str) {
             $str = rtrim($str);

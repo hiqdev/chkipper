@@ -9,9 +9,9 @@
  * @copyright Copyright (c) 2016, HiQDev (http://hiqdev.com/)
  */
 
-namespace hiqdev\chkipper\tests\functional;
+namespace hiqdev\chkipper\tests\unit\history;
 
-use hiqdev\chkipper\history\Parser;
+use hiqdev\chkipper\history\MarkdownParser;
 use hiqdev\chkipper\history\History;
 use hiqdev\chkipper\history\Tag;
 use hiqdev\chkipper\history\Note;
@@ -21,10 +21,10 @@ ini_set('xdebug.var_display_max_depth', 15);
 ini_set('xdebug.var_display_max_children', 256);
 ini_set('xdebug.var_display_max_data', 1024);
 
-class ParserTest extends \PHPUnit_Framework_TestCase
+class MarkdownParserTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var Parser
+     * @var MarkdownParser
      */
     protected $object;
 
@@ -40,14 +40,14 @@ class ParserTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->label  = $this->date . ' ' . $this->subject . ' [' . $this->author . ']';
-        $this->object = new Parser();
+        $this->object = new MarkdownParser();
     }
 
     protected function tearDown()
     {
     }
 
-    public function testMinimal()
+    public function testParsePath()
     {
         $this->object->parsePath(__DIR__ . '/minimal.md');
         $history = new History();
