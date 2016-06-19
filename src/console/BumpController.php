@@ -26,11 +26,11 @@ class BumpController extends \yii\console\Controller
     public function actionIndex()
     {
         $parser = new MarkdownParser();
-        var_dump(Yii::$app->config->historyFile);
         $history = $parser->parsePath(Yii::$app->config->historyFile);
         $gitlog = new GitLogParser();
         $gitlog->parseGitLog();
+        $history->merge($gitlog->getHistory());
         $renderer = new MarkdownRenderer();
-        echo $renderer->render($gitlog->getHistory());
+        echo $renderer->render($history);
     }
 }

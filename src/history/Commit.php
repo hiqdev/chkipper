@@ -13,18 +13,26 @@ namespace hiqdev\chkipper\history;
 
 /**
  * Commit class.
- * Holds commit properties:
- * - hash
- * - date
- * - author
- * - subject
- * - list of comments.
+ *
+ * @property string $hash
+ * @property string $label
+ * @property array  $comments: comment => comment
+ * @property string $date
+ * @property string $author
+ * @property string $hash
  *
  * @author Andrii Vasyliev <sol@hiqdev.com>
  */
 class Commit
 {
+    /**
+     * @var string 7 characters commit hash
+     */
     protected $_hash;
+
+    /**
+     * @var string string representation of commit
+     */
     protected $_label;
     protected $_comments = [];
 

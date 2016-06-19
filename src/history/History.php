@@ -13,11 +13,11 @@ namespace hiqdev\chkipper\history;
 
 /**
  * History class.
- * Holds history of commits with additional information:
- * - list of headers
- * - list of hashes
- * - list of links
- * - list of tags.
+ *
+ * @property array $headers: header => header
+ * @property array $hashes:  hash => hash
+ * @property array $links:   link => href
+ * @property array $tags:    tag name => tag object
  *
  * @author Andrii Vasyliev <sol@hiqdev.com>
  */
@@ -58,6 +58,13 @@ class History
     public function addLink($link, $href)
     {
         $this->_links[$link] = $href;
+    }
+
+    public function addLinks(array $links)
+    {
+        foreach ($links as $link => $href) {
+            $this->addLink($link, $href);
+        }
     }
 
     public function setLinks(array $links)
@@ -111,7 +118,7 @@ class History
     public function initTags()
     {
         if (!$this->countTags()) {
-            $this->addTag($this->lastTag);
+            $this->addTag(new Tag($this->lastTag));
         }
     }
 
@@ -120,9 +127,17 @@ class History
         return $this->_tags;
     }
 
-    public function setTags(array $value)
+    public function addTags(array $tags)
     {
-        $this->_tags = $value;
+        foreach ($tags as $name => $tag) {
+            $this->addTag($tag);
+        }
+    }
+
+    public function setTags(array $tags)
+    {
+        $this->_tags = [];
+        $this->addTags($tags);
     }
 
     /**
@@ -132,7 +147,7 @@ class History
      * @param string|Tag $tag tag or tag name
      * @return Tag
      */
-    public function findTag($tag, $pre = false)
+    public function findTag($tag)
     {
         if (!$tag) {
             $tag = reset($this->_tags) ?: $this->lastTag;
@@ -150,48 +165,32 @@ class History
         return isset($this->_tags[$tag]);
     }
 
-    public function addTag($tag, $date = null)
+    public function addTag(Tag $tag)
     {
-        $this->findTag($tag)->setDate($date);
+        return $this->findTag($tag->getName())->setDate($tag->getDate())->addNotes($tag->getNotes());
     }
 
-    public function findNote($tag, $note)
+    /**
+     * Merges given history into the current.
+     * @param History $history
+     */
+    public function merge(History $history)
     {
-        $this->findTag($tag)->findNote($note);
+        $this->addLinks($history->getLinks());
+        $this->addHashes($history->getHashes());
+        $this->mergeTags($history->getTags());
     }
 
-    public function findCommit($tag, $note, $hash, $pre = false)
+    /**
+     * Merge given tags into the current history.
+     * @param Tag[] $tags
+     */
+    public function mergeTags(array $tags)
     {
-        $this->addHash($hash);
-
-        return $this->findTag($tag, $pre)->findNote($note, $pre)->findCommit($hash, $pre);
-    }
-
-    public function addHistory($commit, $front = false)
-    {
-        $tag    = $commit['tag'];
-        $note   = $commit['note'];
-        $hash   = $commit['hash'];
-        $render = static::renderCommit($commit);
-        $hashes = &$this->_tags[$tag][$note];
-        $hashes = (array) $hashes;
-        if ($front) {
-            $hashes = [$hash => [$render]] + $hashes;
-        } else {
-            $hashes[$hash][] = $render;
-        }
-    }
-
-    public function addGitLog()
-    {
-        foreach (array_reverse(static::getVcs()->commits, true) as $hash => $commit) {
-            if ($this->hasCommit($hash)) {
-                continue;
-            }
-            $this->addHistory($commit, true);
-        }
-        if (!$this->hasHistory(static::getVcs()->initTag)) {
-            $this->addHistory(['tag' => static::getVcs()->initTag]);
+        $olds = $this->getTags();
+        $this->_tags = $tags;
+        foreach ($olds as $tag) {
+            $this->addTag($tag);
         }
     }
 }

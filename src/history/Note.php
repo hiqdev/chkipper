@@ -13,13 +13,22 @@ namespace hiqdev\chkipper\history;
 
 /**
  * Note class.
- * Holds note and list of commits.
+ *
+ * @property string $note
+ * @property Commit[] $commits
  *
  * @author Andrii Vasyliev <sol@hiqdev.com>
  */
 class Note
 {
+    /**
+     * @var string note
+     */
     protected $_note;
+
+    /**
+     * @var Commit[] array of commits
+     */
     protected $_commits = [];
 
     public function __construct($note, $commits = [])
@@ -37,6 +46,32 @@ class Note
         return $this->_commits[$hash];
     }
 
+    /**
+     * Appends commit along with comments.
+     * @param Commit commit object
+     */
+    public function addCommit(Commit $commit)
+    {
+        $new = $this->findCommit($commit->getHash());
+        $new->setLabel($commit->getLabel());
+        $new->addComments($commit->getComments());
+    }
+
+    /**
+     * Appends commits along with comments.
+     * @param Commit[] array of commits
+     */
+    public function addCommits(array $commits)
+    {
+        foreach ($commits as $commit) {
+            $this->addCommit($commit);
+        }
+    }
+
+    /**
+     * Returns commits.
+     * @return Commit[]
+     */
     public function getCommits()
     {
         return $this->_commits;

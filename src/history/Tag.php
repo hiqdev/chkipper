@@ -12,11 +12,12 @@
 namespace hiqdev\chkipper\history;
 
 /**
- * Tag class.
- * Holds tag:
- * - name
- * - date
- * - list of notes.
+ * History tag.
+ * Represents a version with notes.
+ *
+ * @property string $name
+ * @property string $name
+ * @property array  $notes: note => note object
  *
  * @author Andrii Vasyliev <sol@hiqdev.com>
  */
@@ -56,6 +57,30 @@ class Tag
         return $this->_name;
     }
 
+    /**
+     * Appends note along with commmits.
+     * @param Note $note
+     */
+    public function addNote(Note $note)
+    {
+        $this->findNote($note->getNote())->addCommits($note->getCommits());
+    }
+
+    /**
+     * Appends notes along with commits.
+     * @param Note[] $notes array of notes
+     */
+    public function addNotes(array $notes)
+    {
+        foreach ($notes as $note) {
+            $this->addNote($note);
+        }
+    }
+
+    /**
+     * Set notes.
+     * @param Note[] $notes array of notes
+     */
     public function setNotes(array $notes)
     {
         $this->_notes = $notes;
@@ -65,6 +90,7 @@ class Tag
      * Sets date.
      * Checks if it is date and later then current.
      * @param mixed $value date
+     * @return Tag this
      */
     public function setDate($value)
     {
@@ -72,6 +98,8 @@ class Tag
         if ($timestamp !== false && $timestamp > $this->_date) {
             $this->_date = $timestamp;
         }
+
+        return $this;
     }
 
     public function getDate()

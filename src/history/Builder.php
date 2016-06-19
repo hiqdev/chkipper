@@ -38,17 +38,18 @@ class Builder
      */
     protected $_history;
 
-    public function setHistory($history)
+    public function __construct(History $history = null)
     {
-        $this->_history = $history;
+        $this->setHistory($history);
+    }
+
+    public function setHistory(History $history = null)
+    {
+        $this->_history = is_null($history) ? new History() : $history;
     }
 
     public function getHistory()
     {
-        if ($this->_history === null) {
-            $this->_history = new History();
-        }
-
         return $this->_history;
     }
 
@@ -66,7 +67,10 @@ class Builder
 
     public function setHash($hash)
     {
-        $this->_hash = (string) $hash;
+        if ($hash) {
+            $this->_hash = (string) $hash;
+            $this->getHistory()->addHash($hash);
+        }
     }
 
     public function getTag()
@@ -92,24 +96,25 @@ class Builder
     public function addTag($tag, $date = null)
     {
         $this->setTag($tag);
-        $this->getHistory()->addTag($tag, $date);
+
+        return $this->getHistory()->addTag(new Tag($tag, $date));
     }
 
     public function addNote($note)
     {
         $this->setNote($note);
-        $this->getHistory()->findNote($this->getTag(), $note);
+        $this->getHistory()->findTag($this->getTag())->findNote($note);
     }
 
     public function addCommit($hash, $label)
     {
         $this->setHash($hash);
-        $this->getHistory()->findCommit($this->getTag(), $this->getNote(), $hash)->setLabel($label);
+        $this->getHistory()->findTag($this->getTag())->findNote($this->getNote())->findCommit($hash)->setLabel($label);
     }
 
     public function addComment($comment)
     {
-        $this->getHistory()->findCommit($this->getTag(), $this->getNote(), $this->getHash())->addComment($comment);
+        $this->getHistory()->findTag($this->getTag())->findNote($this->getNote())->findCommit($this->getHash())->addComment($comment);
     }
 
     public function addLink($link, $href)
