@@ -11,8 +11,6 @@
 
 namespace hiqdev\chkipper\history;
 
-use UnexpectedValueException;
-
 /**
  * Abstract history parser.
  *
@@ -29,4 +27,3 @@ abstract class AbstractParser extends Builder
 
     abstract public function parseLines(array $lines);
 }
-

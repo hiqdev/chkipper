@@ -17,7 +17,7 @@ namespace hiqdev\chkipper\history;
  * - list of headers
  * - list of hashes
  * - list of links
- * - list of tags
+ * - list of tags.
  *
  * @author Andrii Vasyliev <sol@hiqdev.com>
  */
@@ -163,6 +163,7 @@ class History
     public function findCommit($tag, $note, $hash, $pre = false)
     {
         $this->addHash($hash);
+
         return $this->findTag($tag, $pre)->findNote($note, $pre)->findCommit($hash, $pre);
     }
 

@@ -21,6 +21,11 @@ ini_set('xdebug.var_display_max_depth', 15);
 ini_set('xdebug.var_display_max_children', 256);
 ini_set('xdebug.var_display_max_data', 1024);
 
+/**
+ * Markdown history parser test case.
+ *
+ * @author Andrii Vasyliev <sol@hiqdev.com>
+ */
 class MarkdownParserTest extends \PHPUnit_Framework_TestCase
 {
     /**

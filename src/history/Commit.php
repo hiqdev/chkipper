@@ -105,6 +105,7 @@ class Commit
         if ($timestamp !== false) {
             $this->_date = $timestamp;
         }
+
         return $this;
     }
 
@@ -116,6 +117,7 @@ class Commit
     public function setSubject($value)
     {
         $this->_subject = $value;
+
         return $this;
     }
 
@@ -127,6 +129,7 @@ class Commit
     public function setAuthor($value)
     {
         $this->_author = $value;
+
         return $this;
     }
 

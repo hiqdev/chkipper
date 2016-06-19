@@ -14,7 +14,12 @@ namespace hiqdev\chkipper\tests\functional;
 use hiqdev\chkipper\history\MarkdownParser;
 use hiqdev\chkipper\history\MarkdownRenderer;
 
-class RendererTest extends \PHPUnit_Framework_TestCase
+/**
+ * Markdown history renderer test case.
+ *
+ * @author Andrii Vasyliev <sol@hiqdev.com>
+ */
+class MarkdownRendererTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var MarkdownRenderer

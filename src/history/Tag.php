@@ -16,7 +16,7 @@ namespace hiqdev\chkipper\history;
  * Holds tag:
  * - name
  * - date
- * - list of notes
+ * - list of notes.
  *
  * @author Andrii Vasyliev <sol@hiqdev.com>
  */
@@ -28,7 +28,7 @@ class Tag
 
     public function __construct($tag, $date = null, array $notes = [])
     {
-        if ($tag instanceof Tag) {
+        if ($tag instanceof self) {
             $this->set($tag);
         } else {
             $this->setName($tag);
@@ -69,7 +69,7 @@ class Tag
     public function setDate($value)
     {
         $timestamp = strtotime($value);
-        if ($timestamp !== false && $timestamp>$this->_date) {
+        if ($timestamp !== false && $timestamp > $this->_date) {
             $this->_date = $timestamp;
         }
     }

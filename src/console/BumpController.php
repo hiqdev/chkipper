@@ -24,10 +24,10 @@ class BumpController extends \yii\console\Controller
 {
     public function actionIndex()
     {
-        $parser = new Parser;
+        $parser = new Parser();
         var_dump(Yii::$app->config->historyFile);
         $history = $parser->parsePath(Yii::$app->config->historyFile);
-        $merger = new GitMerger;
+        $merger = new GitMerger();
         $merger->mergeTo($history);
     }
 }

@@ -55,5 +55,4 @@ abstract class AbstractRenderer
 
         return false;
     }
-
 }
