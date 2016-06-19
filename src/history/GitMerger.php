@@ -30,24 +30,26 @@ class GitMerger extends Builder
     public function mergeGitLog()
     {
         $log = $this->fetchGitLog();
+        var_dump($log);
+        die();
         foreach ($log as $hash => $data) {
-            $this->getHistory()->prependCommit($data['tag'], null, $data['commit']);
+            $this->getHistory()->addCommit($data['tag'], null, $data['commit'], true);
         }
     }
 
     public function fetchGitLog($reverse = false)
     {
-        $reverse = $reverse ? '--reverse' : '';
-        exec("git log $reverse --date=short --pretty='format:%h %ad %s [%ae] %d'", $logs);
+        exec("git log --date=short --pretty='format:%h %ad %s [%ae] %d'", $logs);
         $res = [];
+        $tag = '';
         foreach ($logs as $log) {
-            if (!preg_match('/^(\w+) ([0-9-]+ .*? \[.*?\]) \(?(.*?)\)?$/', $log, $m)) {
+            if (!preg_match('/^(\w+) ([0-9-]+ .*? \[.*?\]) *\(?(.*?)\)?$/', $log, $m)) {
                 throw new UnexpectedValueException('failed parse git log');
             }
-            var_dump($m);
+            $tag = $this->matchTag($m[3]) ?: $tag;
             $res[$m[1]] = [
                 'tag'    => isset($m[3]) ? $this->matchTag($m[3]) : null,
-                'commit' => new Commit($m[1], $m2[2]),
+                'commit' => new Commit($m[1], $m[2]),
             ];
         }
 

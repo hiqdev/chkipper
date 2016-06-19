@@ -38,6 +38,11 @@ class Builder
      */
     protected $_history;
 
+    public function setHistory($history)
+    {
+        $this->_history = $history;
+    }
+
     public function getHistory()
     {
         if ($this->_history === null) {
