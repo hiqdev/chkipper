@@ -55,6 +55,11 @@ class History
         return $this->_headers;
     }
 
+    public function hasLink($link)
+    {
+        return isset($this->_links[$link]);
+    }
+
     public function addLink($link, $href)
     {
         $this->_links[$link] = $href;

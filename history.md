@@ -3,7 +3,7 @@ hiqdev/chkipper commits history
 
 ## [Under development]
 
-- Added basics
+    - [8744322] 2016-06-20 generated the `history.md` for the first time [sol@hiqdev.com]
     - [9e5ffcb] 2016-06-19 added history merging [sol@hiqdev.com]
     - [4dab065] 2016-06-19 csfixed [sol@hiqdev.com]
     - [d478762] 2016-06-19 finished and tested git log parser [sol@hiqdev.com]
@@ -29,7 +29,6 @@ hiqdev/chkipper commits history
     - [494229b] 2016-06-11 still initing [sol@hiqdev.com]
     - [2d5de51] 2016-06-11 fixed requirements [sol@hiqdev.com]
     - [6cee114] 2016-06-11 initing [sol@hiqdev.com]
-    - [b22f8ac] 2016-06-11 inited [sol@hiqdev.com]
     - [b22f8ac] 2016-06-11 inited [@hiqsol]
         - longer description for initial commit
 
@@ -40,3 +39,29 @@ hiqdev/chkipper commits history
 [sol@hiqdev.com]: https://github.com/hiqsol
 [@hiqsol]: https://github.com/hiqsol
 [b22f8ac]: https://github.com/hiqdev/chkipper/commit/b22f8ac
+[8744322]: https://github.com/hiqdev/chkipper/commit/8744322
+[9e5ffcb]: https://github.com/hiqdev/chkipper/commit/9e5ffcb
+[4dab065]: https://github.com/hiqdev/chkipper/commit/4dab065
+[d478762]: https://github.com/hiqdev/chkipper/commit/d478762
+[59f3c32]: https://github.com/hiqdev/chkipper/commit/59f3c32
+[246322f]: https://github.com/hiqdev/chkipper/commit/246322f
+[958f2a2]: https://github.com/hiqdev/chkipper/commit/958f2a2
+[8088237]: https://github.com/hiqdev/chkipper/commit/8088237
+[3862ca1]: https://github.com/hiqdev/chkipper/commit/3862ca1
+[953e3e9]: https://github.com/hiqdev/chkipper/commit/953e3e9
+[21ce070]: https://github.com/hiqdev/chkipper/commit/21ce070
+[ebe319b]: https://github.com/hiqdev/chkipper/commit/ebe319b
+[cabe759]: https://github.com/hiqdev/chkipper/commit/cabe759
+[64a1aef]: https://github.com/hiqdev/chkipper/commit/64a1aef
+[13f9c8d]: https://github.com/hiqdev/chkipper/commit/13f9c8d
+[dc889ee]: https://github.com/hiqdev/chkipper/commit/dc889ee
+[0ea21ad]: https://github.com/hiqdev/chkipper/commit/0ea21ad
+[b67662c]: https://github.com/hiqdev/chkipper/commit/b67662c
+[e856219]: https://github.com/hiqdev/chkipper/commit/e856219
+[990f07f]: https://github.com/hiqdev/chkipper/commit/990f07f
+[035d8e3]: https://github.com/hiqdev/chkipper/commit/035d8e3
+[ae01358]: https://github.com/hiqdev/chkipper/commit/ae01358
+[0fddbed]: https://github.com/hiqdev/chkipper/commit/0fddbed
+[494229b]: https://github.com/hiqdev/chkipper/commit/494229b
+[2d5de51]: https://github.com/hiqdev/chkipper/commit/2d5de51
+[6cee114]: https://github.com/hiqdev/chkipper/commit/6cee114

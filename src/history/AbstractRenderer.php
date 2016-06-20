@@ -21,6 +21,7 @@ abstract class AbstractRenderer
     public function setHistory($value)
     {
         $this->_history = $value;
+        $this->prepareLinks();
     }
 
     public function getHistory()
@@ -28,6 +29,11 @@ abstract class AbstractRenderer
         return $this->_history;
     }
 
+    /**
+     * Renders history to string.
+     * @param History $history
+     * @return text
+     */
     abstract public function render(History $history);
 
     public static function skipCommit(Commit $commit)
@@ -54,5 +60,20 @@ abstract class AbstractRenderer
         }
 
         return false;
+    }
+
+    public function prepareLinks()
+    {
+        $history = $this->getHistory();
+        foreach ($history->getHashes() as $hash) {
+            if (!$history->hasLink($hash)) {
+                $history->addLink($hash, $this->generateHashHref($hash));
+            }
+        }
+    }
+
+    public function generateHashHref($hash)
+    {
+        return 'https://github.com/hiqdev/chkipper/commit/' . $hash;
     }
 }

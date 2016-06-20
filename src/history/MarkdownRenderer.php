@@ -20,6 +20,9 @@ class MarkdownRenderer extends AbstractRenderer
 {
     public $indent = '    ';
 
+    /**
+     * {@inheritdoc}
+     */
     public function render(History $history)
     {
         $this->setHistory($history);
