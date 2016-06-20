@@ -3,6 +3,7 @@ hiqdev/chkipper commits history
 
 ## [Under development]
 
+- Added basics
     - [8744322] 2016-06-20 generated the `history.md` for the first time [sol@hiqdev.com]
     - [9e5ffcb] 2016-06-19 added history merging [sol@hiqdev.com]
     - [4dab065] 2016-06-19 csfixed [sol@hiqdev.com]
