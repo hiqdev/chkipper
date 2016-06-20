@@ -25,12 +25,13 @@ class BumpController extends \yii\console\Controller
 {
     public function actionIndex()
     {
+        $historyFile = Yii::$app->config->historyFile;
         $parser = new MarkdownParser();
-        $history = $parser->parsePath(Yii::$app->config->historyFile);
+        $history = $parser->parsePath($historyFile);
         $gitlog = new GitLogParser();
         $gitlog->parseGitLog();
         $history->merge($gitlog->getHistory());
         $renderer = new MarkdownRenderer();
-        echo $renderer->render($history);
+        file_put_contents($historyFile,  $renderer->render($history));
     }
 }
