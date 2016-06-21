@@ -4,6 +4,8 @@ hiqdev/chkipper commits history
 ## [Under development]
 
 - Added basics
+    - [c1ac45f] 2016-06-21 moved skipCommit to Builder [sol@hiqdev.com]
+    - [e512ebb] 2016-06-21 fixed parsing commit subject [sol@hiqdev.com]
     - [0af4883] 2016-06-21 added remove commits at note [sol@hiqdev.com]
     - [e3c73a5] 2016-06-21 better tag parsing [sol@hiqdev.com]
     - [65f78d8] 2016-06-21 added `bump/parse` action [sol@hiqdev.com]
@@ -76,3 +78,5 @@ hiqdev/chkipper commits history
 [e3c73a5]: https://github.com/hiqdev/chkipper/commit/e3c73a5
 [65f78d8]: https://github.com/hiqdev/chkipper/commit/65f78d8
 [b4af2db]: https://github.com/hiqdev/chkipper/commit/b4af2db
+[c1ac45f]: https://github.com/hiqdev/chkipper/commit/c1ac45f
+[e512ebb]: https://github.com/hiqdev/chkipper/commit/e512ebb
