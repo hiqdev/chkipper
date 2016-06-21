@@ -4,6 +4,10 @@ hiqdev/chkipper commits history
 ## [Under development]
 
 - Added basics
+    - [0af4883] 2016-06-21 added remove commits at note [sol@hiqdev.com]
+    - [e3c73a5] 2016-06-21 better tag parsing [sol@hiqdev.com]
+    - [65f78d8] 2016-06-21 added `bump/parse` action [sol@hiqdev.com]
+    - [b4af2db] 2016-06-21 testing format [sol@hiqdev.com]
     - [8867abe] 2016-06-20 added links generation [sol@hiqdev.com]
     - [8744322] 2016-06-20 generated the `history.md` for the first time [sol@hiqdev.com]
     - [9e5ffcb] 2016-06-19 added history merging [sol@hiqdev.com]
@@ -68,3 +72,7 @@ hiqdev/chkipper commits history
 [6cee114]: https://github.com/hiqdev/chkipper/commit/6cee114
 [f2277e8]: https://github.com/hiqdev/chkipper/commit/f2277e8
 [8867abe]: https://github.com/hiqdev/chkipper/commit/8867abe
+[0af4883]: https://github.com/hiqdev/chkipper/commit/0af4883
+[e3c73a5]: https://github.com/hiqdev/chkipper/commit/e3c73a5
+[65f78d8]: https://github.com/hiqdev/chkipper/commit/65f78d8
+[b4af2db]: https://github.com/hiqdev/chkipper/commit/b4af2db
