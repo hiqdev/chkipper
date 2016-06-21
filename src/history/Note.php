@@ -46,6 +46,18 @@ class Note
         return $this->_commits[$hash];
     }
 
+    public function removeCommit($hash)
+    {
+        unset($this->_commits[$hash]);
+    }
+
+    public function removeCommits($hashes)
+    {
+        foreach ($hashes as $hash) {
+            $this->removeCommit($hash);
+        }
+    }
+
     /**
      * Appends commit along with comments.
      * @param Commit commit object

@@ -181,9 +181,9 @@ class History
      */
     public function merge(History $history)
     {
+        $this->mergeTags($history->getTags());
         $this->addLinks($history->getLinks());
         $this->addHashes($history->getHashes());
-        $this->mergeTags($history->getTags());
     }
 
     /**
@@ -192,6 +192,11 @@ class History
      */
     public function mergeTags(array $tags)
     {
+        foreach ($tags as $tag) {
+            foreach ($tag->getNotes() as $note) {
+                $note->removeCommits($this->getHashes());
+            }
+        }
         $olds = $this->getTags();
         $this->_tags = $tags;
         foreach ($olds as $tag) {
