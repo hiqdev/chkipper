@@ -4,7 +4,6 @@ hiqdev/chkipper commits history
 ## [Under development]
 
 - Added basics
-    - [f2277e8][] 2016-06-20 minor [@hiqsol][]
     - [8867abe] 2016-06-20 added links generation [sol@hiqdev.com]
     - [8744322] 2016-06-20 generated the `history.md` for the first time [sol@hiqdev.com]
     - [9e5ffcb] 2016-06-19 added history merging [sol@hiqdev.com]
@@ -19,7 +18,7 @@ hiqdev/chkipper commits history
     - [21ce070] 2016-06-18 + config component [sol@hiqdev.com]
     - [ebe319b] 2016-06-17 removed old from History [sol@hiqdev.com]
     - [cabe759] 2016-06-17 added initial history [sol@hiqdev.com]
-    - [64a1aef] 2016-06-17 fixed setHeaders [) [sol@hiqdev.com]
+    - [64a1aef] 2016-06-17 fixed setHeaders() [sol@hiqdev.com]
     - [13f9c8d] 2016-06-17 csfixed [sol@hiqdev.com]
     - [dc889ee] 2016-06-17 renderer looks good [sol@hiqdev.com]
     - [0ea21ad] 2016-06-17 parser tested ok [sol@hiqdev.com]
@@ -28,7 +27,6 @@ hiqdev/chkipper commits history
     - [990f07f] 2016-06-17 testing format [sol@hiqdev.com]
     - [035d8e3] 2016-06-17 testing commits file format [sol@hiqdev.com]
     - [ae01358] 2016-06-14 added basics and minimal test [sol@hiqdev.com]
-    - [0fddbed] 2016-06-13 minor [sol@hiqdev.com]
     - [494229b] 2016-06-11 still initing [sol@hiqdev.com]
     - [2d5de51] 2016-06-11 fixed requirements [sol@hiqdev.com]
     - [6cee114] 2016-06-11 initing [sol@hiqdev.com]
