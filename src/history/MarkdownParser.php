@@ -39,7 +39,10 @@ class MarkdownParser extends AbstractParser
                 $this->addLink($m[1], $m[2]);
 
             /// tags
-            } elseif (preg_match('/^##\s+\[(.+)\]\s*-?\s*(.*)$/', $str, $m)) {
+            } elseif (
+                preg_match('/^##\s+\[(.+?)\]\s*-?\s*(.*)$/', $str, $m) ||
+                preg_match('/^##\s+(\S+?)\s*-\s*(.*)$/', $str, $m)
+            ) {
                 $this->addTag($m[1], $m[2]);
 
             /// notes
