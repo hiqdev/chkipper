@@ -68,7 +68,8 @@ class Commit
     {
         if ($label) {
             $this->_label = $label;
-            if (preg_match('/^(\d{4}-\d{2}-\d{2})\s*(.*?)\s*[\(\[](.*?)[\)\]]$/', $label, $m)) {
+            if (preg_match('/^(\d{4}-\d{2}-\d{2})\s*(.*?)\s*\[(.*?)\]$/', $label, $m) ||
+                preg_match('/^(\d{4}-\d{2}-\d{2})\s*(.*?)\s*\((.*?)\)$/', $label, $m)) {
                 $this->setDate($m[1]);
                 $this->setSubject($m[2]);
                 $this->setAuthor($m[3]);
