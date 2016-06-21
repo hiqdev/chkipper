@@ -108,8 +108,11 @@ class Builder
 
     public function addCommit($hash, $label)
     {
-        $this->setHash($hash);
-        $this->getHistory()->findTag($this->getTag())->findNote($this->getNote())->findCommit($hash)->setLabel($label);
+        $commit = new Commit($hash, $label);
+        if (!$this->skipCommit($commit)) {
+            $this->setHash($hash);
+            $this->getHistory()->findTag($this->getTag())->findNote($this->getNote())->findCommit($hash)->setLabel($label);
+        }
     }
 
     public function addComment($comment)
@@ -130,5 +133,33 @@ class Builder
     public function getInitTag()
     {
         return $this->getHistory()->initTag;
+    }
+
+    public static function skipCommit(Commit $commit)
+    {
+        $subject = $commit->getSubject();
+
+        static $equals = [
+            ''       => 1,
+            'bump'   => 1,
+            'minor'  => 1,
+            'bumped' => 1,
+        ];
+        if (isset($equals[$subject])) {
+            return true;
+        }
+
+        static $starts = [
+            'version bump',
+            'bumped version',
+            "merge branch 'master'",
+        ];
+        foreach ($starts as $start) {
+            if (strtolower(substr($subject, 0, strlen($start))) === $start) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

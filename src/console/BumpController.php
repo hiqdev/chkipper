@@ -43,6 +43,6 @@ class BumpController extends \yii\console\Controller
         }
         $parser = new MarkdownParser();
         $history = $parser->parsePath($path);
-        var_dump(array_keys($history->getTags()));
+        var_dump($history->getTags());
     }
 }
