@@ -4,6 +4,8 @@ hiqdev/chkipper commits history
 ## [Under development]
 
 - Added basics
+    - [f2277e8][] 2016-06-20 minor [@hiqsol][]
+    - [8867abe] 2016-06-20 added links generation [sol@hiqdev.com]
     - [8744322] 2016-06-20 generated the `history.md` for the first time [sol@hiqdev.com]
     - [9e5ffcb] 2016-06-19 added history merging [sol@hiqdev.com]
     - [4dab065] 2016-06-19 csfixed [sol@hiqdev.com]
@@ -66,3 +68,5 @@ hiqdev/chkipper commits history
 [494229b]: https://github.com/hiqdev/chkipper/commit/494229b
 [2d5de51]: https://github.com/hiqdev/chkipper/commit/2d5de51
 [6cee114]: https://github.com/hiqdev/chkipper/commit/6cee114
+[f2277e8]: https://github.com/hiqdev/chkipper/commit/f2277e8
+[8867abe]: https://github.com/hiqdev/chkipper/commit/8867abe
