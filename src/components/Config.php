@@ -24,6 +24,8 @@ class Config extends Component implements BootstrapInterface
 {
     public $historyFile = 'history.md';
 
+    public $changelogFile = 'CHANGELOG.md';
+
     public function bootstrap($app)
     {
     }

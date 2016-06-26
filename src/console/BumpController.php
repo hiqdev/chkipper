@@ -14,6 +14,7 @@ namespace hiqdev\chkipper\console;
 use hiqdev\chkipper\history\GitLogParser;
 use hiqdev\chkipper\history\MarkdownParser;
 use hiqdev\chkipper\history\MarkdownRenderer;
+use hiqdev\chkipper\changelog\MarkdownRenderer as ChangelogMarkdownRenderer;
 use Exception;
 use Yii;
 
@@ -27,13 +28,16 @@ class BumpController extends \yii\console\Controller
     public function actionIndex()
     {
         $historyFile = Yii::$app->config->historyFile;
+        $changelogFile = Yii::$app->config->changelogFile;
         $parser = new MarkdownParser();
         $history = $parser->parsePath($historyFile);
         $gitlog = new GitLogParser();
         $gitlog->parseGitLog();
         $history->merge($gitlog->getHistory());
-        $renderer = new MarkdownRenderer();
-        file_put_contents($historyFile,  $renderer->render($history));
+        $historyRenderer = new MarkdownRenderer();
+        $changelogRenderer = new ChangelogMarkdownRenderer();
+        file_put_contents($historyFile,  $historyRenderer->render($history));
+        file_put_contents($changelogFile,  $changelogRenderer->render($history));
     }
 
     public function actionParse($path)
