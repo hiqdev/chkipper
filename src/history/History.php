@@ -60,6 +60,11 @@ class History
         return isset($this->_links[$link]);
     }
 
+    public function removeLink($link)
+    {
+        unset($this->_links[$link]);
+    }
+
     public function addLink($link, $href)
     {
         $this->_links[$link] = $href;
@@ -115,6 +120,11 @@ class History
         return reset($this->_tags);
     }
 
+    public function setFirstTag($name)
+    {
+        $this->getFirstTag()->setName($name);
+    }
+
     public function countTags()
     {
         return count($this->_tags);
@@ -168,6 +178,16 @@ class History
     public function hasTag($tag)
     {
         return isset($this->_tags[$tag]);
+    }
+
+    public function removeTag($name)
+    {
+        foreach ($this->_tags as $k => $tag) {
+            if ($tag->getName() == $name) {
+                unset($this->_tags[$k]);
+                return;
+            }
+        }
     }
 
     public function addTag(Tag $tag)
