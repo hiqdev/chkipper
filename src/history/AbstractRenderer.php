@@ -21,7 +21,7 @@ abstract class AbstractRenderer
     public function setHistory($value)
     {
         $this->_history = $value;
-        $this->addCommitLinks();
+        $this->normalizeHistory();
     }
 
     public function getHistory()
@@ -36,6 +36,13 @@ abstract class AbstractRenderer
      */
     abstract public function render(History $history);
 
+    public function normalizeHistory()
+    {
+        $this->getHistory()->normalize();
+        $this->addCommitLinks();
+        $this->removeCommitLinks();
+    }
+
     public function addCommitLinks()
     {
         $history = $this->getHistory();
@@ -49,5 +56,10 @@ abstract class AbstractRenderer
     public function generateHashHref($hash)
     {
         return 'https://github.com/hiqdev/chkipper/commit/' . $hash;
+    }
+
+    public function removeCommitLinks()
+    {
+        /// nothing for the moment
     }
 }

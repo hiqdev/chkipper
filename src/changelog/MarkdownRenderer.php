@@ -26,8 +26,16 @@ class MarkdownRenderer extends \hiqdev\chkipper\history\MarkdownRenderer
         return $this->renderNoteHead($note);
     }
 
-    public function renderLink($href, $link)
+    public function addLinks()
     {
-        return preg_match('/^[0-9a-f]{7}$/', $link) ? null : parent::renderLink($href, $link);
+        /// no links added for CHANGELOG
+    }
+
+    public function removeCommitLinks()
+    {
+        $history = $this->getHistory();
+        foreach ($history->getHashes() as $hash) {
+            $history->removeLink($hash);
+        }
     }
 }

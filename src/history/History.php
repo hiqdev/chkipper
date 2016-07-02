@@ -223,4 +223,31 @@ class History
             $this->addTag($tag);
         }
     }
+
+    /**
+     * Normalizes the history.
+     */
+    public function normalize()
+    {
+        $this->removeEmptyFirstTag();
+    }
+
+    /**
+     * Removes first tag if it is empty: has no notes and no commits.
+     */
+    public function removeEmptyFirstTag()
+    {
+        $tag = $this->getFirstTag();
+        $notes = $tag->getNotes();
+        if (count($notes)>1) {
+            return;
+        }
+        if (count($notes)>0) {
+            $note = reset($notes);
+            if ($note->getNote() || count($note->getCommits())>0) {
+                return;
+            }
+        }
+        $this->removeTag($tag->getName());
+    }
 }
