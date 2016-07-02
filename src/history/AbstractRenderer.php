@@ -58,8 +58,16 @@ abstract class AbstractRenderer
         return 'https://github.com/hiqdev/chkipper/commit/' . $hash;
     }
 
+    /**
+     * Removes commit links that are not in the history.
+     */
     public function removeCommitLinks()
     {
-        /// nothing for the moment
+        $history = $this->getHistory();
+        foreach ($history->getLinks() as $link => $href) {
+            if (preg_match('/^[0-9a-f]{7}$/', $link) && !$history->hasHash($link)) {
+                $history->removeLink($link);
+            }
+        }
     }
 }
