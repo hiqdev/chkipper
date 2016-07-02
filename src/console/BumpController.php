@@ -25,7 +25,7 @@ use Yii;
  */
 class BumpController extends \yii\console\Controller
 {
-    public function actionIndex()
+    public function actionIndex($version = null)
     {
         $historyFile = Yii::$app->config->historyFile;
         $changelogFile = Yii::$app->config->changelogFile;
@@ -34,6 +34,12 @@ class BumpController extends \yii\console\Controller
         $gitlog = new GitLogParser();
         $gitlog->parseGitLog();
         $history->merge($gitlog->getHistory());
+        $history->normalize();
+
+        if ($version) {
+            $history->setFirstTag($version);
+        }
+
         $historyRenderer = new MarkdownRenderer();
         $changelogRenderer = new ChangelogMarkdownRenderer();
         file_put_contents($historyFile,  $historyRenderer->render($history));
