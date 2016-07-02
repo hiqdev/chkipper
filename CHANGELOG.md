@@ -1,8 +1,10 @@
 hiqdev/chkipper commits history
 -------------------------------
 
-## [Under development]
+## [0.0.1]
 
+- Added version bumping
+- Added CHANGELOG rendering
 - Added basics
 
 ## [Development started] - 2016-06-11

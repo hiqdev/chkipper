@@ -1,8 +1,15 @@
 hiqdev/chkipper commits history
 -------------------------------
 
-## [Under development]
+## [0.0.1]
 
+- Added version bumping
+    - [d7fd56d] 2016-07-02 + remove commit links that are not in the history [sol@hiqdev.com]
+    - [1c6c639] 2016-07-02 added bump to version [sol@hiqdev.com]
+    - [d4c4221] 2016-07-02 added normalization functions [sol@hiqdev.com]
+    - [b485d53] 2016-07-02 + removing functions [sol@hiqdev.com]
+- Added CHANGELOG rendering
+    - [1b355d8] 2016-06-26 added Markdown changelog renderer [sol@hiqdev.com]
 - Added basics
     - [39173f4] 2016-06-25 fixed GitLogParserTest [sol@hiqdev.com]
     - [c1ac45f] 2016-06-21 moved skipCommit to Builder [sol@hiqdev.com]
@@ -69,11 +76,9 @@ hiqdev/chkipper commits history
 [990f07f]: https://github.com/hiqdev/chkipper/commit/990f07f
 [035d8e3]: https://github.com/hiqdev/chkipper/commit/035d8e3
 [ae01358]: https://github.com/hiqdev/chkipper/commit/ae01358
-[0fddbed]: https://github.com/hiqdev/chkipper/commit/0fddbed
 [494229b]: https://github.com/hiqdev/chkipper/commit/494229b
 [2d5de51]: https://github.com/hiqdev/chkipper/commit/2d5de51
 [6cee114]: https://github.com/hiqdev/chkipper/commit/6cee114
-[f2277e8]: https://github.com/hiqdev/chkipper/commit/f2277e8
 [8867abe]: https://github.com/hiqdev/chkipper/commit/8867abe
 [0af4883]: https://github.com/hiqdev/chkipper/commit/0af4883
 [e3c73a5]: https://github.com/hiqdev/chkipper/commit/e3c73a5
@@ -82,3 +87,8 @@ hiqdev/chkipper commits history
 [c1ac45f]: https://github.com/hiqdev/chkipper/commit/c1ac45f
 [e512ebb]: https://github.com/hiqdev/chkipper/commit/e512ebb
 [39173f4]: https://github.com/hiqdev/chkipper/commit/39173f4
+[1c6c639]: https://github.com/hiqdev/chkipper/commit/1c6c639
+[d4c4221]: https://github.com/hiqdev/chkipper/commit/d4c4221
+[b485d53]: https://github.com/hiqdev/chkipper/commit/b485d53
+[1b355d8]: https://github.com/hiqdev/chkipper/commit/1b355d8
+[d7fd56d]: https://github.com/hiqdev/chkipper/commit/d7fd56d
