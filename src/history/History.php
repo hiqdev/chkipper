@@ -27,10 +27,33 @@ class History
 
     public $initTag = 'Development started';
 
+    protected $_project;
     protected $_headers = [];
     protected $_hashes  = [];
     protected $_links   = [];
     protected $_tags    = [];
+
+    public function setProject($value)
+    {
+        $this->_project = $value;
+    }
+
+    public function getProject()
+    {
+        if ($this->_project === null) {
+            $this->_project = $this->detectProject();
+        }
+        return $this->_project;
+    }
+
+    public function detectProject()
+    {
+        foreach ($this->getHeaders() as $line) {
+            if (preg_match('/\b([a-z0-9._-]{2,}\/[a-z0-9._-]{2,})\b/i', $line, $m)) {
+                return $m[1];
+            }
+        }
+    }
 
     public function addHeader($str)
     {

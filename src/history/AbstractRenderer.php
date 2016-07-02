@@ -55,7 +55,8 @@ abstract class AbstractRenderer
 
     public function generateHashHref($hash)
     {
-        return 'https://github.com/hiqdev/chkipper/commit/' . $hash;
+        $project = $this->getHistory()->getProject();
+        return "https://github.com/$project/commit/$hash";
     }
 
     /**
