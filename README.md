@@ -6,6 +6,7 @@ Changelog keeper
 [![Build Status](https://img.shields.io/travis/hiqdev/chkipper.svg)](https://travis-ci.org/hiqdev/chkipper)
 [![Scrutinizer Code Coverage](https://img.shields.io/scrutinizer/coverage/g/hiqdev/chkipper.svg)](https://scrutinizer-ci.com/g/hiqdev/chkipper/)
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/hiqdev/chkipper.svg)](https://scrutinizer-ci.com/g/hiqdev/chkipper/)
+[![Dependency Status](https://www.versioneye.com/php/hiqdev:chkipper/dev-master/badge.svg)](https://www.versioneye.com/php/hiqdev:chkipper/dev-master)
 
 Helps to track all the commits to your project and convert them to CHANGELOG file.
 
@@ -22,4 +23,4 @@ php composer.phar create-project "hiqdev/chkipper:*" directory2install
 This project is released under the terms of the BSD-3-Clause [license](LICENSE).
 Read more [here](http://choosealicense.com/licenses/bsd-3-clause).
 
-Copyright © 2014-2016, HiQDev (http://hiqdev.com/)
+Copyright © 2016, HiQDev (http://hiqdev.com/)
