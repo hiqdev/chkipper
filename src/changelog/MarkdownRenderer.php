@@ -20,7 +20,6 @@ use hiqdev\chkipper\history\Note;
  */
 class MarkdownRenderer extends \hiqdev\chkipper\history\MarkdownRenderer
 {
-
     public function renderNote(Note $note)
     {
         return $this->renderNoteHead($note);

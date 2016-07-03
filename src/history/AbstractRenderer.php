@@ -56,6 +56,7 @@ abstract class AbstractRenderer
     public function generateHashHref($hash)
     {
         $project = $this->getHistory()->getProject();
+
         return "https://github.com/$project/commit/$hash";
     }
 

@@ -43,6 +43,7 @@ class History
         if ($this->_project === null) {
             $this->_project = $this->detectProject();
         }
+
         return $this->_project;
     }
 
@@ -208,6 +209,7 @@ class History
         foreach ($this->_tags as $k => $tag) {
             if ($tag->getName() == $name) {
                 unset($this->_tags[$k]);
+
                 return;
             }
         }
@@ -262,12 +264,12 @@ class History
     {
         $tag = $this->getFirstTag();
         $notes = $tag->getNotes();
-        if (count($notes)>1) {
+        if (count($notes) > 1) {
             return;
         }
-        if (count($notes)>0) {
+        if (count($notes) > 0) {
             $note = reset($notes);
-            if ($note->getNote() || count($note->getCommits())>0) {
+            if ($note->getNote() || count($note->getCommits()) > 0) {
                 return;
             }
         }
