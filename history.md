@@ -3,6 +3,7 @@ hiqdev/chkipper commits history
 
 ## [Under development]
 
+    - [9a51d73] 2016-07-03 csfixed [sol@hiqdev.com]
 - Added version bumping
     - [12041e2] 2016-07-02 added project property to History [sol@hiqdev.com]
     - [d7fd56d] 2016-07-02 + remove commit links that are not in the history [sol@hiqdev.com]
@@ -94,3 +95,4 @@ hiqdev/chkipper commits history
 [1b355d8]: https://github.com/hiqdev/chkipper/commit/1b355d8
 [d7fd56d]: https://github.com/hiqdev/chkipper/commit/d7fd56d
 [12041e2]: https://github.com/hiqdev/chkipper/commit/12041e2
+[9a51d73]: https://github.com/hiqdev/chkipper/commit/9a51d73
