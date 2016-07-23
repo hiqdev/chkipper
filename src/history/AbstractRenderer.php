@@ -32,7 +32,7 @@ abstract class AbstractRenderer
     /**
      * Renders history to string.
      * @param History $history
-     * @return text
+     * @return string
      */
     abstract public function render(History $history);
 
