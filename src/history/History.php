@@ -252,10 +252,20 @@ class History
     /**
      * Normalizes the history.
      */
-    public function normalize()
+    public function normalize($options = [])
     {
-        $this->removeEmptyFirstTag();
-        $this->addInitTag();
+        static $defaults = [
+            'removeEmptyFirstTag' => [],
+            'addInitTag'          => [],
+            'addCommitLinks'      => [],
+            'removeCommitLinks'   => [],
+        ];
+        $options = array_merge($defaults, $options);
+        foreach ($options as $func => $args) {
+            if (is_array($args)) {
+                call_user_func_array([$this, $func], $args);
+            }
+        }
     }
 
     /**
@@ -296,6 +306,39 @@ class History
             }
             if ($min) {
                 $this->addTag(new Tag($this->initTag, $min));
+            }
+        }
+    }
+
+    /**
+     * Adds links for commits not having ones.
+     */
+    public function addCommitLinks()
+    {
+        foreach ($this->getHashes() as $hash) {
+            if (!$this->hasLink($hash)) {
+                $this->addLink($hash, $this->generateHashHref($hash));
+            }
+        }
+    }
+
+    public function generateHashHref($hash)
+    {
+        $project = $this->getProject();
+
+        return "https://github.com/$project/commit/$hash";
+    }
+
+    /**
+     * Removes commit links that are not present in the history.
+     */
+    public function removeCommitLinks($all = false)
+    {
+        foreach ($this->getLinks() as $link => $href) {
+            if (preg_match('/^[0-9a-f]{7}$/', $link)) {
+                if ($all || !$this->hasHash($link)) {
+                    $this->removeLink($link);
+                }
             }
         }
     }

@@ -25,16 +25,9 @@ class MarkdownRenderer extends \hiqdev\chkipper\history\MarkdownRenderer
         return $this->renderNoteHead($note);
     }
 
-    public function addLinks()
-    {
-        /// no links added for CHANGELOG
-    }
+    public $normalizeOptions = [
+        'addCommitLinks'    => null,
+        'removeCommitLinks' => [true],
+    ];
 
-    public function removeCommitLinks()
-    {
-        $history = $this->getHistory();
-        foreach ($history->getHashes() as $hash) {
-            $history->removeLink($hash);
-        }
-    }
 }

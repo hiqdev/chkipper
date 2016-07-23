@@ -18,10 +18,12 @@ namespace hiqdev\chkipper\history;
  */
 abstract class AbstractRenderer
 {
+    public $normalizeOptions = [];
+
     public function setHistory($value)
     {
         $this->_history = $value;
-        $this->normalizeHistory();
+        $this->_history->normalize($this->normalizeOptions);
     }
 
     public function getHistory()
@@ -36,40 +38,4 @@ abstract class AbstractRenderer
      */
     abstract public function render(History $history);
 
-    public function normalizeHistory()
-    {
-        $this->getHistory()->normalize();
-        $this->addCommitLinks();
-        $this->removeCommitLinks();
-    }
-
-    public function addCommitLinks()
-    {
-        $history = $this->getHistory();
-        foreach ($history->getHashes() as $hash) {
-            if (!$history->hasLink($hash)) {
-                $history->addLink($hash, $this->generateHashHref($hash));
-            }
-        }
-    }
-
-    public function generateHashHref($hash)
-    {
-        $project = $this->getHistory()->getProject();
-
-        return "https://github.com/$project/commit/$hash";
-    }
-
-    /**
-     * Removes commit links that are not in the history.
-     */
-    public function removeCommitLinks()
-    {
-        $history = $this->getHistory();
-        foreach ($history->getLinks() as $link => $href) {
-            if (preg_match('/^[0-9a-f]{7}$/', $link) && !$history->hasHash($link)) {
-                $history->removeLink($link);
-            }
-        }
-    }
 }
