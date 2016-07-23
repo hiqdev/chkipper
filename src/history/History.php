@@ -255,6 +255,7 @@ class History
     public function normalize()
     {
         $this->removeEmptyFirstTag();
+        $this->addInitTag();
     }
 
     /**
@@ -274,5 +275,28 @@ class History
             }
         }
         $this->removeTag($tag->getName());
+    }
+
+    /**
+     * Adds init tag with oldest commit date.
+     */
+    public function addInitTag()
+    {
+        if (!$this->hasTag($this->initTag)) {
+            $min = '';
+            foreach ($this->getTags() as $tag) {
+                foreach ($tag->getNotes() as $note) {
+                    foreach ($note->getCommits() as $commit) {
+                        $date = $commit->getDate();
+                        if (!$min || strcmp($date, $min)<0) {
+                            $min = $date;
+                        }
+                    }
+                }
+            }
+            if ($min) {
+                $this->addTag(new Tag($this->initTag, $min));
+            }
+        }
     }
 }
