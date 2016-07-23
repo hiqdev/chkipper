@@ -547,6 +547,8 @@
     - [e4b5cd2] 2015-04-30 GREAT move ahead: now making LICENSE :) [sol@hiqdev.com]
     - [04777ec] 2015-04-28 inited [sol@hiqdev.com]
 
+## [Development started] - 2015-04-28
+
 [a8e0a44]: https://github.com/hiqdev/chkipper/commit/a8e0a44
 [32cfbc0]: https://github.com/hiqdev/chkipper/commit/32cfbc0
 [a5a7080]: https://github.com/hiqdev/chkipper/commit/a5a7080
