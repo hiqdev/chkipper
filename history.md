@@ -3,6 +3,11 @@ hiqdev/chkipper commits history
 
 ## [Under development]
 
+- Added better history normalizing
+    - [a223ca8] 2016-07-24 normalization moved to History class [sol@hiqdev.com]
+    - [56ef180] 2016-07-23 fixed tests [sol@hiqdev.com]
+    - [fa2a8b0] 2016-07-23 + adding initial tag at normalizing [sol@hiqdev.com]
+    - [3aa4129] 2016-07-23 mino [sol@hiqdev.com]
     - [9a51d73] 2016-07-03 csfixed [sol@hiqdev.com]
 - Added version bumping
     - [12041e2] 2016-07-02 added project property to History [sol@hiqdev.com]
@@ -96,3 +101,7 @@ hiqdev/chkipper commits history
 [d7fd56d]: https://github.com/hiqdev/chkipper/commit/d7fd56d
 [12041e2]: https://github.com/hiqdev/chkipper/commit/12041e2
 [9a51d73]: https://github.com/hiqdev/chkipper/commit/9a51d73
+[56ef180]: https://github.com/hiqdev/chkipper/commit/56ef180
+[fa2a8b0]: https://github.com/hiqdev/chkipper/commit/fa2a8b0
+[3aa4129]: https://github.com/hiqdev/chkipper/commit/3aa4129
+[a223ca8]: https://github.com/hiqdev/chkipper/commit/a223ca8
