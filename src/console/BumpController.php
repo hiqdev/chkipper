@@ -37,6 +37,9 @@ class BumpController extends \yii\console\Controller
         $history->normalize();
 
         if ($version) {
+            if ($version === 'dev') {
+                $version = $history->lastTag;
+            }
             $history->setFirstTag($version);
         }
 
