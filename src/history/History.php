@@ -316,8 +316,8 @@ class History
      */
     public function setTagDates()
     {
-        foreach ($this->getTags() as $name => $tag) {
-            if ($name !== $this->lastTag && !$tag->getDate()) {
+        foreach ($this->getTags() as $tag) {
+            if ($tag->getName() !== $this->lastTag && !$tag->getDate()) {
                 $tag->setDate($tag->findDate());
             }
         }
