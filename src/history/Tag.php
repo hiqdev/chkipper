@@ -120,4 +120,22 @@ class Tag
     {
         return $this->_notes;
     }
+    /**
+     * Finds date of the tag which is the date of the latest commit.
+     * @return string|null date or null if no commits
+     */
+    public function findDate()
+    {
+        $max = '';
+        foreach ($this->getNotes() as $note) {
+            foreach ($note->getCommits() as $commit) {
+                $date = $commit->getDate();
+                if (strcmp($date, $max) > 0) {
+                    $max = $date;
+                }
+            }
+        }
+
+        return $max ?: null;
+    }
 }
