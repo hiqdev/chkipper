@@ -257,6 +257,7 @@ class History
         static $defaults = [
             'removeEmptyFirstTag' => [],
             'addInitTag'          => [],
+            'setTagDates'         => [],
             'addCommitLinks'      => [],
             'removeCommitLinks'   => [],
         ];
@@ -306,6 +307,18 @@ class History
             }
             if ($min) {
                 $this->addTag(new Tag($this->initTag, $min));
+            }
+        }
+    }
+
+    /**
+     * Set dates to all the tags but last one where there is no date set.
+     */
+    public function setTagDates()
+    {
+        foreach ($this->getTags() as $name => $tag) {
+            if ($name !== $this->lastTag && !$tag->getDate()) {
+                $tag->setDate($tag->findDate());
             }
         }
     }
