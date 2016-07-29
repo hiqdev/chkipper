@@ -102,6 +102,16 @@ class Tag
         return $this;
     }
 
+    /**
+     * Unsets date.
+     */
+    public function unsetDate()
+    {
+        $this->_date = null;
+
+        return $this;
+    }
+
     public function getDate()
     {
         return $this->_date ? date('Y-m-d', $this->_date) : null;
