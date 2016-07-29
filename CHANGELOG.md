@@ -3,8 +3,8 @@ hiqdev/chkipper commits history
 
 ## [Under development]
 
-- Added better history normalizing
 - Added version bumping
+- Added better history normalizing
 - Added CHANGELOG rendering
 - Added basics
 

@@ -3,18 +3,26 @@ hiqdev/chkipper commits history
 
 ## [Under development]
 
-- Added better history normalizing
-    - [a223ca8] 2016-07-24 normalization moved to History class [sol@hiqdev.com]
-    - [56ef180] 2016-07-23 fixed tests [sol@hiqdev.com]
-    - [fa2a8b0] 2016-07-23 + adding initial tag at normalizing [sol@hiqdev.com]
-    - [3aa4129] 2016-07-23 mino [sol@hiqdev.com]
-    - [9a51d73] 2016-07-03 csfixed [sol@hiqdev.com]
 - Added version bumping
+    - [a22a8ca] 2016-07-30 improved package description [sol@hiqdev.com]
+    - [50b23ff] 2016-07-30 + proper bumping to `dev` version [sol@hiqdev.com]
     - [12041e2] 2016-07-02 added project property to History [sol@hiqdev.com]
     - [d7fd56d] 2016-07-02 + remove commit links that are not in the history [sol@hiqdev.com]
     - [1c6c639] 2016-07-02 added bump to version [sol@hiqdev.com]
     - [d4c4221] 2016-07-02 added normalization functions [sol@hiqdev.com]
     - [b485d53] 2016-07-02 + removing functions [sol@hiqdev.com]
+- Added better history normalizing
+    - [c0ef4f7] 2016-07-30 improved setTagDates normalizer [sol@hiqdev.com]
+    - [f3fbcf8] 2016-07-30 + Tag::unsetDate [sol@hiqdev.com]
+    - [290e3d7] 2016-07-30 fixed setTagDates normalizer [sol@hiqdev.com]
+    - [fd4dcf5] 2016-07-30 fixed setTagDates normalizer [sol@hiqdev.com]
+    - [db0185b] 2016-07-29 + setTagDates normalization [sol@hiqdev.com]
+    - [320c48a] 2016-07-29 + Tag::findDate method [sol@hiqdev.com]
+    - [a223ca8] 2016-07-24 normalization moved to History class [sol@hiqdev.com]
+    - [56ef180] 2016-07-23 fixed tests [sol@hiqdev.com]
+    - [fa2a8b0] 2016-07-23 + adding initial tag at normalizing [sol@hiqdev.com]
+    - [3aa4129] 2016-07-23 mino [sol@hiqdev.com]
+    - [9a51d73] 2016-07-03 csfixed [sol@hiqdev.com]
 - Added CHANGELOG rendering
     - [1b355d8] 2016-06-26 added Markdown changelog renderer [sol@hiqdev.com]
 - Added basics
@@ -105,3 +113,11 @@ hiqdev/chkipper commits history
 [fa2a8b0]: https://github.com/hiqdev/chkipper/commit/fa2a8b0
 [3aa4129]: https://github.com/hiqdev/chkipper/commit/3aa4129
 [a223ca8]: https://github.com/hiqdev/chkipper/commit/a223ca8
+[db0185b]: https://github.com/hiqdev/chkipper/commit/db0185b
+[320c48a]: https://github.com/hiqdev/chkipper/commit/320c48a
+[fd4dcf5]: https://github.com/hiqdev/chkipper/commit/fd4dcf5
+[50b23ff]: https://github.com/hiqdev/chkipper/commit/50b23ff
+[c0ef4f7]: https://github.com/hiqdev/chkipper/commit/c0ef4f7
+[f3fbcf8]: https://github.com/hiqdev/chkipper/commit/f3fbcf8
+[290e3d7]: https://github.com/hiqdev/chkipper/commit/290e3d7
+[a22a8ca]: https://github.com/hiqdev/chkipper/commit/a22a8ca
