@@ -10,6 +10,13 @@ Changelog keeper
 
 Helps to track all the commits to your project and convert them to CHANGELOG file.
 
+Features:
+
+- fills `history.md` from git commits history
+- converts `history.md` to `CHANGELOG.md`
+- creates links to commits, github users and version diffs
+- provides bump to version command
+
 ## Installation
 
 The preferred way to install this project is through [composer](http://getcomposer.org/download/).
