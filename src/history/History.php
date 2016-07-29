@@ -312,12 +312,15 @@ class History
     }
 
     /**
-     * Set dates to all the tags but last one where there is no date set.
+     * Normalizes dates to all the tags.
+     * Drops date for the last tag and sets for others.
      */
     public function setTagDates()
     {
         foreach ($this->getTags() as $tag) {
-            if ($tag->getName() !== $this->lastTag && !$tag->getDate()) {
+            if ($tag->getName() === $this->lastTag) {
+                $tag->unsetDate();
+            } elseif (!$tag->getDate()) {
                 $tag->setDate($tag->findDate());
             }
         }
