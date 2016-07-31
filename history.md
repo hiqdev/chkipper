@@ -3,6 +3,11 @@ hiqdev/chkipper commits history
 
 ## [Under development]
 
+- Added `release-notes` command
+    - [a40061d] 2016-07-31 added `prependNotes` for history merging [sol@hiqdev.com]
+    - [d3c2dee] 2016-07-31 + ConvertController [sol@hiqdev.com]
+    - [173fd23] 2016-07-31 added `release-notes` command [sol@hiqdev.com]
+    - [6c0f4b9] 2016-07-31 added NotesRenderer [sol@hiqdev.com]
 - Added version bumping
     - [a22a8ca] 2016-07-30 improved package description [sol@hiqdev.com]
     - [50b23ff] 2016-07-30 + proper bumping to `dev` version [sol@hiqdev.com]
@@ -121,3 +126,7 @@ hiqdev/chkipper commits history
 [f3fbcf8]: https://github.com/hiqdev/chkipper/commit/f3fbcf8
 [290e3d7]: https://github.com/hiqdev/chkipper/commit/290e3d7
 [a22a8ca]: https://github.com/hiqdev/chkipper/commit/a22a8ca
+[d3c2dee]: https://github.com/hiqdev/chkipper/commit/d3c2dee
+[173fd23]: https://github.com/hiqdev/chkipper/commit/173fd23
+[6c0f4b9]: https://github.com/hiqdev/chkipper/commit/6c0f4b9
+[a40061d]: https://github.com/hiqdev/chkipper/commit/a40061d

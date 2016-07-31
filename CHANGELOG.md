@@ -3,6 +3,7 @@ hiqdev/chkipper commits history
 
 ## [Under development]
 
+- Added `release-notes` command
 - Added version bumping
 - Added better history normalizing
 - Added CHANGELOG rendering
