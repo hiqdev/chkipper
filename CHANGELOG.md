@@ -1,7 +1,7 @@
 hiqdev/chkipper commits history
 -------------------------------
 
-## [Under development]
+## [0.0.1] - 2016-07-31
 
 - Added `release-notes` command
 - Added version bumping
