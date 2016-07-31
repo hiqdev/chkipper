@@ -166,10 +166,15 @@ class History
         return $this->_tags;
     }
 
-    public function addTags(array $tags)
+    /**
+     * Adds given tags to the history.
+     * @param Tag[] $tags
+     * @param boolean $prependNotes default is append
+     */
+    public function addTags(array $tags, $prependNotes = false)
     {
         foreach ($tags as $name => $tag) {
-            $this->addTag($tag);
+            $this->addTag($tag, $prependNotes);
         }
     }
 
@@ -183,7 +188,7 @@ class History
      * Returns tag by name.
      * Creates if not exists.
      * Returns first tag when given empty name.
-     * @param string|Tag $tag tag or tag name
+     * @param string|Tag $tag tag name or tag object
      * @return Tag
      */
     public function findTag($tag)
@@ -215,18 +220,25 @@ class History
         }
     }
 
-    public function addTag(Tag $tag)
+    /**
+     * Adds tag.
+     * @param Tag $tag
+     * @param boolean $prependNotes default is append
+     * @return Tag the added tag
+     */
+    public function addTag(Tag $tag, $prependNotes = false)
     {
-        return $this->findTag($tag->getName())->setDate($tag->getDate())->addNotes($tag->getNotes());
+        return $this->findTag($tag->getName())->setDate($tag->getDate())->addNotes($tag->getNotes(), $prependNotes);
     }
 
     /**
      * Merges given history into the current.
      * @param History $history
+     * @param boolean $prependNotes default is append
      */
-    public function merge(History $history)
+    public function merge(History $history, $prependNotes = false)
     {
-        $this->mergeTags($history->getTags());
+        $this->mergeTags($history->getTags(), $prependNotes);
         $this->addLinks($history->getLinks());
         $this->addHashes($history->getHashes());
     }
@@ -234,19 +246,19 @@ class History
     /**
      * Merge given tags into the current history.
      * @param Tag[] $tags
+     * @param boolean $prependNotes default is append
      */
-    public function mergeTags(array $tags)
+    public function mergeTags(array $tags, $prependNotes = false)
     {
         foreach ($tags as $tag) {
             foreach ($tag->getNotes() as $note) {
                 $note->removeCommits($this->getHashes());
             }
         }
-        $olds = $this->getTags();
-        $this->_tags = $tags;
-        foreach ($olds as $tag) {
-            $this->addTag($tag);
-        }
+        $this->addTags($tags, $prependNotes);
+        #$olds = $this->getTags();
+        #$this->_tags = $tags;
+        #$this->addTags($$olds);
     }
 
     /**

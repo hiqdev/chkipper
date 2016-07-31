@@ -33,7 +33,7 @@ class BumpController extends \yii\console\Controller
         $history = $parser->parsePath($historyFile);
         $gitlog = new GitLogParser();
         $gitlog->parseGitLog();
-        $history->merge($gitlog->getHistory());
+        $history->merge($gitlog->getHistory(), true);
         $history->normalize();
 
         if ($version) {

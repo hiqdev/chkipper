@@ -69,9 +69,15 @@ class Tag
     /**
      * Appends notes along with commits.
      * @param Note[] $notes array of notes
+     * @param boolean $prepend default is append
      */
-    public function addNotes(array $notes)
+    public function addNotes(array $notes, $prepend = false)
     {
+        if ($prepend) {
+            $saved = $this->_notes;
+            $this->_notes = $notes;
+            $notes = $saved;
+        }
         foreach ($notes as $note) {
             $this->addNote($note);
         }
