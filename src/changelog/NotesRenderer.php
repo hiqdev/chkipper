@@ -12,6 +12,7 @@
 namespace hiqdev\chkipper\changelog;
 
 use hiqdev\chkipper\history\History;
+
 /**
  * Release Notes renderer.
  *
@@ -25,7 +26,7 @@ class NotesRenderer extends MarkdownRenderer
     public function render(History $history)
     {
         $this->setHistory($history);
+
         return $this->renderObjects('renderNote', $history->getFirstTag()->getNotes());
     }
-
 }

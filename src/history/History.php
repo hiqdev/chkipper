@@ -311,7 +311,7 @@ class History
                 foreach ($tag->getNotes() as $note) {
                     foreach ($note->getCommits() as $commit) {
                         $date = $commit->getDate();
-                        if (!$min || strcmp($date, $min)<0) {
+                        if (!$min || strcmp($date, $min) < 0) {
                             $min = $date;
                         }
                     }

@@ -37,5 +37,4 @@ abstract class AbstractRenderer
      * @return string
      */
     abstract public function render(History $history);
-
 }

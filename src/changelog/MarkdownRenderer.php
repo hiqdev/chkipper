@@ -29,5 +29,4 @@ class MarkdownRenderer extends \hiqdev\chkipper\history\MarkdownRenderer
         'addCommitLinks'    => null,
         'removeCommitLinks' => [true],
     ];
-
 }
