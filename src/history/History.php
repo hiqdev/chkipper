@@ -256,9 +256,9 @@ class History
             }
         }
         $this->addTags($tags, $prependNotes);
-        #$olds = $this->getTags();
-        #$this->_tags = $tags;
-        #$this->addTags($$olds);
+        //$olds = $this->getTags();
+        //$this->_tags = $tags;
+        //$this->addTags($$olds);
     }
 
     /**

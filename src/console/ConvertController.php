@@ -36,7 +36,7 @@ class ConvertController extends \yii\console\Controller
             if (preg_match('/^## (\S+) (\S+)$/', $line, $m)) {
                 $history .= "## [$m[1]] - $m[2]\n";
 
-            # - ebeece6 2016-06-10 ommit message (sol@hiqdev.com)
+            // - ebeece6 2016-06-10 commit message (sol@hiqdev.com)
             } elseif (preg_match('/^    - (\S{7}) (\S+) (.*?) \((\S+)\)$/', $line, $m)) {
                 $history .= "    - [$m[1]] $m[2] $m[3] [$m[4]]\n";
             } else {

@@ -67,7 +67,7 @@ class GitLogParser extends AbstractParser
 
     /**
      * Finds first tag in given refs string.
-     * @param string $str 
+     * @param string $str
      * @return string
      */
     public function matchTag($str)
