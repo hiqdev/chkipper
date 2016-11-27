@@ -14,8 +14,13 @@ Features:
 
 - fills `history.md` from git commits history
 - converts `history.md` to `CHANGELOG.md`
-- creates links to commits, github users and version diffs
+- creates links to commits
 - provides bump to version command
+
+Todo:
+
+- create links to github users and version diffs
+- colorized output, notify changed files
 
 ## Installation
 
