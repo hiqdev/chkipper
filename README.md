@@ -19,7 +19,8 @@ Features:
 
 Todo:
 
-- create links to github users and version diffs
+- convert email to github username
+- create links vor version tags
 - colorized output, notify changed files
 
 ## Installation
