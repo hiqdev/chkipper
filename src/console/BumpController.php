@@ -11,6 +11,7 @@
 
 namespace hiqdev\chkipper\console;
 
+use hiqdev\chkipper\helpers\File;
 use hiqdev\chkipper\history\GitLogParser;
 use hiqdev\chkipper\history\MarkdownParser;
 use hiqdev\chkipper\history\MarkdownRenderer;
@@ -45,8 +46,8 @@ class BumpController extends \yii\console\Controller
 
         $historyRenderer = new MarkdownRenderer();
         $changelogRenderer = new ChangelogMarkdownRenderer();
-        file_put_contents($historyFile,  $historyRenderer->render($history));
-        file_put_contents($changelogFile,  $changelogRenderer->render($history));
+        File::write($historyFile,  $historyRenderer->render($history));
+        File::write($changelogFile,  $changelogRenderer->render($history));
     }
 
     public function actionParse($path)

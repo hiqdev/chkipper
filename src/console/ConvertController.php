@@ -11,6 +11,7 @@
 
 namespace hiqdev\chkipper\console;
 
+use hiqdev\chkipper\helpers\File;
 use Exception;
 use Yii;
 
@@ -44,6 +45,6 @@ class ConvertController extends \yii\console\Controller
             }
         }
 
-        file_put_contents($historyFile,  $history);
+        File::write($historyFile,  $history);
     }
 }
