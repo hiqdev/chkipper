@@ -21,7 +21,6 @@ Todo:
 
 - convert email to github username
 - create links vor version tags
-- colorized output, notify changed files
 
 ## Installation
 

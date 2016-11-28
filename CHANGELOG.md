@@ -1,7 +1,11 @@
 hiqdev/chkipper commits history
 -------------------------------
 
-## [0.0.1] - 2016-07-31
+## [0.0.2] - 2016-11-28
+
+- Added showing notices when files were changed
+
+## [0.0.1] - 2016-08-01
 
 - Added `release-notes` command
 - Added version bumping

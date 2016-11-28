@@ -1,7 +1,16 @@
 hiqdev/chkipper commits history
 -------------------------------
 
-## [0.0.1] - 2016-07-31
+## [0.0.2] - 2016-11-28
+
+- Added showing notices when files were changed
+    - [a027022] 2016-11-28 used default yii console Application [sol@hiqdev.com]
+    - [740d749] 2016-11-28 added showing notices when files were changed [sol@hiqdev.com]
+    - [3041e8c] 2016-11-28 removed roadmap, moved to basic description [sol@hiqdev.com]
+    - [c36094f] 2016-10-17 csfixed [sol@hiqdev.com]
+    - [0781c81] 2016-10-15 added ROADMAP.md [sol@hiqdev.com]
+
+## [0.0.1] - 2016-08-01
 
 - Added `release-notes` command
     - [dacee04] 2016-07-31 csfixed [sol@hiqdev.com]
@@ -132,3 +141,8 @@ hiqdev/chkipper commits history
 [6c0f4b9]: https://github.com/hiqdev/chkipper/commit/6c0f4b9
 [a40061d]: https://github.com/hiqdev/chkipper/commit/a40061d
 [dacee04]: https://github.com/hiqdev/chkipper/commit/dacee04
+[740d749]: https://github.com/hiqdev/chkipper/commit/740d749
+[c36094f]: https://github.com/hiqdev/chkipper/commit/c36094f
+[0781c81]: https://github.com/hiqdev/chkipper/commit/0781c81
+[a027022]: https://github.com/hiqdev/chkipper/commit/a027022
+[3041e8c]: https://github.com/hiqdev/chkipper/commit/3041e8c
