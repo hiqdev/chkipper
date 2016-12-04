@@ -20,22 +20,6 @@ use UnexpectedValueException;
  */
 class GitLogParser extends AbstractParser
 {
-    public function mergeTo($history)
-    {
-        $this->setHistory($history);
-        $this->mergeGitLog();
-    }
-
-    public function mergeGitLog()
-    {
-        $log = $this->fetchGitLog();
-        var_dump($log);
-        die();
-        foreach ($log as $hash => $data) {
-            $this->getHistory()->addCommit($data['tag'], null, $data['commit'], true);
-        }
-    }
-
     public function parseGitLog()
     {
         exec("git log --date=short --pretty='format:%h %ad %s [%ae] %d'", $logs);
