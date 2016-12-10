@@ -11,7 +11,7 @@
 namespace hiqdev\chkipper\history;
 
 /**
- * Builder class.
+ * History builder class.
  *
  * @author Andrii Vasyliev <sol@hiqdev.com>
  */
