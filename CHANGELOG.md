@@ -1,5 +1,9 @@
-hiqdev/chkipper commits history
--------------------------------
+hiqdev/chkipper
+---------------
+
+## [Under development]
+
+- Added prettifying user links
 
 ## [0.0.2] - 2016-11-28
 
@@ -17,5 +21,5 @@ hiqdev/chkipper commits history
 
 [Under development]: https://github.com/hiqdev/chkipper/releases
 [Development started]: https://github.com/hiqdev/chkipper/releases
-[sol@hiqdev.com]: https://github.com/hiqsol
 [@hiqsol]: https://github.com/hiqsol
+[sol@hiqdev.com]: https://github.com/hiqsol

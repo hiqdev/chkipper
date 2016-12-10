@@ -1,79 +1,85 @@
-hiqdev/chkipper commits history
--------------------------------
+hiqdev/chkipper
+---------------
+
+## [Under development]
+
+- Added prettifying user links
+    - [1637562] 2016-12-10 csfixed [@hiqsol]
+    - [a4da4ba] 2016-12-04 removed old code [@hiqsol]
 
 ## [0.0.2] - 2016-11-28
 
 - Added showing notices when files were changed
-    - [a027022] 2016-11-28 used default yii console Application [sol@hiqdev.com]
-    - [740d749] 2016-11-28 added showing notices when files were changed [sol@hiqdev.com]
-    - [3041e8c] 2016-11-28 removed roadmap, moved to basic description [sol@hiqdev.com]
-    - [c36094f] 2016-10-17 csfixed [sol@hiqdev.com]
-    - [0781c81] 2016-10-15 added ROADMAP.md [sol@hiqdev.com]
+    - [a027022] 2016-11-28 used default yii console Application [@hiqsol]
+    - [740d749] 2016-11-28 added showing notices when files were changed [@hiqsol]
+    - [3041e8c] 2016-11-28 removed roadmap, moved to basic description [@hiqsol]
+    - [c36094f] 2016-10-17 csfixed [@hiqsol]
+    - [0781c81] 2016-10-15 added ROADMAP.md [@hiqsol]
 
 ## [0.0.1] - 2016-08-01
 
 - Added `release-notes` command
-    - [dacee04] 2016-07-31 csfixed [sol@hiqdev.com]
-    - [a40061d] 2016-07-31 added `prependNotes` for history merging [sol@hiqdev.com]
-    - [d3c2dee] 2016-07-31 + ConvertController [sol@hiqdev.com]
-    - [173fd23] 2016-07-31 added `release-notes` command [sol@hiqdev.com]
-    - [6c0f4b9] 2016-07-31 added NotesRenderer [sol@hiqdev.com]
+    - [dacee04] 2016-07-31 csfixed [@hiqsol]
+    - [a40061d] 2016-07-31 added `prependNotes` for history merging [@hiqsol]
+    - [d3c2dee] 2016-07-31 + ConvertController [@hiqsol]
+    - [173fd23] 2016-07-31 added `release-notes` command [@hiqsol]
+    - [6c0f4b9] 2016-07-31 added NotesRenderer [@hiqsol]
 - Added version bumping
-    - [a22a8ca] 2016-07-30 improved package description [sol@hiqdev.com]
-    - [50b23ff] 2016-07-30 + proper bumping to `dev` version [sol@hiqdev.com]
-    - [12041e2] 2016-07-02 added project property to History [sol@hiqdev.com]
-    - [d7fd56d] 2016-07-02 + remove commit links that are not in the history [sol@hiqdev.com]
-    - [1c6c639] 2016-07-02 added bump to version [sol@hiqdev.com]
-    - [d4c4221] 2016-07-02 added normalization functions [sol@hiqdev.com]
-    - [b485d53] 2016-07-02 + removing functions [sol@hiqdev.com]
+    - [a22a8ca] 2016-07-30 improved package description [@hiqsol]
+    - [50b23ff] 2016-07-30 + proper bumping to `dev` version [@hiqsol]
+    - [12041e2] 2016-07-02 added project property to History [@hiqsol]
+    - [d7fd56d] 2016-07-02 + remove commit links that are not in the history [@hiqsol]
+    - [1c6c639] 2016-07-02 added bump to version [@hiqsol]
+    - [d4c4221] 2016-07-02 added normalization functions [@hiqsol]
+    - [b485d53] 2016-07-02 + removing functions [@hiqsol]
 - Added better history normalizing
-    - [c0ef4f7] 2016-07-30 improved setTagDates normalizer [sol@hiqdev.com]
-    - [f3fbcf8] 2016-07-30 + Tag::unsetDate [sol@hiqdev.com]
-    - [290e3d7] 2016-07-30 fixed setTagDates normalizer [sol@hiqdev.com]
-    - [fd4dcf5] 2016-07-30 fixed setTagDates normalizer [sol@hiqdev.com]
-    - [db0185b] 2016-07-29 + setTagDates normalization [sol@hiqdev.com]
-    - [320c48a] 2016-07-29 + Tag::findDate method [sol@hiqdev.com]
-    - [a223ca8] 2016-07-24 normalization moved to History class [sol@hiqdev.com]
-    - [56ef180] 2016-07-23 fixed tests [sol@hiqdev.com]
-    - [fa2a8b0] 2016-07-23 + adding initial tag at normalizing [sol@hiqdev.com]
-    - [3aa4129] 2016-07-23 mino [sol@hiqdev.com]
-    - [9a51d73] 2016-07-03 csfixed [sol@hiqdev.com]
+    - [c0ef4f7] 2016-07-30 improved setTagDates normalizer [@hiqsol]
+    - [f3fbcf8] 2016-07-30 + Tag::unsetDate [@hiqsol]
+    - [290e3d7] 2016-07-30 fixed setTagDates normalizer [@hiqsol]
+    - [fd4dcf5] 2016-07-30 fixed setTagDates normalizer [@hiqsol]
+    - [db0185b] 2016-07-29 + setTagDates normalization [@hiqsol]
+    - [320c48a] 2016-07-29 + Tag::findDate method [@hiqsol]
+    - [a223ca8] 2016-07-24 normalization moved to History class [@hiqsol]
+    - [56ef180] 2016-07-23 fixed tests [@hiqsol]
+    - [fa2a8b0] 2016-07-23 + adding initial tag at normalizing [@hiqsol]
+    - [3aa4129] 2016-07-23 mino [@hiqsol]
+    - [9a51d73] 2016-07-03 csfixed [@hiqsol]
 - Added CHANGELOG rendering
-    - [1b355d8] 2016-06-26 added Markdown changelog renderer [sol@hiqdev.com]
+    - [1b355d8] 2016-06-26 added Markdown changelog renderer [@hiqsol]
 - Added basics
-    - [39173f4] 2016-06-25 fixed GitLogParserTest [sol@hiqdev.com]
-    - [c1ac45f] 2016-06-21 moved skipCommit to Builder [sol@hiqdev.com]
-    - [e512ebb] 2016-06-21 fixed parsing commit subject [sol@hiqdev.com]
-    - [0af4883] 2016-06-21 added remove commits at note [sol@hiqdev.com]
-    - [e3c73a5] 2016-06-21 better tag parsing [sol@hiqdev.com]
-    - [65f78d8] 2016-06-21 added `bump/parse` action [sol@hiqdev.com]
-    - [b4af2db] 2016-06-21 testing format [sol@hiqdev.com]
-    - [8867abe] 2016-06-20 added links generation [sol@hiqdev.com]
-    - [8744322] 2016-06-20 generated the `history.md` for the first time [sol@hiqdev.com]
-    - [9e5ffcb] 2016-06-19 added history merging [sol@hiqdev.com]
-    - [4dab065] 2016-06-19 csfixed [sol@hiqdev.com]
-    - [d478762] 2016-06-19 finished and tested git log parser [sol@hiqdev.com]
-    - [59f3c32] 2016-06-19 csfixed [sol@hiqdev.com]
-    - [246322f] 2016-06-19 refactored out AbstractParser/renderer, Markdown/GitLogParser [sol@hiqdev.com]
-    - [958f2a2] 2016-06-19 parsing git log looks good [sol@hiqdev.com]
-    - [8088237] 2016-06-18 refactoring [sol@hiqdev.com]
-    - [3862ca1] 2016-06-18 refactored [sol@hiqdev.com]
-    - [953e3e9] 2016-06-18 adding GitMerger [sol@hiqdev.com]
-    - [21ce070] 2016-06-18 + config component [sol@hiqdev.com]
-    - [ebe319b] 2016-06-17 removed old from History [sol@hiqdev.com]
-    - [cabe759] 2016-06-17 added initial history [sol@hiqdev.com]
-    - [64a1aef] 2016-06-17 fixed setHeaders() [sol@hiqdev.com]
-    - [13f9c8d] 2016-06-17 csfixed [sol@hiqdev.com]
-    - [dc889ee] 2016-06-17 renderer looks good [sol@hiqdev.com]
-    - [0ea21ad] 2016-06-17 parser tested ok [sol@hiqdev.com]
-    - [b67662c] 2016-06-17 starting Renderer [sol@hiqdev.com]
-    - [e856219] 2016-06-17 splitted Builder and Parser [sol@hiqdev.com]
-    - [990f07f] 2016-06-17 testing format [sol@hiqdev.com]
-    - [035d8e3] 2016-06-17 testing commits file format [sol@hiqdev.com]
-    - [ae01358] 2016-06-14 added basics and minimal test [sol@hiqdev.com]
-    - [494229b] 2016-06-11 still initing [sol@hiqdev.com]
-    - [2d5de51] 2016-06-11 fixed requirements [sol@hiqdev.com]
-    - [6cee114] 2016-06-11 initing [sol@hiqdev.com]
+    - [39173f4] 2016-06-25 fixed GitLogParserTest [@hiqsol]
+    - [c1ac45f] 2016-06-21 moved skipCommit to Builder [@hiqsol]
+    - [e512ebb] 2016-06-21 fixed parsing commit subject [@hiqsol]
+    - [0af4883] 2016-06-21 added remove commits at note [@hiqsol]
+    - [e3c73a5] 2016-06-21 better tag parsing [@hiqsol]
+    - [65f78d8] 2016-06-21 added `bump/parse` action [@hiqsol]
+    - [b4af2db] 2016-06-21 testing format [@hiqsol]
+    - [8867abe] 2016-06-20 added links generation [@hiqsol]
+    - [8744322] 2016-06-20 generated the `history.md` for the first time [@hiqsol]
+    - [9e5ffcb] 2016-06-19 added history merging [@hiqsol]
+    - [4dab065] 2016-06-19 csfixed [@hiqsol]
+    - [d478762] 2016-06-19 finished and tested git log parser [@hiqsol]
+    - [59f3c32] 2016-06-19 csfixed [@hiqsol]
+    - [246322f] 2016-06-19 refactored out AbstractParser/renderer, Markdown/GitLogParser [@hiqsol]
+    - [958f2a2] 2016-06-19 parsing git log looks good [@hiqsol]
+    - [8088237] 2016-06-18 refactoring [@hiqsol]
+    - [3862ca1] 2016-06-18 refactored [@hiqsol]
+    - [953e3e9] 2016-06-18 adding GitMerger [@hiqsol]
+    - [21ce070] 2016-06-18 + config component [@hiqsol]
+    - [ebe319b] 2016-06-17 removed old from History [@hiqsol]
+    - [cabe759] 2016-06-17 added initial history [@hiqsol]
+    - [64a1aef] 2016-06-17 fixed setHeaders() [@hiqsol]
+    - [13f9c8d] 2016-06-17 csfixed [@hiqsol]
+    - [dc889ee] 2016-06-17 renderer looks good [@hiqsol]
+    - [0ea21ad] 2016-06-17 parser tested ok [@hiqsol]
+    - [b67662c] 2016-06-17 starting Renderer [@hiqsol]
+    - [e856219] 2016-06-17 splitted Builder and Parser [@hiqsol]
+    - [990f07f] 2016-06-17 testing format [@hiqsol]
+    - [035d8e3] 2016-06-17 testing commits file format [@hiqsol]
+    - [ae01358] 2016-06-14 added basics and minimal test [@hiqsol]
+    - [494229b] 2016-06-11 still initing [@hiqsol]
+    - [2d5de51] 2016-06-11 fixed requirements [@hiqsol]
+    - [6cee114] 2016-06-11 initing [@hiqsol]
     - [b22f8ac] 2016-06-11 inited [@hiqsol]
         - longer description for initial commit
 
@@ -81,8 +87,8 @@ hiqdev/chkipper commits history
 
 [Under development]: https://github.com/hiqdev/chkipper/releases
 [Development started]: https://github.com/hiqdev/chkipper/releases
-[sol@hiqdev.com]: https://github.com/hiqsol
 [@hiqsol]: https://github.com/hiqsol
+[sol@hiqdev.com]: https://github.com/hiqsol
 [b22f8ac]: https://github.com/hiqdev/chkipper/commit/b22f8ac
 [8744322]: https://github.com/hiqdev/chkipper/commit/8744322
 [9e5ffcb]: https://github.com/hiqdev/chkipper/commit/9e5ffcb
@@ -146,3 +152,5 @@ hiqdev/chkipper commits history
 [0781c81]: https://github.com/hiqdev/chkipper/commit/0781c81
 [a027022]: https://github.com/hiqdev/chkipper/commit/a027022
 [3041e8c]: https://github.com/hiqdev/chkipper/commit/3041e8c
+[1637562]: https://github.com/hiqdev/chkipper/commit/1637562
+[a4da4ba]: https://github.com/hiqdev/chkipper/commit/a4da4ba

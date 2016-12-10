@@ -16,5 +16,4 @@ package:
 
         Todo:
 
-        - convert email to github username
         - create links vor version tags
