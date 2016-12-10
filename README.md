@@ -15,11 +15,12 @@ Features:
 - fills `history.md` from git commits history
 - converts `history.md` to `CHANGELOG.md`
 - creates links to commits
+- creates links to users
 - provides bump to version command
+- provides release-notes command
 
 Todo:
 
-- convert email to github username
 - create links vor version tags
 
 ## Installation

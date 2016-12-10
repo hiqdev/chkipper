@@ -1,7 +1,7 @@
 hiqdev/chkipper
 ---------------
 
-## [Under development]
+## [0.0.3] - 2016-12-10
 
 - Added prettifying user links
 

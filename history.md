@@ -1,9 +1,11 @@
 hiqdev/chkipper
 ---------------
 
-## [Under development]
+## [0.0.3] - 2016-12-10
 
 - Added prettifying user links
+    - [e03f6d8] 2016-12-10 used user links prettifier for history [@hiqsol]
+    - [ea103f6] 2016-12-10 + prettifyUserLinks normalizer [@hiqsol]
     - [1637562] 2016-12-10 csfixed [@hiqsol]
     - [a4da4ba] 2016-12-04 removed old code [@hiqsol]
 
@@ -154,3 +156,5 @@ hiqdev/chkipper
 [3041e8c]: https://github.com/hiqdev/chkipper/commit/3041e8c
 [1637562]: https://github.com/hiqdev/chkipper/commit/1637562
 [a4da4ba]: https://github.com/hiqdev/chkipper/commit/a4da4ba
+[e03f6d8]: https://github.com/hiqdev/chkipper/commit/e03f6d8
+[ea103f6]: https://github.com/hiqdev/chkipper/commit/ea103f6
