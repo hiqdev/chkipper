@@ -271,6 +271,7 @@ class History
             'setTagDates'         => [],
             'addCommitLinks'      => [],
             'removeCommitLinks'   => [],
+            'prettifyUserLinks'   => [],
         ];
         $options = array_merge($defaults, $options);
         foreach ($options as $func => $args) {
@@ -365,6 +366,39 @@ class History
             if (preg_match('/^[0-9a-f]{7}$/', $link)) {
                 if ($all || !$this->hasHash($link)) {
                     $this->removeLink($link);
+                }
+            }
+        }
+    }
+
+    /**
+     * Converts user links to given links.
+     * Usage: add 2 links to `history.md` like this:
+     *
+     * [@hiqsol]: https://github.com/hiqsol
+     * [sol@hiqdev.com]: https://github.com/hiqsol
+     */
+    public function prettifyUserLinks()
+    {
+        $users = [];
+        $subs = [];
+        foreach ($this->getLinks() as $link => $href) {
+            if ($link[0] === '@') {
+                $users[$href] = $link;
+            } else if (isset($users[$href])) {
+                $subs[$link] = $users[$href];
+            }
+        }
+        if (!$subs) {
+            return;
+        }
+        foreach ($this->getTags() as $tag) {
+            foreach ($tag->getNotes() as $note) {
+                foreach ($note->getCommits() as $commit) {
+                    $author = $commit->getAuthor();
+                    if (isset($subs[$author])) {
+                        $commit->setAuthor($subs[$author]);
+                    }
                 }
             }
         }
