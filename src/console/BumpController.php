@@ -1,6 +1,5 @@
 <?php
-
-/*
+/**
  * Changelog keeper
  *
  * @link      https://github.com/hiqdev/chkipper
@@ -11,12 +10,12 @@
 
 namespace hiqdev\chkipper\console;
 
+use Exception;
+use hiqdev\chkipper\changelog\MarkdownRenderer as ChangelogMarkdownRenderer;
 use hiqdev\chkipper\helpers\File;
 use hiqdev\chkipper\history\GitLogParser;
 use hiqdev\chkipper\history\MarkdownParser;
 use hiqdev\chkipper\history\MarkdownRenderer;
-use hiqdev\chkipper\changelog\MarkdownRenderer as ChangelogMarkdownRenderer;
-use Exception;
 use Yii;
 
 /**

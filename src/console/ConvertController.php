@@ -1,6 +1,5 @@
 <?php
-
-/*
+/**
  * Changelog keeper
  *
  * @link      https://github.com/hiqdev/chkipper
@@ -11,8 +10,8 @@
 
 namespace hiqdev\chkipper\console;
 
-use hiqdev\chkipper\helpers\File;
 use Exception;
+use hiqdev\chkipper\helpers\File;
 use Yii;
 
 /**

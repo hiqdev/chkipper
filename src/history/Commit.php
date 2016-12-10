@@ -1,6 +1,5 @@
 <?php
-
-/*
+/**
  * Changelog keeper
  *
  * @link      https://github.com/hiqdev/chkipper
@@ -81,8 +80,7 @@ class Commit
     {
         return $this->_subject || $this->_date || $this->_author
             ? $this->getDate() . ' ' . $this->getSubject() . ' [' . $this->getAuthor() . ']'
-            : $this->_label
-        ;
+            : $this->_label;
     }
 
     public function addComment($comment)

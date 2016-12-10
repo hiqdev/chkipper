@@ -1,6 +1,5 @@
 <?php
-
-/*
+/**
  * Changelog keeper
  *
  * @link      https://github.com/hiqdev/chkipper
@@ -136,6 +135,7 @@ class Tag
     {
         return $this->_notes;
     }
+
     /**
      * Finds date of the tag which is the date of the latest commit.
      * @return string|null date or null if no commits

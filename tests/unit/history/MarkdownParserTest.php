@@ -1,6 +1,5 @@
 <?php
-
-/*
+/**
  * Changelog keeper
  *
  * @link      https://github.com/hiqdev/chkipper
@@ -11,11 +10,11 @@
 
 namespace hiqdev\chkipper\tests\unit\history;
 
-use hiqdev\chkipper\history\MarkdownParser;
-use hiqdev\chkipper\history\History;
-use hiqdev\chkipper\history\Tag;
-use hiqdev\chkipper\history\Note;
 use hiqdev\chkipper\history\Commit;
+use hiqdev\chkipper\history\History;
+use hiqdev\chkipper\history\MarkdownParser;
+use hiqdev\chkipper\history\Note;
+use hiqdev\chkipper\history\Tag;
 
 ini_set('xdebug.var_display_max_depth', 15);
 ini_set('xdebug.var_display_max_children', 256);

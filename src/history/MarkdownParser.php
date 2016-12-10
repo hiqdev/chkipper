@@ -1,6 +1,5 @@
 <?php
-
-/*
+/**
  * Changelog keeper
  *
  * @link      https://github.com/hiqdev/chkipper
@@ -29,8 +28,7 @@ class MarkdownParser extends AbstractParser
 
             /// skip empty lines
             if (!$str) {
-
-            /// headers
+                /// headers
             } elseif ($no <= 2 || preg_match('/^# /', $str)) {
                 $this->addHeader($str);
 

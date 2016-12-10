@@ -1,6 +1,5 @@
 <?php
-
-/*
+/**
  * Changelog keeper
  *
  * @link      https://github.com/hiqdev/chkipper
@@ -11,8 +10,8 @@
 
 namespace hiqdev\chkipper\components;
 
-use yii\base\Component;
 use yii\base\BootstrapInterface;
+use yii\base\Component;
 
 /**
  * Config class.

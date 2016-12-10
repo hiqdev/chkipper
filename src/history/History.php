@@ -1,6 +1,5 @@
 <?php
-
-/*
+/**
  * Changelog keeper
  *
  * @link      https://github.com/hiqdev/chkipper
@@ -212,7 +211,7 @@ class History
     public function removeTag($name)
     {
         foreach ($this->_tags as $k => $tag) {
-            if ($tag->getName() == $name) {
+            if ($tag->getName() === $name) {
                 unset($this->_tags[$k]);
 
                 return;
