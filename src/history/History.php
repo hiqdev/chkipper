@@ -32,6 +32,16 @@ class History
     protected $_links   = [];
     protected $_tags    = [];
 
+    public function isInitTag($tag)
+    {
+        return $tag === $this->initTag;
+    }
+
+    public function isLastTag($tag)
+    {
+        return $tag === $this->lastTag;
+    }
+
     public function setProject($value)
     {
         $this->_project = $value;
@@ -346,7 +356,7 @@ class History
     {
         $prev = null;
         foreach (array_keys($this->getTags()) as $tag) {
-            if ($prev && !$this->hasLink($prev)) {
+            if ($prev && ($this->isLastTag($prev) || !$this->hasLink($prev))) {
                 $this->addLink($prev, $this->generateTagHref($prev, $tag));
             }
             $prev = $tag;
@@ -356,11 +366,14 @@ class History
     public function generateTagHref($prev, $curr)
     {
         $project = $this->getProject();
-        if ($curr == $this->initTag) {
+        if ($this->isInitTag($curr)) {
             return "https://github.com/$project/releases/tag/$prev";
         }
+        if ($this->isLastTag($prev)) {
+            $prev = 'HEAD';
+        }
 
-        return "https://github.com/$project/compare/$prev..$curr";
+        return "https://github.com/$project/compare/$curr...$prev";
     }
 
     /**

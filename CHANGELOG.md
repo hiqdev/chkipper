@@ -1,6 +1,8 @@
 hiqdev/chkipper
 ---------------
 
+## [Under development]
+
 ## [0.0.3] - 2016-12-10
 
 - Added prettifying user links
@@ -19,10 +21,9 @@ hiqdev/chkipper
 
 ## [Development started] - 2016-06-11
 
-[Under development]: https://github.com/hiqdev/chkipper/releases
-[Development started]: https://github.com/hiqdev/chkipper/releases
 [@hiqsol]: https://github.com/hiqsol
 [sol@hiqdev.com]: https://github.com/hiqsol
-[0.0.3]: https://github.com/hiqdev/chkipper/compare/0.0.3..0.0.2
-[0.0.2]: https://github.com/hiqdev/chkipper/compare/0.0.2..0.0.1
+[Under development]: https://github.com/hiqdev/chkipper/compare/0.0.3...HEAD
+[0.0.3]: https://github.com/hiqdev/chkipper/compare/0.0.2...0.0.3
+[0.0.2]: https://github.com/hiqdev/chkipper/compare/0.0.1...0.0.2
 [0.0.1]: https://github.com/hiqdev/chkipper/releases/tag/0.0.1
