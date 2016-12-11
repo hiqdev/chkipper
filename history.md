@@ -3,6 +3,8 @@ hiqdev/chkipper
 
 ## [Under development]
 
+- Added tag links generation
+    - [9810468] 2016-12-11 fixed generating tag links [@hiqsol]
     - [6517a9e] 2016-12-11 + addTagLinks normalizer [@hiqsol]
 
 ## [0.0.3] - 2016-12-10
@@ -165,3 +167,4 @@ hiqdev/chkipper
 [0.0.3]: https://github.com/hiqdev/chkipper/compare/0.0.2...0.0.3
 [0.0.2]: https://github.com/hiqdev/chkipper/compare/0.0.1...0.0.2
 [0.0.1]: https://github.com/hiqdev/chkipper/releases/tag/0.0.1
+[9810468]: https://github.com/hiqdev/chkipper/commit/9810468
