@@ -270,6 +270,7 @@ class History
             'addInitTag'          => [],
             'setTagDates'         => [],
             'addCommitLinks'      => [],
+            'addTagLinks'         => [],
             'removeCommitLinks'   => [],
             'prettifyUserLinks'   => [],
         ];
@@ -336,6 +337,30 @@ class History
                 $tag->setDate($tag->findDate());
             }
         }
+    }
+
+    /**
+     * Adds tag links.
+     */
+    public function addTagLinks()
+    {
+        $prev = null;
+        foreach (array_keys($this->getTags()) as $tag) {
+            if ($prev && !$this->hasLink($prev)) {
+                $this->addLink($prev, $this->generateTagHref($prev, $tag));
+            }
+            $prev = $tag;
+        }
+    }
+
+    public function generateTagHref($prev, $curr)
+    {
+        $project = $this->getProject();
+        if ($curr == $this->initTag) {
+            return "https://github.com/$project/releases/tag/$prev";
+        }
+
+        return "https://github.com/$project/compare/$prev..$curr";
     }
 
     /**

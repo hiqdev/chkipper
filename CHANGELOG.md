@@ -23,3 +23,6 @@ hiqdev/chkipper
 [Development started]: https://github.com/hiqdev/chkipper/releases
 [@hiqsol]: https://github.com/hiqsol
 [sol@hiqdev.com]: https://github.com/hiqsol
+[0.0.3]: https://github.com/hiqdev/chkipper/compare/0.0.3..0.0.2
+[0.0.2]: https://github.com/hiqdev/chkipper/compare/0.0.2..0.0.1
+[0.0.1]: https://github.com/hiqdev/chkipper/releases/tag/0.0.1

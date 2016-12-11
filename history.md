@@ -158,3 +158,6 @@ hiqdev/chkipper
 [a4da4ba]: https://github.com/hiqdev/chkipper/commit/a4da4ba
 [e03f6d8]: https://github.com/hiqdev/chkipper/commit/e03f6d8
 [ea103f6]: https://github.com/hiqdev/chkipper/commit/ea103f6
+[0.0.3]: https://github.com/hiqdev/chkipper/compare/0.0.3..0.0.2
+[0.0.2]: https://github.com/hiqdev/chkipper/compare/0.0.2..0.0.1
+[0.0.1]: https://github.com/hiqdev/chkipper/releases/tag/0.0.1
