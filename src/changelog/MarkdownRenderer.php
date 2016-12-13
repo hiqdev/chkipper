@@ -21,7 +21,19 @@ class MarkdownRenderer extends \hiqdev\chkipper\history\MarkdownRenderer
 {
     public function renderNote(Note $note)
     {
-        return $this->renderNoteHead($note);
+        $str = $this->renderNoteHead($note);
+        if (!$str) {
+            return;
+        }
+        $authors = [];
+        foreach ($note->getCommits() as $commit) {
+            $authors[$commit->getAuthor()] = '[' . $commit->getAuthor() . ']';
+        }
+        if ($authors) {
+            $str .= ' (' . implode(', ', $authors) . ')';
+        }
+
+        return $str;
     }
 
     public $normalizeOptions = [

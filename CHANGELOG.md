@@ -3,23 +3,23 @@ hiqdev/chkipper
 
 ## [Under development]
 
-- Added tag links generation
+- Added tag links generation ([@hiqsol])
 
 ## [0.0.3] - 2016-12-10
 
-- Added prettifying user links
+- Added prettifying user links ([@hiqsol])
 
 ## [0.0.2] - 2016-11-28
 
-- Added showing notices when files were changed
+- Added showing notices when files were changed ([@hiqsol])
 
 ## [0.0.1] - 2016-08-01
 
-- Added `release-notes` command
-- Added version bumping
-- Added better history normalizing
-- Added CHANGELOG rendering
-- Added basics
+- Added `release-notes` command ([@hiqsol])
+- Added version bumping ([@hiqsol])
+- Added better history normalizing ([@hiqsol])
+- Added CHANGELOG rendering ([@hiqsol])
+- Added basics ([@hiqsol])
 
 ## [Development started] - 2016-06-11
 
