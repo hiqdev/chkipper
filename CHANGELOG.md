@@ -3,6 +3,8 @@ hiqdev/chkipper
 
 ## [Under development]
 
+- Added bin to `composer.json` ([d.naumenko.a@gmail.com])
+- Added authors links to CHANGELOG ([@hiqsol])
 - Added tag links generation ([@hiqsol])
 
 ## [0.0.3] - 2016-12-10
