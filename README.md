@@ -14,14 +14,9 @@ Features:
 
 - fills `history.md` from git commits history
 - converts `history.md` to `CHANGELOG.md`
-- creates links to commits
-- creates links to users
-- provides bump to version command
-- provides release-notes command
-
-Todo:
-
-- create links vor version tags
+- creates links to: version tags, users, commits
+- provides `bump $VERSION` command
+- provides `release-notes` command
 
 ## Installation
 
@@ -36,4 +31,4 @@ php composer.phar create-project "hiqdev/chkipper:*" directory2install
 This project is released under the terms of the BSD-3-Clause [license](LICENSE).
 Read more [here](http://choosealicense.com/licenses/bsd-3-clause).
 
-Copyright © 2016, HiQDev (http://hiqdev.com/)
+Copyright © 2016-2017, HiQDev (http://hiqdev.com/)
