@@ -3,6 +3,12 @@ hiqdev/chkipper
 
 ## [Under development]
 
+- Added bin to `composer.json`
+    - [58381ae] 2016-12-29 Added bin section to composer.json [@SilverFire]
+- Added authors links to CHANGELOG and release notes
+    - [8730c5d] 2016-12-30 + links to release-notes [@hiqsol]
+    - [df68a47] 2016-12-30 fixed pattern for user in commit [@hiqsol]
+    - [fb0ce2a] 2016-12-13 Added authors links to CHANGELOG [@hiqsol]
 - Added tag links generation
     - [9810468] 2016-12-11 fixed generating tag links [@hiqsol]
     - [6517a9e] 2016-12-11 + addTagLinks normalizer [@hiqsol]
@@ -95,6 +101,8 @@ hiqdev/chkipper
 
 [@hiqsol]: https://github.com/hiqsol
 [sol@hiqdev.com]: https://github.com/hiqsol
+[@SilverFire]: https://github.com/SilverFire
+[d.naumenko.a@gmail.com]: https://github.com/SilverFire
 [b22f8ac]: https://github.com/hiqdev/chkipper/commit/b22f8ac
 [8744322]: https://github.com/hiqdev/chkipper/commit/8744322
 [9e5ffcb]: https://github.com/hiqdev/chkipper/commit/9e5ffcb
@@ -168,3 +176,7 @@ hiqdev/chkipper
 [0.0.2]: https://github.com/hiqdev/chkipper/compare/0.0.1...0.0.2
 [0.0.1]: https://github.com/hiqdev/chkipper/releases/tag/0.0.1
 [9810468]: https://github.com/hiqdev/chkipper/commit/9810468
+[df68a47]: https://github.com/hiqdev/chkipper/commit/df68a47
+[58381ae]: https://github.com/hiqdev/chkipper/commit/58381ae
+[fb0ce2a]: https://github.com/hiqdev/chkipper/commit/fb0ce2a
+[8730c5d]: https://github.com/hiqdev/chkipper/commit/8730c5d

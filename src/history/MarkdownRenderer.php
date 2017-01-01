@@ -43,9 +43,13 @@ class MarkdownRenderer extends AbstractRenderer
         return $this->renderObjects('renderTag', $this->getHistory()->getTags(), true);
     }
 
-    public function renderLinks()
+    public function renderLinks($links = null)
     {
-        return $this->renderObjects('renderLink', $this->getHistory()->getLinks());
+        if ($links === null) {
+            $links = $this->getHistory()->getLinks();
+        }
+
+        return $this->renderObjects('renderLink', $links);
     }
 
     public function renderObjects($method, $objects, $sparse = false)
