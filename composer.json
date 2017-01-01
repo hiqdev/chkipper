@@ -56,6 +56,11 @@
             "hiqdev\\chkipper\\": "src"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "hiqdev\\chkipper\\tests\\": "tests"
+        }
+    },
     "bin": [
         "bin/chkipper"
     ],
