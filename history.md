@@ -4,8 +4,9 @@ hiqdev/chkipper
 ## [Under development]
 
 - Added bin to `composer.json`
-    - [58381ae] 2016-12-29 Added bin section to composer.json [d.naumenko.a@gmail.com]
-- Added authors links to CHANGELOG
+    - [58381ae] 2016-12-29 Added bin section to composer.json [@SilverFire]
+- Added authors links to CHANGELOG and release notes
+    - [8730c5d] 2016-12-30 + links to release-notes [@hiqsol]
     - [df68a47] 2016-12-30 fixed pattern for user in commit [@hiqsol]
     - [fb0ce2a] 2016-12-13 Added authors links to CHANGELOG [@hiqsol]
 - Added tag links generation
@@ -178,3 +179,4 @@ hiqdev/chkipper
 [df68a47]: https://github.com/hiqdev/chkipper/commit/df68a47
 [58381ae]: https://github.com/hiqdev/chkipper/commit/58381ae
 [fb0ce2a]: https://github.com/hiqdev/chkipper/commit/fb0ce2a
+[8730c5d]: https://github.com/hiqdev/chkipper/commit/8730c5d

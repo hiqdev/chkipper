@@ -3,8 +3,8 @@ hiqdev/chkipper
 
 ## [Under development]
 
-- Added bin to `composer.json` ([d.naumenko.a@gmail.com])
-- Added authors links to CHANGELOG ([@hiqsol])
+- Added bin to `composer.json` ([@SilverFire])
+- Added authors links to CHANGELOG and release notes ([@hiqsol])
 - Added tag links generation ([@hiqsol])
 
 ## [0.0.3] - 2016-12-10
@@ -27,6 +27,8 @@ hiqdev/chkipper
 
 [@hiqsol]: https://github.com/hiqsol
 [sol@hiqdev.com]: https://github.com/hiqsol
+[@SilverFire]: https://github.com/SilverFire
+[d.naumenko.a@gmail.com]: https://github.com/SilverFire
 [Under development]: https://github.com/hiqdev/chkipper/compare/0.0.3...HEAD
 [0.0.3]: https://github.com/hiqdev/chkipper/compare/0.0.2...0.0.3
 [0.0.2]: https://github.com/hiqdev/chkipper/compare/0.0.1...0.0.2
