@@ -48,6 +48,11 @@ class Builder
         $this->setHistory($history);
     }
 
+    public function getConfig()
+    {
+        return $this->_config;
+    }
+
     public function setHistory(History $history = null)
     {
         $this->_history = is_null($history) ? new History($this->_config) : $history;

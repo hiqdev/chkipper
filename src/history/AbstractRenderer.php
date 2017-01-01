@@ -29,6 +29,11 @@ abstract class AbstractRenderer
         $this->_config = $config;
     }
 
+    public function getConfig()
+    {
+        return $this->_config;
+    }
+
     public function setHistory($value)
     {
         $this->_history = $value;
