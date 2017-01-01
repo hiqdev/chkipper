@@ -5,7 +5,7 @@
  * @link      https://github.com/hiqdev/chkipper
  * @package   chkipper
  * @license   BSD-3-Clause
- * @copyright Copyright (c) 2016, HiQDev (http://hiqdev.com/)
+ * @copyright Copyright (c) 2016-2017, HiQDev (http://hiqdev.com/)
  */
 
 namespace hiqdev\chkipper\tests\unit\history;
@@ -19,7 +19,8 @@ use hiqdev\chkipper\history\ConfigInterface;
  */
 class Config implements ConfigInterface
 {
-    public function getName() {
+    public function getName()
+    {
         return '';
     }
 }

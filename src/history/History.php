@@ -5,7 +5,7 @@
  * @link      https://github.com/hiqdev/chkipper
  * @package   chkipper
  * @license   BSD-3-Clause
- * @copyright Copyright (c) 2016, HiQDev (http://hiqdev.com/)
+ * @copyright Copyright (c) 2016-2017, HiQDev (http://hiqdev.com/)
  */
 
 namespace hiqdev\chkipper\history;
@@ -421,7 +421,7 @@ class History
 
     /**
      * Converts user links to given links.
-     * Usage: add 2 links to `history.md` like this:
+     * Usage: add 2 links to `history.md` like this:.
      *
      * [@hiqsol]: https://github.com/hiqsol
      * [sol@hiqdev.com]: https://github.com/hiqsol
@@ -433,7 +433,7 @@ class History
         foreach ($this->getLinks() as $link => $href) {
             if ($link[0] === '@') {
                 $users[$href] = $link;
-            } else if (isset($users[$href])) {
+            } elseif (isset($users[$href])) {
                 $subs[$link] = $users[$href];
             }
         }

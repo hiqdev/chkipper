@@ -5,16 +5,16 @@
  * @link      https://github.com/hiqdev/chkipper
  * @package   chkipper
  * @license   BSD-3-Clause
- * @copyright Copyright (c) 2016, HiQDev (http://hiqdev.com/)
+ * @copyright Copyright (c) 2016-2017, HiQDev (http://hiqdev.com/)
  */
 
 namespace hiqdev\chkipper\components;
 
 use hiqdev\chkipper\history\ConfigInterface;
+use Yii;
 use yii\base\BootstrapInterface;
 use yii\base\Component;
 use yii\helpers\Json;
-use Yii;
 
 /**
  * Config class.
