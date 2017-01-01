@@ -373,6 +373,10 @@ class History
     {
         $project = $this->getProject();
         if ($this->isInitTag($curr)) {
+            if ($this->isLastTag($prev)) {
+                return "https://github.com/$project/releases";
+            }
+
             return "https://github.com/$project/releases/tag/$prev";
         }
         if ($this->isLastTag($prev)) {
