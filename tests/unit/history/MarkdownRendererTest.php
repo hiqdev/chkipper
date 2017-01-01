@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2016, HiQDev (http://hiqdev.com/)
  */
 
-namespace hiqdev\chkipper\tests\functional;
+namespace hiqdev\chkipper\tests\unit\history;
 
 use hiqdev\chkipper\history\MarkdownParser;
 use hiqdev\chkipper\history\MarkdownRenderer;
@@ -27,7 +27,8 @@ class MarkdownRendererTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->object = new MarkdownRenderer();
+        $config = new Config();
+        $this->object = new MarkdownRenderer($config);
     }
 
     protected function tearDown()
@@ -37,7 +38,7 @@ class MarkdownRendererTest extends \PHPUnit_Framework_TestCase
     public function testRender()
     {
         $path = __DIR__ . '/minimal.md';
-        $parser = new MarkdownParser();
+        $parser = new MarkdownParser($this->object->getConfig());
         $history = $parser->parsePath($path);
         $text = $this->object->render($history);
         $this->assertEquals(file_get_contents($path), $text);

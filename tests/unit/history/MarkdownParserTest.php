@@ -44,7 +44,7 @@ class MarkdownParserTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->label  = $this->date . ' ' . $this->subject . ' [' . $this->author . ']';
-        $this->object = new MarkdownParser();
+        $this->object = new MarkdownParser(new Config());
     }
 
     protected function tearDown()
@@ -54,7 +54,7 @@ class MarkdownParserTest extends \PHPUnit_Framework_TestCase
     public function testParsePath()
     {
         $this->object->parsePath(__DIR__ . '/minimal.md');
-        $history = new History();
+        $history = new History($this->object->getConfig());
         $history->setHeaders([
             'hiqdev/chkipper commits history',
             '-------------------------------',

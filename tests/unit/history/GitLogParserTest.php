@@ -27,7 +27,8 @@ class GitLogParserTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->object = new GitLogParser();
+        $config = new Config();
+        $this->object = new GitLogParser($config);
     }
 
     protected function tearDown()
@@ -38,7 +39,7 @@ class GitLogParserTest extends \PHPUnit_Framework_TestCase
     {
         $this->object->parsePath(__DIR__ . '/big-git-log.txt');
         $this->object->getHistory()->setProject('hiqdev/chkipper');
-        $renderer = new MarkdownRenderer();
+        $renderer = new MarkdownRenderer($this->object->getConfig());
         $text = $renderer->render($this->object->getHistory());
         $this->assertEquals(file_get_contents(__DIR__ . '/big-git-log.md'), $text);
     }
