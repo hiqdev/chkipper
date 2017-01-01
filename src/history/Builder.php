@@ -33,18 +33,24 @@ class Builder
     protected $_hash = '';
 
     /**
+     * @var ConfigInterface config object
+     */
+    protected $_config;
+
+    /**
      * @var History history object
      */
     protected $_history;
 
-    public function __construct(History $history = null)
+    public function __construct(ConfigInterface $config, History $history = null)
     {
+        $this->_config = $config;
         $this->setHistory($history);
     }
 
     public function setHistory(History $history = null)
     {
-        $this->_history = is_null($history) ? new History() : $history;
+        $this->_history = is_null($history) ? new History($this->_config) : $history;
     }
 
     public function getHistory()

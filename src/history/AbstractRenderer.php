@@ -17,7 +17,17 @@ namespace hiqdev\chkipper\history;
  */
 abstract class AbstractRenderer
 {
+    /**
+     * @var ConfigInterface config object
+     */
+    protected $_config;
+
     public $normalizeOptions = [];
+
+    public function __construct(ConfigInterface $config)
+    {
+        $this->_config = $config;
+    }
 
     public function setHistory($value)
     {

@@ -26,11 +26,17 @@ class History
 
     public $initTag = 'Development started';
 
+    protected $_config;
     protected $_project;
     protected $_headers = [];
     protected $_hashes  = [];
     protected $_links   = [];
     protected $_tags    = [];
+
+    public function __construct(ConfigInterface $config)
+    {
+        $this->_config = $config;
+    }
 
     public function isInitTag($tag)
     {
@@ -50,7 +56,7 @@ class History
     public function getProject()
     {
         if ($this->_project === null) {
-            $this->_project = $this->detectProject();
+            $this->_project = $this->_config->getName() ?: $this->detectProject();
         }
 
         return $this->_project;

@@ -23,9 +23,9 @@ class ReleaseNotesController extends \yii\console\Controller
 {
     public function actionIndex()
     {
-        $parser = new MarkdownParser();
+        $parser = Yii::createObject(MarkdownParser::class);
         $history = $parser->parsePath(Yii::$app->config->historyFile);
-        $renderer = new NotesRenderer();
+        $renderer = Yii::createObject(NotesRenderer::class);
         echo $renderer->render($history);
     }
 }

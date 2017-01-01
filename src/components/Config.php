@@ -10,6 +10,7 @@
 
 namespace hiqdev\chkipper\components;
 
+use hiqdev\chkipper\history\ConfigInterface;
 use yii\base\BootstrapInterface;
 use yii\base\Component;
 use yii\helpers\Json;
@@ -21,9 +22,9 @@ use Yii;
  *
  * @author Andrii Vasyliev <sol@hiqdev.com>
  */
-class Config extends Component implements BootstrapInterface
+class Config extends Component implements BootstrapInterface, ConfigInterface
 {
-    public $name;
+    protected $_name;
 
     public $configFile = 'chkipper.json';
 
@@ -38,5 +39,15 @@ class Config extends Component implements BootstrapInterface
             $data = Json::decode($json);
             Yii::configure($this, $data);
         }
+    }
+
+    public function setName($name)
+    {
+        $this->_name = $name;
+    }
+
+    public function getName()
+    {
+        return $this->_name;
     }
 }

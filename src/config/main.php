@@ -22,19 +22,26 @@ return [
         'log' => [
             'targets' => [
                 [
-                    'class' => yii\log\FileTarget::class,
+                    'class' => \yii\log\FileTarget::class,
                     'levels' => ['error', 'warning', 'info'],
                 ],
             ],
         ],
         'config' => [
-            'class' => hiqdev\chkipper\components\Config::class,
+            'class' => \hiqdev\chkipper\components\Config::class,
         ],
         'cache' => [
-            'class' => yii\caching\FileCache::class,
+            'class' => \yii\caching\FileCache::class,
         ],
         'view' => [
-            'class' => yii\base\View::class,
+            'class' => \yii\base\View::class,
+        ],
+    ],
+    'container' => [
+        'definitions' => [
+            \hiqdev\chkipper\history\ConfigInterface::class => [
+                'class' => \hiqdev\chkipper\components\Config::class,
+            ],
         ],
     ],
 ];

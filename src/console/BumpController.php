@@ -27,11 +27,12 @@ class BumpController extends \yii\console\Controller
 {
     public function actionIndex($version = null)
     {
-        $historyFile = Yii::$app->config->historyFile;
-        $changelogFile = Yii::$app->config->changelogFile;
-        $parser = new MarkdownParser();
+        $config = Yii::$app->config;
+        $historyFile = $config->historyFile;
+        $changelogFile = $config->changelogFile;
+        $parser = Yii::createObject(MarkdownParser::class);
         $history = $parser->parsePath($historyFile);
-        $gitlog = new GitLogParser();
+        $gitlog = Yii::createObject(GitLogParser::class);
         $gitlog->parseGitLog();
         $history->merge($gitlog->getHistory(), true);
         $history->normalize();
@@ -43,8 +44,8 @@ class BumpController extends \yii\console\Controller
             $history->setFirstTag($version);
         }
 
-        $historyRenderer = new MarkdownRenderer();
-        $changelogRenderer = new ChangelogMarkdownRenderer();
+        $historyRenderer = Yii::createObject(MarkdownRenderer::class);
+        $changelogRenderer = Yii::createObject(ChangelogMarkdownRenderer::class);
         File::write($historyFile,  $historyRenderer->render($history));
         File::write($changelogFile,  $changelogRenderer->render($history));
     }
