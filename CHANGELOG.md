@@ -3,6 +3,7 @@ hiqdev/chkipper
 
 ## [Under development]
 
+- Added config loading and injection into history manipulating objects ([@hiqsol])
 - Added bin to `composer.json` ([@SilverFire])
 - Added authors links to CHANGELOG and release notes ([@hiqsol])
 - Added tag links generation ([@hiqsol])

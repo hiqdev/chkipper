@@ -3,10 +3,13 @@ hiqdev/chkipper
 
 ## [Under development]
 
+- Added config loading and injection into history manipulating objects
+    - [1d6807e] 2017-01-01 added config propagation into history, parsers and renderers with constructor dependency injection [@hiqsol]
+    - [a45280d] 2017-01-01 added loading config in Config component [@hiqsol]
 - Added bin to `composer.json`
     - [58381ae] 2016-12-29 Added bin section to composer.json [@SilverFire]
 - Added authors links to CHANGELOG and release notes
-    - [8730c5d] 2016-12-30 + links to release-notes [@hiqsol]
+    - [b4dec1f] 2016-12-30 + links to release-notes [@hiqsol]
     - [df68a47] 2016-12-30 fixed pattern for user in commit [@hiqsol]
     - [fb0ce2a] 2016-12-13 Added authors links to CHANGELOG [@hiqsol]
 - Added tag links generation
@@ -179,4 +182,6 @@ hiqdev/chkipper
 [df68a47]: https://github.com/hiqdev/chkipper/commit/df68a47
 [58381ae]: https://github.com/hiqdev/chkipper/commit/58381ae
 [fb0ce2a]: https://github.com/hiqdev/chkipper/commit/fb0ce2a
-[8730c5d]: https://github.com/hiqdev/chkipper/commit/8730c5d
+[b4dec1f]: https://github.com/hiqdev/chkipper/commit/b4dec1f
+[1d6807e]: https://github.com/hiqdev/chkipper/commit/1d6807e
+[a45280d]: https://github.com/hiqdev/chkipper/commit/a45280d
