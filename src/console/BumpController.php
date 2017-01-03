@@ -16,6 +16,7 @@ use hiqdev\chkipper\helpers\File;
 use hiqdev\chkipper\history\GitLogParser;
 use hiqdev\chkipper\history\MarkdownParser;
 use hiqdev\chkipper\history\MarkdownRenderer;
+use hiqdev\chkipper\modifiers\Normalization;
 use Yii;
 
 /**
@@ -35,7 +36,7 @@ class BumpController extends \yii\console\Controller
         $gitlog = Yii::createObject(GitLogParser::class);
         $gitlog->parseGitLog();
         $history->merge($gitlog->getHistory(), true);
-        $history->normalize();
+        Normalization::create()->run($history);
 
         if ($version) {
             if ($version === 'dev') {

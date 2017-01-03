@@ -21,13 +21,25 @@ abstract class AbstractModifier implements ModifierInterface
 {
     abstract public function run(History $history);
 
-    public static function create(array $config)
+    /**
+     * Creates modifier from given config.
+     * 
+     * @param string|array $config 
+     * @return AbstractModifier
+     */
+    public static function create($config = [])
     {
-        $class = isset($config['class']) ? $config['class'] : $name;
+        if (is_string($config)) {
+            $config = ['class' => $config];
+        }
+        $class = isset($config['class']) ? $config['class'] : get_called_class();
         unset($config['class']);
 
         if (!class_exists($class)) {
-            $class = __NAMESPACE__ . '\\' . $class;
+            $local = __NAMESPACE__ . '\\' . $class;
+            if (class_exists($local)) {
+                $class = $local;
+            }
         }
         $modifier = new $class();
         foreach ($config as $key => $value) {

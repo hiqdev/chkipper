@@ -10,6 +10,8 @@
 
 namespace hiqdev\chkipper\history;
 
+use hiqdev\chkipper\modifiers\Normalization;
+
 /**
  * Abstract history renderer.
  *
@@ -22,7 +24,7 @@ abstract class AbstractRenderer
      */
     protected $_config;
 
-    public $normalizeOptions = [];
+    protected $normalization = Normalization::class;
 
     public function __construct(ConfigInterface $config)
     {
@@ -37,7 +39,9 @@ abstract class AbstractRenderer
     public function setHistory($value)
     {
         $this->_history = $value;
-        $this->_history->normalize($this->normalizeOptions);
+        if (!empty($this->normalization)) {
+            Normalization::create($this->normalization)->run($this->_history);
+        }
     }
 
     public function getHistory()

@@ -19,6 +19,8 @@ use hiqdev\chkipper\history\Note;
  */
 class MarkdownRenderer extends \hiqdev\chkipper\history\MarkdownRenderer
 {
+    protected $normalization = Normalization::class;
+
     public function renderNote(Note $note)
     {
         $str = $this->renderNoteHead($note);
@@ -35,9 +37,4 @@ class MarkdownRenderer extends \hiqdev\chkipper\history\MarkdownRenderer
 
         return $str;
     }
-
-    public $normalizeOptions = [
-        'addCommitLinks'    => null,
-        'removeCommitLinks' => [true],
-    ];
 }
