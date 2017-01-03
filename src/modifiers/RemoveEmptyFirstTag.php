@@ -21,7 +21,7 @@ use hiqdev\chkipper\history\History;
 class RemoveEmptyFirstTag extends AbstractModifier
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function run(History $history)
     {

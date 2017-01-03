@@ -40,7 +40,7 @@ use hiqdev\chkipper\history\History;
 class PrettifyUserLinks extends AbstractModifier
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function run(History $history)
     {

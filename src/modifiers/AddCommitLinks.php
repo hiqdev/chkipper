@@ -20,7 +20,7 @@ use hiqdev\chkipper\history\History;
 class AddCommitLinks extends AbstractModifier
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function run(History $history)
     {

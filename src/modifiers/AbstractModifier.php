@@ -23,8 +23,8 @@ abstract class AbstractModifier implements ModifierInterface
 
     /**
      * Creates modifier from given config.
-     * 
-     * @param string|array $config 
+     *
+     * @param string|array $config
      * @return AbstractModifier
      */
     public static function create($config = [])

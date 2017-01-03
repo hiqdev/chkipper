@@ -275,5 +275,4 @@ class History
         //$this->_tags = $tags;
         //$this->addTags($$olds);
     }
-
 }

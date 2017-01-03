@@ -15,14 +15,14 @@ use hiqdev\chkipper\history\History;
 /**
  * Modifier that normalizes dates in all the tags:
  * - drops date for the last tag
- * - sets dates for other tags
+ * - sets dates for other tags.
  *
  * @author Andrii Vasyliev <sol@hiqdev.com>
  */
 class SetTagDates extends AbstractModifier
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function run(History $history)
     {

@@ -11,7 +11,6 @@
 namespace hiqdev\chkipper\modifiers;
 
 use hiqdev\chkipper\history\History;
-use Yii;
 
 /**
  * CompositeModifier class.
@@ -54,5 +53,4 @@ class CompositeModifier extends AbstractModifier
             static::create($config)->run($history);
         }
     }
-
 }

@@ -23,7 +23,7 @@ class RemoveCommitLinks extends AbstractModifier
     public $all = false;
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function run(History $history)
     {
