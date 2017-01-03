@@ -21,9 +21,11 @@ use hiqdev\chkipper\lib\modifiers\CompositeModifier;
 class Normalization extends CompositeModifier
 {
     public $modifiers = [
-        'AddCommitLinks'    => null,
-        'RemoveCommitLinks' => [
-            'all' => true,
-        ],
+        'RemoveEmptyFirstTag' => [],
+        'AddInitTag'          => [],
+        'SetTagDates'         => [],
+        'AddTagLinks'         => [],
+        'RemoveCommitLinks'   => ['all' => true],
+        'PrettifyUserLinks'   => [],
     ];
 }
