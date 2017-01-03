@@ -11,6 +11,7 @@
 namespace hiqdev\chkipper\modifiers;
 
 use hiqdev\chkipper\history\History;
+use hiqdev\chkipper\history\Tag;
 
 /**
  * Modifier that adds init tag with oldest commit date.
