@@ -37,7 +37,7 @@ class ReleaseNotesRenderer extends MarkdownRenderer
         $hrefs = [];
         $result = $this->renderObjects('renderNote', $history->getFirstTag()->getNotes());
 
-        $result = preg_replace_callback('/\[(\S*?)\]/', function ($matches) use ($links, &$hrefs) {
+        $result = preg_replace_callback('/\[(.*?)\]/', function ($matches) use ($links, &$hrefs) {
             if (isset($links[$matches[1]])) {
                 $hrefs[$matches[1]] = $links[$matches[1]];
             }
