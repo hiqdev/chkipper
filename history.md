@@ -223,3 +223,4 @@ hiqdev/chkipper
 [b37393b]: https://github.com/hiqdev/chkipper/commit/b37393b
 [f522ad0]: https://github.com/hiqdev/chkipper/commit/f522ad0
 [f8ed164]: https://github.com/hiqdev/chkipper/commit/f8ed164
+[0.1.1]: https://github.com/hiqdev/chkipper/compare/0.1.0...0.1.1
