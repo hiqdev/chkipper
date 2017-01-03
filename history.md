@@ -1,8 +1,10 @@
 hiqdev/chkipper
 ---------------
 
-## [Under development]
+## [0.1.0] - 2017-01-03
 
+- Changed/refactored chkipper history lib into `lib` directory
+    - [cbd94e4] 2017-01-03 refactored chkipper history lib into `lib` directory [@hiqsol]
     - [8d38b32] 2017-01-03 csfixed [@hiqsol]
     - [a39fe61] 2017-01-03 fixed use [@hiqsol]
 - Changed/refactored normalization into separate modifier classes
@@ -206,3 +208,5 @@ hiqdev/chkipper
 [da684aa]: https://github.com/hiqdev/chkipper/commit/da684aa
 [8d38b32]: https://github.com/hiqdev/chkipper/commit/8d38b32
 [a39fe61]: https://github.com/hiqdev/chkipper/commit/a39fe61
+[cbd94e4]: https://github.com/hiqdev/chkipper/commit/cbd94e4
+[0.1.0]: https://github.com/hiqdev/chkipper/compare/0.0.3...0.1.0

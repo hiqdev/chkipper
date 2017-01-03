@@ -1,8 +1,9 @@
 hiqdev/chkipper
 ---------------
 
-## [Under development]
+## [0.1.0] - 2017-01-03
 
+- Changed/refactored chkipper history lib into `lib` directory ([@hiqsol])
 - Changed/refactored normalization into separate modifier classes ([@hiqsol])
 - Added config loading and injection into history manipulating objects ([@hiqsol])
 - Added bin to `composer.json` ([@SilverFire])
@@ -35,3 +36,4 @@ hiqdev/chkipper
 [0.0.3]: https://github.com/hiqdev/chkipper/compare/0.0.2...0.0.3
 [0.0.2]: https://github.com/hiqdev/chkipper/compare/0.0.1...0.0.2
 [0.0.1]: https://github.com/hiqdev/chkipper/releases/tag/0.0.1
+[0.1.0]: https://github.com/hiqdev/chkipper/compare/0.0.3...0.1.0
