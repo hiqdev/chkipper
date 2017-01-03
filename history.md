@@ -1,6 +1,15 @@
 hiqdev/chkipper
 ---------------
 
+## [0.1.1] - 2017-01-03
+
+- Fixed changelog normalization
+    - [f522ad0] 2017-01-03 fixed changelog normalization [@hiqsol]
+- Fixed release notes rendering
+    - [f8ed164] 2017-01-03 fixed regexp for links in ReleaseNotesRenderer [@hiqsol]
+    - [ab688bd] 2017-01-03 renamed and improved ReleaseNotesRenderer [@hiqsol]
+    - [b37393b] 2017-01-03 csfixed [@hiqsol]
+
 ## [0.1.0] - 2017-01-03
 
 - Changed/refactored chkipper history lib into `lib` directory
@@ -187,7 +196,7 @@ hiqdev/chkipper
 [e03f6d8]: https://github.com/hiqdev/chkipper/commit/e03f6d8
 [ea103f6]: https://github.com/hiqdev/chkipper/commit/ea103f6
 [6517a9e]: https://github.com/hiqdev/chkipper/commit/6517a9e
-[Under development]: https://github.com/hiqdev/chkipper/compare/0.0.3...HEAD
+[Under development]: https://github.com/hiqdev/chkipper/compare/0.1.0...HEAD
 [0.0.3]: https://github.com/hiqdev/chkipper/compare/0.0.2...0.0.3
 [0.0.2]: https://github.com/hiqdev/chkipper/compare/0.0.1...0.0.2
 [0.0.1]: https://github.com/hiqdev/chkipper/releases/tag/0.0.1
@@ -210,3 +219,7 @@ hiqdev/chkipper
 [a39fe61]: https://github.com/hiqdev/chkipper/commit/a39fe61
 [cbd94e4]: https://github.com/hiqdev/chkipper/commit/cbd94e4
 [0.1.0]: https://github.com/hiqdev/chkipper/compare/0.0.3...0.1.0
+[ab688bd]: https://github.com/hiqdev/chkipper/commit/ab688bd
+[b37393b]: https://github.com/hiqdev/chkipper/commit/b37393b
+[f522ad0]: https://github.com/hiqdev/chkipper/commit/f522ad0
+[f8ed164]: https://github.com/hiqdev/chkipper/commit/f8ed164

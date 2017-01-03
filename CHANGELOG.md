@@ -1,6 +1,11 @@
 hiqdev/chkipper
 ---------------
 
+## [0.1.1] - 2017-01-03
+
+- Fixed changelog normalization ([@hiqsol])
+- Fixed release notes rendering ([@hiqsol])
+
 ## [0.1.0] - 2017-01-03
 
 - Changed/refactored chkipper history lib into `lib` directory ([@hiqsol])
@@ -32,7 +37,7 @@ hiqdev/chkipper
 [sol@hiqdev.com]: https://github.com/hiqsol
 [@SilverFire]: https://github.com/SilverFire
 [d.naumenko.a@gmail.com]: https://github.com/SilverFire
-[Under development]: https://github.com/hiqdev/chkipper/compare/0.0.3...HEAD
+[Under development]: https://github.com/hiqdev/chkipper/compare/0.1.0...HEAD
 [0.0.3]: https://github.com/hiqdev/chkipper/compare/0.0.2...0.0.3
 [0.0.2]: https://github.com/hiqdev/chkipper/compare/0.0.1...0.0.2
 [0.0.1]: https://github.com/hiqdev/chkipper/releases/tag/0.0.1
