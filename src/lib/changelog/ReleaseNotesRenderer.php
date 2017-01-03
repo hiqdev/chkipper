@@ -17,8 +17,15 @@ use hiqdev\chkipper\lib\History;
  *
  * @author Andrii Vasyliev <sol@hiqdev.com>
  */
-class NotesRenderer extends MarkdownRenderer
+class ReleaseNotesRenderer extends MarkdownRenderer
 {
+    protected $normalization = [
+        'modifiers' => [
+            'PrettifyUserLinks' => [],
+            'RemoveEmptyFirstTag' => [],
+        ],
+    ];
+
     /**
      * {@inheritdoc}
      */

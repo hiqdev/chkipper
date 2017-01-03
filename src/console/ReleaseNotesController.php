@@ -10,7 +10,7 @@
 
 namespace hiqdev\chkipper\console;
 
-use hiqdev\chkipper\lib\changelog\NotesRenderer;
+use hiqdev\chkipper\lib\changelog\ReleaseNotesRenderer;
 use hiqdev\chkipper\lib\parsers\MarkdownParser;
 use Yii;
 
@@ -25,7 +25,7 @@ class ReleaseNotesController extends \yii\console\Controller
     {
         $parser = Yii::createObject(MarkdownParser::class);
         $history = $parser->parsePath(Yii::$app->config->historyFile);
-        $renderer = Yii::createObject(NotesRenderer::class);
+        $renderer = Yii::createObject(ReleaseNotesRenderer::class);
         echo $renderer->render($history);
     }
 }
