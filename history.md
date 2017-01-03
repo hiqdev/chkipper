@@ -3,7 +3,16 @@ hiqdev/chkipper
 
 ## [Under development]
 
+- Changed/refactored normalization into separate modifier classes
+    - [da684aa] 2017-01-03 refactored normalization into separate modifier classes [@hiqsol]
+    - [11a3761] 2017-01-02 + AbstractModifier and ModifierInterface [@hiqsol]
 - Added config loading and injection into history manipulating objects
+    - [fdef122] 2017-01-01 doc [@hiqsol]
+    - [0ca2029] 2017-01-01 csfixed [@hiqsol]
+    - [824ab5b] 2017-01-01 fixed tests [@hiqsol]
+    - [e6d158b] 2017-01-01 + autoload-dev for tests [@hiqsol]
+    - [ec53d7f] 2017-01-01 fixed link generation for last tag [@hiqsol]
+    - [a4baaba] 2017-01-01 + getConfig in builder and renderer [@hiqsol]
     - [1d6807e] 2017-01-01 added config propagation into history, parsers and renderers with constructor dependency injection [@hiqsol]
     - [a45280d] 2017-01-01 added loading config in Config component [@hiqsol]
 - Added bin to `composer.json`
@@ -185,3 +194,11 @@ hiqdev/chkipper
 [b4dec1f]: https://github.com/hiqdev/chkipper/commit/b4dec1f
 [1d6807e]: https://github.com/hiqdev/chkipper/commit/1d6807e
 [a45280d]: https://github.com/hiqdev/chkipper/commit/a45280d
+[11a3761]: https://github.com/hiqdev/chkipper/commit/11a3761
+[fdef122]: https://github.com/hiqdev/chkipper/commit/fdef122
+[0ca2029]: https://github.com/hiqdev/chkipper/commit/0ca2029
+[824ab5b]: https://github.com/hiqdev/chkipper/commit/824ab5b
+[e6d158b]: https://github.com/hiqdev/chkipper/commit/e6d158b
+[ec53d7f]: https://github.com/hiqdev/chkipper/commit/ec53d7f
+[a4baaba]: https://github.com/hiqdev/chkipper/commit/a4baaba
+[da684aa]: https://github.com/hiqdev/chkipper/commit/da684aa

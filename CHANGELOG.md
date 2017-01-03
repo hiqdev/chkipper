@@ -3,6 +3,7 @@ hiqdev/chkipper
 
 ## [Under development]
 
+- Changed/refactored normalization into separate modifier classes ([@hiqsol])
 - Added config loading and injection into history manipulating objects ([@hiqsol])
 - Added bin to `composer.json` ([@SilverFire])
 - Added authors links to CHANGELOG and release notes ([@hiqsol])
