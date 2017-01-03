@@ -38,12 +38,12 @@ abstract class AbstractRenderer
         return $this->_config;
     }
 
-    public function setHistory($value)
+    public function setHistory(History $history)
     {
-        $this->_history = $value;
         if (!empty($this->normalization)) {
-            Normalization::create($this->normalization)->run($this->_history);
+            Normalization::create($this->normalization)->run($history);
         }
+        $this->_history = $history;
     }
 
     public function getHistory()
