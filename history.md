@@ -3,6 +3,8 @@ hiqdev/chkipper
 
 ## [Under development]
 
+    - [8d38b32] 2017-01-03 csfixed [@hiqsol]
+    - [a39fe61] 2017-01-03 fixed use [@hiqsol]
 - Changed/refactored normalization into separate modifier classes
     - [da684aa] 2017-01-03 refactored normalization into separate modifier classes [@hiqsol]
     - [11a3761] 2017-01-02 + AbstractModifier and ModifierInterface [@hiqsol]
@@ -202,3 +204,5 @@ hiqdev/chkipper
 [ec53d7f]: https://github.com/hiqdev/chkipper/commit/ec53d7f
 [a4baaba]: https://github.com/hiqdev/chkipper/commit/a4baaba
 [da684aa]: https://github.com/hiqdev/chkipper/commit/da684aa
+[8d38b32]: https://github.com/hiqdev/chkipper/commit/8d38b32
+[a39fe61]: https://github.com/hiqdev/chkipper/commit/a39fe61

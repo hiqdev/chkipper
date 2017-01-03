@@ -10,7 +10,7 @@
 
 namespace hiqdev\chkipper\components;
 
-use hiqdev\chkipper\history\ConfigInterface;
+use hiqdev\chkipper\lib\ConfigInterface;
 use Yii;
 use yii\base\BootstrapInterface;
 use yii\base\Component;

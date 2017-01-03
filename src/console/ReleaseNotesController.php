@@ -10,12 +10,12 @@
 
 namespace hiqdev\chkipper\console;
 
-use hiqdev\chkipper\changelog\NotesRenderer;
-use hiqdev\chkipper\history\MarkdownParser;
+use hiqdev\chkipper\lib\changelog\NotesRenderer;
+use hiqdev\chkipper\lib\parsers\MarkdownParser;
 use Yii;
 
 /**
- * Relese Notes Controller.
+ * Release Notes Controller.
  *
  * @author Andrii Vasyliev <sol@hiqdev.com>
  */

@@ -11,12 +11,12 @@
 namespace hiqdev\chkipper\console;
 
 use Exception;
-use hiqdev\chkipper\changelog\MarkdownRenderer as ChangelogMarkdownRenderer;
 use hiqdev\chkipper\helpers\File;
-use hiqdev\chkipper\history\GitLogParser;
-use hiqdev\chkipper\history\MarkdownParser;
-use hiqdev\chkipper\history\MarkdownRenderer;
-use hiqdev\chkipper\modifiers\Normalization;
+use hiqdev\chkipper\lib\changelog\MarkdownRenderer as ChangelogMarkdownRenderer;
+use hiqdev\chkipper\lib\modifiers\Normalization;
+use hiqdev\chkipper\lib\parsers\GitLogParser;
+use hiqdev\chkipper\lib\parsers\MarkdownParser;
+use hiqdev\chkipper\lib\renderers\MarkdownRenderer;
 use Yii;
 
 /**

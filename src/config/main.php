@@ -39,7 +39,7 @@ return [
     ],
     'container' => [
         'definitions' => [
-            \hiqdev\chkipper\history\ConfigInterface::class => [
+            \hiqdev\chkipper\lib\ConfigInterface::class => [
                 'class' => \hiqdev\chkipper\components\Config::class,
             ],
         ],
