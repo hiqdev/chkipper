@@ -38,10 +38,10 @@ return [
         ],
     ],
     'container' => [
-        'definitions' => [
-            \hiqdev\chkipper\lib\ConfigInterface::class => [
-                'class' => \hiqdev\chkipper\components\Config::class,
-            ],
+        'singletons' => [
+            \hiqdev\chkipper\lib\ConfigInterface::class => function () {
+                return Yii::$app->config;
+            },
         ],
     ],
 ];
