@@ -21,6 +21,7 @@ class Normalization extends CompositeModifier
         'RemoveEmptyFirstTag' => [],
         'AddInitTag'          => [],
         'SetTagDates'         => [],
+        'AddAuthorLinks'      => [],
         'AddCommitLinks'      => [],
         'AddTagLinks'         => [],
         'RemoveCommitLinks'   => [],
