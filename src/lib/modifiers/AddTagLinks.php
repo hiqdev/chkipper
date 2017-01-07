@@ -25,7 +25,8 @@ class AddTagLinks extends AbstractModifier
     public function run(History $history)
     {
         $prev = null;
-        foreach (array_keys($history->getTags()) as $tag) {
+        foreach ($history->getTags() as $tag) {
+            $tag = $tag->getName();
             if ($prev && ($history->isLastTag($prev) || !$history->hasLink($prev))) {
                 $history->addLink($prev, static::generateTagHref($history, $prev, $tag));
             }

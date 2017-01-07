@@ -36,7 +36,6 @@ class BumpController extends \yii\console\Controller
         $gitlog = Yii::createObject(GitLogParser::class);
         $gitlog->parseGitLog();
         $history->merge($gitlog->getHistory(), true);
-        Normalization::create()->run($history);
 
         if ($version) {
             if ($version === 'dev') {
@@ -44,6 +43,8 @@ class BumpController extends \yii\console\Controller
             }
             $history->setFirstTag($version);
         }
+
+        Normalization::create()->run($history);
 
         $historyRenderer = Yii::createObject(MarkdownRenderer::class);
         $changelogRenderer = Yii::createObject(ChangelogMarkdownRenderer::class);
