@@ -26,6 +26,8 @@ class Config extends Component implements BootstrapInterface, ConfigInterface
 {
     protected $_name;
 
+    protected $_authors = [];
+
     public $configFile = 'chkipper.json';
 
     public $historyFile = 'history.md';
@@ -49,5 +51,15 @@ class Config extends Component implements BootstrapInterface, ConfigInterface
     public function getName()
     {
         return $this->_name;
+    }
+
+    public function setAuthors(array $authors)
+    {
+        $this->_authors = $authors;
+    }
+
+    public function getAuthors()
+    {
+        return $this->_authors;
     }
 }

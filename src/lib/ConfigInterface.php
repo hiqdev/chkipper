@@ -17,5 +17,21 @@ namespace hiqdev\chkipper\lib;
  */
 interface ConfigInterface
 {
+    /**
+     * Get package name.
+     * @return string full package name e.g. hiqdev/chkipper
+     */
     public function getName();
+
+    /**
+     * Get authors array.
+     * @return array authors array e.g. [
+     *  'hiqsol => [
+     *      'name' => 'Andrii Vasyliev',
+     *      'email' => 'sol@hiqdev.com',
+     *      'github' => 'https://github.com/hiqsol',
+     *  ],
+     * ]
+     */
+    public function getAuthors();
 }
