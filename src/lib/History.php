@@ -38,6 +38,10 @@ class History
         $this->_config = $config;
     }
 
+    public function getConfig()
+    {
+        return $this->_config;
+    }
     public function isInitTag($tag)
     {
         return $tag === $this->initTag;
@@ -107,6 +111,11 @@ class History
     public function addLink($link, $href)
     {
         $this->_links[$link] = $href;
+    }
+
+    public function unshiftLink($link, $href)
+    {
+        $this->_links = [$link => $href] + $this->_links;
     }
 
     public function addLinks(array $links)
