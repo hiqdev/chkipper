@@ -42,6 +42,7 @@ class History
     {
         return $this->_config;
     }
+
     public function isInitTag($tag)
     {
         return $tag === $this->initTag;

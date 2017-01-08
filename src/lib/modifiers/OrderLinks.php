@@ -18,7 +18,7 @@ use hiqdev\chkipper\lib\History;
  * - other (user defined) links
  * - author links
  * - tags links
- * - commit links
+ * - commit links.
  *
  * @author Andrii Vasyliev <sol@hiqdev.com>
  */

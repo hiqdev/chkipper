@@ -34,11 +34,10 @@ class AddAuthorLinks extends AbstractModifier
                 continue;
             }
 
-            if (! empty($data['email'])) {
+            if (!empty($data['email'])) {
                 $history->unshiftLink($data['email'], $href);
             }
             $history->unshiftLink($nick, $href);
         }
     }
-
 }
