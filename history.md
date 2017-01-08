@@ -1,6 +1,18 @@
 hiqdev/chkipper
 ---------------
 
+## [Under development]
+
+    - [b285243] 2017-01-07 added empty OrderLinks modifier [@hiqsol]
+- Added automated adding of authors
+    - [0419fd0] 2017-01-08 csfixed [@hiqsol]
+    - [86e4ae7] 2017-01-08 fixed tests [@hiqsol]
+    - [2efe0e3] 2017-01-07 fixed bug in AddTagLinks modifier [@hiqsol]
+    - [bcd8ed9] 2017-01-07 + `AddAuthorLinks` modifier [@hiqsol]
+    - [ce93052] 2017-01-07 fixed DI config to use the same Config object everywhere [@hiqsol]
+    - [a0a15dd] 2017-01-07 + authors to Config [@hiqsol]
+    - [c9e11ed] 2017-01-07 + `History::unshiftLink` and `History::getConfig` [@hiqsol]
+
 ## [0.1.1] - 2017-01-03
 
 - Fixed changelog normalization
@@ -128,6 +140,10 @@ hiqdev/chkipper
 [sol@hiqdev.com]: https://github.com/hiqsol
 [@SilverFire]: https://github.com/SilverFire
 [d.naumenko.a@gmail.com]: https://github.com/SilverFire
+[@tafid]: https://github.com/tafid
+[tafid@hiqdev.com]: https://github.com/tafid
+[@BladeRoot]: https://github.com/BladeRoot
+[bladeroot@hiqdev.com]: https://github.com/BladeRoot
 [b22f8ac]: https://github.com/hiqdev/chkipper/commit/b22f8ac
 [8744322]: https://github.com/hiqdev/chkipper/commit/8744322
 [9e5ffcb]: https://github.com/hiqdev/chkipper/commit/9e5ffcb
@@ -196,7 +212,7 @@ hiqdev/chkipper
 [e03f6d8]: https://github.com/hiqdev/chkipper/commit/e03f6d8
 [ea103f6]: https://github.com/hiqdev/chkipper/commit/ea103f6
 [6517a9e]: https://github.com/hiqdev/chkipper/commit/6517a9e
-[Under development]: https://github.com/hiqdev/chkipper/compare/0.1.0...HEAD
+[Under development]: https://github.com/hiqdev/chkipper/compare/0.1.1...HEAD
 [0.0.3]: https://github.com/hiqdev/chkipper/compare/0.0.2...0.0.3
 [0.0.2]: https://github.com/hiqdev/chkipper/compare/0.0.1...0.0.2
 [0.0.1]: https://github.com/hiqdev/chkipper/releases/tag/0.0.1
@@ -224,3 +240,11 @@ hiqdev/chkipper
 [f522ad0]: https://github.com/hiqdev/chkipper/commit/f522ad0
 [f8ed164]: https://github.com/hiqdev/chkipper/commit/f8ed164
 [0.1.1]: https://github.com/hiqdev/chkipper/compare/0.1.0...0.1.1
+[0419fd0]: https://github.com/hiqdev/chkipper/commit/0419fd0
+[86e4ae7]: https://github.com/hiqdev/chkipper/commit/86e4ae7
+[b285243]: https://github.com/hiqdev/chkipper/commit/b285243
+[2efe0e3]: https://github.com/hiqdev/chkipper/commit/2efe0e3
+[bcd8ed9]: https://github.com/hiqdev/chkipper/commit/bcd8ed9
+[ce93052]: https://github.com/hiqdev/chkipper/commit/ce93052
+[a0a15dd]: https://github.com/hiqdev/chkipper/commit/a0a15dd
+[c9e11ed]: https://github.com/hiqdev/chkipper/commit/c9e11ed
