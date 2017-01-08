@@ -23,4 +23,9 @@ class Config implements ConfigInterface
     {
         return '';
     }
+
+    public function getAuthors()
+    {
+        return [];
+    }
 }
