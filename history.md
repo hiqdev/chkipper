@@ -3,6 +3,7 @@ hiqdev/chkipper
 
 ## [Under development]
 
+    - [5bb4f65] 2017-01-18 fixed authors emails [@hiqsol]
     - [b285243] 2017-01-07 added empty OrderLinks modifier [@hiqsol]
 - Added automated adding of authors
     - [0419fd0] 2017-01-08 csfixed [@hiqsol]
@@ -248,3 +249,4 @@ hiqdev/chkipper
 [ce93052]: https://github.com/hiqdev/chkipper/commit/ce93052
 [a0a15dd]: https://github.com/hiqdev/chkipper/commit/a0a15dd
 [c9e11ed]: https://github.com/hiqdev/chkipper/commit/c9e11ed
+[5bb4f65]: https://github.com/hiqdev/chkipper/commit/5bb4f65

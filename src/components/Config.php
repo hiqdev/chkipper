@@ -32,7 +32,10 @@ class Config extends Component implements BootstrapInterface, ConfigInterface
 
     public $historyFile = 'history.md';
 
-    public $changelogFile = 'CHANGELOG.md';
+    protected $_changelog = [
+        'file'   => 'CHANGELOG',
+        'format' => 'markdown',
+    ];
 
     public function bootstrap($app)
     {
@@ -53,6 +56,16 @@ class Config extends Component implements BootstrapInterface, ConfigInterface
         return $this->_name;
     }
 
+    public function setChangelog(array $options)
+    {
+        $this->_changelog = array_merge($this->_changelog, $options);
+    }
+
+    public function getChangelog()
+    {
+        return $this->_changelog;
+    }
+
     public function setAuthors(array $authors)
     {
         $this->_authors = $authors;
@@ -61,5 +74,25 @@ class Config extends Component implements BootstrapInterface, ConfigInterface
     public function getAuthors()
     {
         return $this->_authors;
+    }
+
+    protected $_changelogRenderers = [
+        'markdown' => \hiqdev\chkipper\lib\changelog\MarkdownRenderer::class,
+        'keepachangelog' => \hiqdev\chkipper\lib\changelog\KeepAChangelogRenderer::class,
+    ];
+
+    public function createChangelogRenderer()
+    {
+        $format = strtolower($this->changelog['format']);
+        if (empty($this->_changelogRenderers[$format])) {
+            throw new InvalidConfigException("wrong changelog format '$format'");
+        }
+
+        return Yii::createObject($this->_changelogRenderers[$format]);
+    }
+
+    public function getChangelogFile()
+    {
+        return $this->_changelog['file'];
     }
 }

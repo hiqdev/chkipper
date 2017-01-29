@@ -12,7 +12,6 @@ namespace hiqdev\chkipper\console;
 
 use Exception;
 use hiqdev\chkipper\helpers\File;
-use hiqdev\chkipper\lib\changelog\MarkdownRenderer as ChangelogMarkdownRenderer;
 use hiqdev\chkipper\lib\modifiers\Normalization;
 use hiqdev\chkipper\lib\parsers\GitLogParser;
 use hiqdev\chkipper\lib\parsers\MarkdownParser;
@@ -30,7 +29,7 @@ class BumpController extends \yii\console\Controller
     {
         $config = Yii::$app->config;
         $historyFile = $config->historyFile;
-        $changelogFile = $config->changelogFile;
+        $changelogFile = $config->getChangelogFile();
         $parser = Yii::createObject(MarkdownParser::class);
         $history = $parser->parsePath($historyFile);
         $gitlog = Yii::createObject(GitLogParser::class);
@@ -47,7 +46,7 @@ class BumpController extends \yii\console\Controller
         Normalization::create()->run($history);
 
         $historyRenderer = Yii::createObject(MarkdownRenderer::class);
-        $changelogRenderer = Yii::createObject(ChangelogMarkdownRenderer::class);
+        $changelogRenderer = $config->createChangelogRenderer();
         File::write($historyFile,  $historyRenderer->render($history));
         File::write($changelogFile,  $changelogRenderer->render($history));
     }
