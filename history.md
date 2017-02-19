@@ -3,9 +3,15 @@ hiqdev/chkipper
 
 ## [Under development]
 
-    - [5bb4f65] 2017-01-18 fixed authors emails [@hiqsol]
+    - [68759ae] 2017-02-19 changed configuration scheme and processing [@hiqsol]
+
+## [0.2.0] - 2017-01-29
+
     - [b285243] 2017-01-07 added empty OrderLinks modifier [@hiqsol]
+- Added [Keep a Changelog] renderer
+    - [73f2be1] 2017-01-29 adding keep a changelog renderer [@hiqsol]
 - Added automated adding of authors
+    - [5bb4f65] 2017-01-18 fixed authors emails [@hiqsol]
     - [0419fd0] 2017-01-08 csfixed [@hiqsol]
     - [86e4ae7] 2017-01-08 fixed tests [@hiqsol]
     - [2efe0e3] 2017-01-07 fixed bug in AddTagLinks modifier [@hiqsol]
@@ -137,6 +143,7 @@ hiqdev/chkipper
 
 ## [Development started] - 2016-06-11
 
+[Keep a Changelog]: http://keepachangelog.com/
 [@hiqsol]: https://github.com/hiqsol
 [sol@hiqdev.com]: https://github.com/hiqsol
 [@SilverFire]: https://github.com/SilverFire
@@ -213,7 +220,7 @@ hiqdev/chkipper
 [e03f6d8]: https://github.com/hiqdev/chkipper/commit/e03f6d8
 [ea103f6]: https://github.com/hiqdev/chkipper/commit/ea103f6
 [6517a9e]: https://github.com/hiqdev/chkipper/commit/6517a9e
-[Under development]: https://github.com/hiqdev/chkipper/compare/0.1.1...HEAD
+[Under development]: https://github.com/hiqdev/chkipper/compare/0.2.0...HEAD
 [0.0.3]: https://github.com/hiqdev/chkipper/compare/0.0.2...0.0.3
 [0.0.2]: https://github.com/hiqdev/chkipper/compare/0.0.1...0.0.2
 [0.0.1]: https://github.com/hiqdev/chkipper/releases/tag/0.0.1
@@ -250,3 +257,6 @@ hiqdev/chkipper
 [a0a15dd]: https://github.com/hiqdev/chkipper/commit/a0a15dd
 [c9e11ed]: https://github.com/hiqdev/chkipper/commit/c9e11ed
 [5bb4f65]: https://github.com/hiqdev/chkipper/commit/5bb4f65
+[73f2be1]: https://github.com/hiqdev/chkipper/commit/73f2be1
+[0.2.0]: https://github.com/hiqdev/chkipper/compare/0.1.1...0.2.0
+[68759ae]: https://github.com/hiqdev/chkipper/commit/68759ae

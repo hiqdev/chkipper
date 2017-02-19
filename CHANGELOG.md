@@ -3,6 +3,9 @@ hiqdev/chkipper
 
 ## [Under development]
 
+## [0.2.0] - 2017-01-29
+
+- Added [Keep a Changelog] renderer ([@hiqsol])
 - Added automated adding of authors ([@hiqsol])
 
 ## [0.1.1] - 2017-01-03
@@ -37,6 +40,7 @@ hiqdev/chkipper
 
 ## [Development started] - 2016-06-11
 
+[Keep a Changelog]: http://keepachangelog.com/
 [@hiqsol]: https://github.com/hiqsol
 [sol@hiqdev.com]: https://github.com/hiqsol
 [@SilverFire]: https://github.com/SilverFire
@@ -45,9 +49,10 @@ hiqdev/chkipper
 [tafid@hiqdev.com]: https://github.com/tafid
 [@BladeRoot]: https://github.com/BladeRoot
 [bladeroot@hiqdev.com]: https://github.com/BladeRoot
-[Under development]: https://github.com/hiqdev/chkipper/compare/0.1.1...HEAD
+[Under development]: https://github.com/hiqdev/chkipper/compare/0.2.0...HEAD
 [0.0.3]: https://github.com/hiqdev/chkipper/compare/0.0.2...0.0.3
 [0.0.2]: https://github.com/hiqdev/chkipper/compare/0.0.1...0.0.2
 [0.0.1]: https://github.com/hiqdev/chkipper/releases/tag/0.0.1
 [0.1.0]: https://github.com/hiqdev/chkipper/compare/0.0.3...0.1.0
 [0.1.1]: https://github.com/hiqdev/chkipper/compare/0.1.0...0.1.1
+[0.2.0]: https://github.com/hiqdev/chkipper/compare/0.1.1...0.2.0
