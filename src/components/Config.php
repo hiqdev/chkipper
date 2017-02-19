@@ -14,6 +14,7 @@ use hiqdev\chkipper\lib\ConfigInterface;
 use Yii;
 use yii\base\BootstrapInterface;
 use yii\base\Component;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Json;
 
 /**
@@ -34,6 +35,11 @@ class Config extends Component implements BootstrapInterface, ConfigInterface
 
     protected $_changelog = [
         'file'   => 'CHANGELOG',
+        'format' => 'markdown',
+    ];
+
+    protected $_history = [
+        'file'   => 'history',
         'format' => 'markdown',
     ];
 
@@ -61,9 +67,23 @@ class Config extends Component implements BootstrapInterface, ConfigInterface
         $this->_changelog = array_merge($this->_changelog, $options);
     }
 
-    public function getChangelog()
+    public function getChangelog($key = null)
     {
-        return $this->_changelog;
+        if ($key === null) {
+            return $this->_changelog;
+        }
+
+        return isset($this->_changelog[$key]) ? $this->_changelog[$key] : null;
+    }
+
+    public function getDest($dest = null, $key = null)
+    {
+        if ($dest === 'changelog') {
+            return $this->getChangelog($key);
+        }
+        if ($dest === 'history') {
+            return $this->getHistory($key);
+        }
     }
 
     public function setAuthors(array $authors)
@@ -76,23 +96,68 @@ class Config extends Component implements BootstrapInterface, ConfigInterface
         return $this->_authors;
     }
 
-    protected $_changelogRenderers = [
-        'markdown' => \hiqdev\chkipper\lib\changelog\MarkdownRenderer::class,
-        'keepachangelog' => \hiqdev\chkipper\lib\changelog\KeepAChangelogRenderer::class,
+
+    protected $_options = [
+        'markdown' => [
+            'extension' => 'md',
+            'changelog' => [
+                'rendererClass' => \hiqdev\chkipper\lib\changelog\MarkdownRenderer::class,
+                'parserClass' => \hiqdev\chkipper\lib\changelog\MarkdownParser::class,
+            ],
+        ],
+        'keepachangelog' => [
+            'extension' => 'md',
+            'changelog' => [
+                'rendererClass' => \hiqdev\chkipper\lib\changelog\KeepAChangelogRenderer::class,
+            ],
+        ],
     ];
+
+    public function setOptions(array $options)
+    {
+        $this->_options = ArrayHelper::merge($this->_options, $options);
+    }
+
+    public function getOptions()
+    {
+        return $this->_options;
+    }
+
+    public function getOption($key, $dest = null, $format = null)
+    {
+        if ($format === null) {
+            $format = strtolower($this->getDest($dest, 'format'));
+        }
+        if (empty($this->_options[$format])) {
+            throw new InvalidConfigException("wrong format '$format' for '$dest'");
+        }
+        $options = $this->_options[$format];
+
+        if (isset($options[$dest][$key])) {
+            return $options[$dest][$key];
+        }
+        if (!isset($options[$key])) {
+            throw new InvalidConfigException("wrong option '$key' for '$dest'");
+        }
+
+        return $options[$key];
+    }
 
     public function createChangelogRenderer()
     {
-        $format = strtolower($this->changelog['format']);
-        if (empty($this->_changelogRenderers[$format])) {
-            throw new InvalidConfigException("wrong changelog format '$format'");
-        }
+        $class = $this->getOption('rendererClass', 'changelog');
 
-        return Yii::createObject($this->_changelogRenderers[$format]);
+        return Yii::createObject($class);
     }
 
     public function getChangelogFile()
     {
-        return $this->_changelog['file'];
+        $file = $this->getChangelog('file');
+        $extension = $this->getOption('extension', 'changelog');
+        if ($extension) {
+            $file .= '.' . $extension;
+        }
+
+        return $file;
     }
 }
