@@ -8,6 +8,8 @@ Changelog keeper
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/hiqdev/chkipper.svg)](https://scrutinizer-ci.com/g/hiqdev/chkipper/)
 [![Dependency Status](https://www.versioneye.com/php/hiqdev:chkipper/dev-master/badge.svg)](https://www.versioneye.com/php/hiqdev:chkipper/dev-master)
 
+<img align="right" src="https://cdn.hiqdev.com/chkipper/chkipper.png">
+
 Helps to track all the commits to your project and convert them to CHANGELOG file.
 
 Features:
