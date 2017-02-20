@@ -6,7 +6,7 @@ hiqdev/chkipper
 ## [0.2.0] - 2017-01-29
 
 - Added [Keep a Changelog] renderer ([@hiqsol])
-- Added automated adding of authors ([@hiqsol])
+- Added automated adding of authors from config ([@hiqsol])
 
 ## [0.1.1] - 2017-01-03
 

@@ -10,7 +10,7 @@ hiqdev/chkipper
     - [b285243] 2017-01-07 added empty OrderLinks modifier [@hiqsol]
 - Added [Keep a Changelog] renderer
     - [73f2be1] 2017-01-29 adding keep a changelog renderer [@hiqsol]
-- Added automated adding of authors
+- Added automated adding of authors from config
     - [5bb4f65] 2017-01-18 fixed authors emails [@hiqsol]
     - [0419fd0] 2017-01-08 csfixed [@hiqsol]
     - [86e4ae7] 2017-01-08 fixed tests [@hiqsol]
