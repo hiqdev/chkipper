@@ -2,9 +2,12 @@ package:
     type:           project
     name:           chkipper
     title:          Changelog keeper
+    headline:       chkipper
     keywords:       commits, semver, changelog, chkipper
     namespace:      hiqdev\chkipper
     description:    |
+        <img align="right" src="https://cdn.hiqdev.com/chkipper/chkipper.png">
+
         Helps to track all the commits to your project and convert them to CHANGELOG file.
 
         Features:

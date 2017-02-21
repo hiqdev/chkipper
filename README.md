@@ -1,5 +1,7 @@
-Changelog keeper
-================
+chkipper
+========
+
+**Changelog keeper**
 
 [![Latest Stable Version](https://poser.pugx.org/hiqdev/chkipper/v/stable)](https://packagist.org/packages/hiqdev/chkipper)
 [![Total Downloads](https://poser.pugx.org/hiqdev/chkipper/downloads)](https://packagist.org/packages/hiqdev/chkipper)
