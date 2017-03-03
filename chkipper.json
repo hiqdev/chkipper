@@ -1,5 +1,8 @@
 {
     "name": "hiqdev/chkipper",
+    "changelog": {
+        "format": "markdown"
+    },
     "authors": {
         "hiqsol": {
             "name": "Andrii Vasyliev",

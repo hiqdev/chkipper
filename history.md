@@ -1,15 +1,17 @@
 hiqdev/chkipper
 ---------------
 
-## [Under development]
+## [0.2.0] - 2017-03-03
 
-    - [68759ae] 2017-02-19 changed configuration scheme and processing [@hiqsol]
-
-## [0.2.0] - 2017-01-29
-
-    - [b285243] 2017-01-07 added empty OrderLinks modifier [@hiqsol]
+- Fixed SetTagDates modifier to force tag date to latest commit
+    - [035b595] 2017-03-03 fixed SetTagDates modifier to force proper tag date [@hiqsol]
 - Added [Keep a Changelog] renderer
+    - [a52201f] 2017-03-03 fixed detecting action in KeepAChangelog renderer [@hiqsol]
+    - [065cf1e] 2017-02-20 added chkipper image [@hiqsol]
+    - [5021386] 2017-02-20 docs [@hiqsol]
+    - [68759ae] 2017-02-19 changed configuration scheme and processing [@hiqsol]
     - [73f2be1] 2017-01-29 adding keep a changelog renderer [@hiqsol]
+    - [b285243] 2017-01-07 added empty OrderLinks modifier [@hiqsol]
 - Added automated adding of authors from config
     - [5bb4f65] 2017-01-18 fixed authors emails [@hiqsol]
     - [0419fd0] 2017-01-08 csfixed [@hiqsol]
@@ -31,11 +33,11 @@ hiqdev/chkipper
 
 ## [0.1.0] - 2017-01-03
 
-- Changed/refactored chkipper history lib into `lib` directory
+- Refactored chkipper history lib into `lib` directory
     - [cbd94e4] 2017-01-03 refactored chkipper history lib into `lib` directory [@hiqsol]
     - [8d38b32] 2017-01-03 csfixed [@hiqsol]
     - [a39fe61] 2017-01-03 fixed use [@hiqsol]
-- Changed/refactored normalization into separate modifier classes
+- Refactored normalization into separate modifier classes
     - [da684aa] 2017-01-03 refactored normalization into separate modifier classes [@hiqsol]
     - [11a3761] 2017-01-02 + AbstractModifier and ModifierInterface [@hiqsol]
 - Added config loading and injection into history manipulating objects
@@ -260,3 +262,7 @@ hiqdev/chkipper
 [73f2be1]: https://github.com/hiqdev/chkipper/commit/73f2be1
 [0.2.0]: https://github.com/hiqdev/chkipper/compare/0.1.1...0.2.0
 [68759ae]: https://github.com/hiqdev/chkipper/commit/68759ae
+[065cf1e]: https://github.com/hiqdev/chkipper/commit/065cf1e
+[5021386]: https://github.com/hiqdev/chkipper/commit/5021386
+[a52201f]: https://github.com/hiqdev/chkipper/commit/a52201f
+[035b595]: https://github.com/hiqdev/chkipper/commit/035b595

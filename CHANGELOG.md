@@ -1,10 +1,9 @@
 hiqdev/chkipper
 ---------------
 
-## [Under development]
+## [0.2.0] - 2017-03-03
 
-## [0.2.0] - 2017-01-29
-
+- Fixed SetTagDates modifier to force tag date to latest commit ([@hiqsol])
 - Added [Keep a Changelog] renderer ([@hiqsol])
 - Added automated adding of authors from config ([@hiqsol])
 
@@ -15,8 +14,8 @@ hiqdev/chkipper
 
 ## [0.1.0] - 2017-01-03
 
-- Changed/refactored chkipper history lib into `lib` directory ([@hiqsol])
-- Changed/refactored normalization into separate modifier classes ([@hiqsol])
+- Refactored chkipper history lib into `lib` directory ([@hiqsol])
+- Refactored normalization into separate modifier classes ([@hiqsol])
 - Added config loading and injection into history manipulating objects ([@hiqsol])
 - Added bin to `composer.json` ([@SilverFire])
 - Added authors links to CHANGELOG and release notes ([@hiqsol])
