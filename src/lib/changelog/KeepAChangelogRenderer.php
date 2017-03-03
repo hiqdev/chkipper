@@ -22,6 +22,8 @@ use hiqdev\chkipper\lib\Tag;
  */
 class KeepAChangelogRenderer extends MarkdownRenderer
 {
+    public $defaultAction = 'changed';
+
     protected $normalization = Normalization::class;
 
     protected $actions;
@@ -84,7 +86,7 @@ class KeepAChangelogRenderer extends MarkdownRenderer
     {
         $str = $note->getNote();
 
-        $first = preg_split("/[\s,]+/", $str, 2)[0];
+        $first = preg_split("/[^a-zA-Z]+/", $str, 2)[0];
         foreach ($this->words as $word) {
             if ($word === strtolower($first)) {
                 return $word;
@@ -97,6 +99,6 @@ class KeepAChangelogRenderer extends MarkdownRenderer
             }
         }
 
-        return 'changed';
+        return $this->defaultAction;
     }
 }
