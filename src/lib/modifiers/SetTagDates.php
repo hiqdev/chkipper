@@ -29,7 +29,7 @@ class SetTagDates extends AbstractModifier
         foreach ($history->getTags() as $tag) {
             if ($tag->getName() === $history->lastTag) {
                 $tag->unsetDate();
-            } elseif (!$tag->getDate()) {
+            } else {
                 $tag->setDate($tag->findDate());
             }
         }
