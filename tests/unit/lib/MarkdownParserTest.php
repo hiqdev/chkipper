@@ -25,7 +25,7 @@ ini_set('xdebug.var_display_max_data', 1024);
  *
  * @author Andrii Vasyliev <sol@hiqdev.com>
  */
-class MarkdownParserTest extends \PHPUnit_Framework_TestCase
+class MarkdownParserTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var MarkdownParser

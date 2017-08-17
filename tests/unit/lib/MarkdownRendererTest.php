@@ -18,7 +18,7 @@ use hiqdev\chkipper\lib\renderers\MarkdownRenderer;
  *
  * @author Andrii Vasyliev <sol@hiqdev.com>
  */
-class MarkdownRendererTest extends \PHPUnit_Framework_TestCase
+class MarkdownRendererTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var MarkdownRenderer

@@ -18,7 +18,7 @@ use hiqdev\chkipper\lib\renderers\MarkdownRenderer;
  *
  * @author Andrii Vasyliev <sol@hiqdev.com>
  */
-class GitLogParserTest extends \PHPUnit_Framework_TestCase
+class GitLogParserTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var GitLogParser
