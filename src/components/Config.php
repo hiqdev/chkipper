@@ -96,7 +96,6 @@ class Config extends Component implements BootstrapInterface, ConfigInterface
         return $this->_authors;
     }
 
-
     protected $_options = [
         'markdown' => [
             'extension' => 'md',

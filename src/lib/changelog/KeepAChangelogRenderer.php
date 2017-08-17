@@ -35,16 +35,14 @@ class KeepAChangelogRenderer extends MarkdownRenderer
         return
             $this->renderTagHead($tag) .
             $this->renderObjects('scanNote', $tag->getNotes()) .
-            $this->renderObjects('renderAction', $this->actions, false)
-        ;
+            $this->renderObjects('renderAction', $this->actions, false);
     }
 
     public function renderAction($notes, $action)
     {
-        return 
+        return
             $this->renderActionHead($action) .
-            $this->renderObjects('renderNote', $notes, true) . "\n"
-        ;
+            $this->renderObjects('renderNote', $notes, true) . "\n";
     }
 
     public function renderActionHead($action)
@@ -86,7 +84,7 @@ class KeepAChangelogRenderer extends MarkdownRenderer
     {
         $str = $note->getNote();
 
-        $first = preg_split("/[^a-zA-Z]+/", $str, 2)[0];
+        $first = preg_split('/[^a-zA-Z]+/', $str, 2)[0];
         foreach ($this->words as $word) {
             if ($word === strtolower($first)) {
                 return $word;
