@@ -162,7 +162,7 @@ class Builder
         static $starts = [
             'version bump',
             'bumped version',
-            "merge branch 'master'",
+            "merge branch '",
         ];
         foreach ($starts as $start) {
             if (strtolower(substr($subject, 0, strlen($start))) === $start) {
