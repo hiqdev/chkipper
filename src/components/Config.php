@@ -33,6 +33,8 @@ class Config extends Component implements BootstrapInterface, ConfigInterface
 
     public $historyFile = 'history.md';
 
+    public $rmsSite = 'github.com';
+
     protected $_changelog = [
         'file'   => 'CHANGELOG',
         'format' => 'markdown',

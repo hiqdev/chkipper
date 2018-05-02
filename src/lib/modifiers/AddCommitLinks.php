@@ -40,7 +40,8 @@ class AddCommitLinks extends AbstractModifier
     public static function generateCommitHref(History $history, $hash)
     {
         $project = $history->getProject();
+        $rmsSite = $history->getConfig()->rmsSite;
 
-        return "https://github.com/$project/commit/$hash";
+        return "https://$rmsSite/$project/commit/$hash";
     }
 }

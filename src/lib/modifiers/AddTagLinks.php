@@ -44,17 +44,19 @@ class AddTagLinks extends AbstractModifier
     public function generateTagHref(History $history, $prev, $curr)
     {
         $project = $history->getProject();
+        $rmsSite = $history->getConfig()->rmsSite;
+
         if ($history->isInitTag($curr)) {
             if ($history->isLastTag($prev)) {
-                return "https://github.com/$project/releases";
+                return "https://$rmsSite/$project/releases";
             }
 
-            return "https://github.com/$project/releases/tag/$prev";
+            return "https://$rmsSite/$project/releases/tag/$prev";
         }
         if ($history->isLastTag($prev)) {
             $prev = 'HEAD';
         }
 
-        return "https://github.com/$project/compare/$curr...$prev";
+        return "https://$rmsSite/$project/compare/$curr...$prev";
     }
 }
