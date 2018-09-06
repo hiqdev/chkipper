@@ -47,7 +47,7 @@ class PrettifyUserLinks extends AbstractModifier
         $users = [];
         $subs = [];
         foreach ($history->getLinks() as $link => $href) {
-            if ($link[0] === '@') {
+            if (is_string($link) && $link[0] === '@') {
                 $users[$href] = $link;
             } elseif (isset($users[$href])) {
                 $subs[$link] = $users[$href];
