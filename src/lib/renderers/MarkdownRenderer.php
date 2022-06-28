@@ -78,6 +78,9 @@ class MarkdownRenderer extends AbstractRenderer
     {
         if (!$sparse) {
             foreach ($lines as &$line) {
+                if ($line === null) {
+                    continue;
+                }
                 $line = rtrim($line);
             }
             $lines = array_filter($lines);

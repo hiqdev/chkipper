@@ -99,7 +99,7 @@ class Tag
      */
     public function setDate($value)
     {
-        $timestamp = strtotime($value);
+        $timestamp = strtotime($value ?: 'now');
         if ($timestamp !== false && $timestamp > $this->_date) {
             $this->_date = $timestamp;
         }
